@@ -1,58 +1,131 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { 
-  Workflow, 
-  Zap, 
-  Shield, 
-  Globe, 
-  Database, 
-  Smartphone, 
+import {
+  Workflow,
+  Zap,
+  Shield,
+  Globe,
+  Database,
+  Smartphone,
   ArrowRight,
   CheckCircle,
   Wifi,
-  BarChart3
+  BarChart3,
 } from "lucide-react";
 import { Link } from "react-router-dom";
+import HeroSection from "@/components/Product/Hero";
+import RCOMGatewayWorkflow from "@/components/Product/Workflow";
+
+const featureGraphics = [
+  // You can replace these with SVGs, Lottie animations, or custom illustrations
+  // For now, we use Lucide icons in a styled way as placeholders
+  (
+    <div className="flex items-center justify-center w-full h-full">
+      <Wifi className="w-24 h-24 text-primary-glow drop-shadow-lg" />
+    </div>
+  ),
+  (
+    <div className="flex items-center justify-center w-full h-full">
+      <Workflow className="w-24 h-24 text-primary-glow drop-shadow-lg" />
+    </div>
+  ),
+  (
+    <div className="flex items-center justify-center w-full h-full">
+      <Zap className="w-24 h-24 text-primary-glow drop-shadow-lg animate-pulse" />
+    </div>
+  ),
+  (
+    <div className="flex items-center justify-center w-full h-full">
+      <Database className="w-24 h-24 text-primary-glow drop-shadow-lg" />
+    </div>
+  ),
+  (
+    <div className="flex items-center justify-center w-full h-full">
+      <BarChart3 className="w-24 h-24 text-primary-glow drop-shadow-lg" />
+    </div>
+  ),
+  (
+    <div className="flex items-center justify-center w-full h-full">
+      <Smartphone className="w-24 h-24 text-primary-glow drop-shadow-lg" />
+    </div>
+  ),
+];
 
 const Product = () => {
   const features = [
     {
       icon: Wifi,
       title: "Connect Any Device",
-      description: "Out-of-the-box connectors for RFID, barcodes, BLE, sensors and more. Easily onboard new devices with standard protocols – no custom coding required.",
-      highlights: ["RAIN RFID/UHF Support", "Barcode Scanners (1D/2D)", "BLE Beacon Gateways", "IoT Sensors"]
+      description:
+        "Out-of-the-box connectors for RFID, barcodes, BLE, sensors and more. Easily onboard new devices with standard protocols – no custom coding required.",
+      highlights: [
+        "RAIN RFID/UHF Support",
+        "Barcode Scanners (1D/2D)",
+        "BLE Beacon Gateways",
+        "IoT Sensors",
+      ],
     },
     {
       icon: Workflow,
       title: "Visual Workflows (Low-Code)",
-      description: "Design automation workflows with an intuitive drag-and-drop editor. Convert raw reads into meaningful actions in minutes.",
-      highlights: ["50+ Prebuilt Actions", "Conditional Logic", "Error Handling", "Real-time Testing"]
+      description:
+        "Design automation workflows with an intuitive drag-and-drop editor. Convert raw reads into meaningful actions in minutes.",
+      highlights: [
+        "50+ Prebuilt Actions",
+        "Conditional Logic",
+        "Error Handling",
+        "Real-time Testing",
+      ],
     },
     {
       icon: Zap,
       title: "Real-Time Processing",
-      description: "Handle high volume of events with sub-second processing. RCOM's event engine filters, enriches, and responds to data streams in real time.",
-      highlights: ["<1ms Processing", "Event Filtering", "Data Enrichment", "Instant Alerts"]
+      description:
+        "Handle high volume of events with sub-second processing. RCOM's event engine filters, enriches, and responds to data streams in real time.",
+      highlights: [
+        "<1ms Processing",
+        "Event Filtering",
+        "Data Enrichment",
+        "Instant Alerts",
+      ],
     },
     {
       icon: Database,
       title: "Enterprise Integration",
-      description: "Built-in integrations for MQTT, REST APIs, databases, and SAP systems. No data silos – direct integration with your ERP, WMS, or cloud analytics.",
-      highlights: ["SAP Integration", "REST APIs", "MQTT Broker", "Database Connectors"]
+      description:
+        "Built-in integrations for MQTT, REST APIs, databases, and SAP systems. No data silos – direct integration with your ERP, WMS, or cloud analytics.",
+      highlights: [
+        "SAP Integration",
+        "REST APIs",
+        "MQTT Broker",
+        "Database Connectors",
+      ],
     },
     {
       icon: BarChart3,
       title: "Digital Twin & Data Storage",
-      description: "Model your operation with digital objects. Track every asset or item with custom attributes, location hierarchy, and complete history.",
-      highlights: ["Custom Schemas", "Location Hierarchy", "Time-series Data", "Search & Query"]
+      description:
+        "Model your operation with digital objects. Track every asset or item with custom attributes, location hierarchy, and complete history.",
+      highlights: [
+        "Custom Schemas",
+        "Location Hierarchy",
+        "Time-series Data",
+        "Search & Query",
+      ],
     },
     {
       icon: Smartphone,
       title: "Custom Dashboards & UI",
-      description: "Build interactive dashboards directly in RCOM Gateway. Create live maps, operational dashboards, or data entry forms – all powered by real-time data.",
-      highlights: ["UI Designer", "Real-time Bindings", "Mobile Support", "Multi-language"]
-    }
+      description:
+        "Build interactive dashboards directly in RCOM Gateway. Create live maps, operational dashboards, or data entry forms – all powered by real-time data.",
+      highlights: [
+        "UI Designer",
+        "Real-time Bindings",
+        "Mobile Support",
+        "Multi-language",
+      ],
+    },
   ];
 
   const workflowSteps = [
@@ -60,45 +133,55 @@ const Product = () => {
       step: "1",
       title: "Device Triggers Event",
       description: "A pallet passes through an RFID gate at Warehouse A",
-      icon: "📡"
+      icon: "📡",
     },
     {
-      step: "2", 
+      step: "2",
       title: "Event Capture",
       description: "RFID data published via MQTT to RCOM Gateway as Gateway Event",
-      icon: "⚡"
+      icon: "⚡",
     },
     {
       step: "3",
-      title: "Workflow Execution", 
+      title: "Workflow Execution",
       description: "RCOM matches event to workflow, updates digital twin, calls ERP API",
-      icon: "🔄"
+      icon: "🔄",
     },
     {
       step: "4",
       title: "Outcome & Response",
       description: "Dashboard updates, notifications sent, all in milliseconds",
-      icon: "✅"
-    }
+      icon: "✅",
+    },
   ];
 
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="bg-gradient-hero text-white py-24">
+      <HeroSection/>
+      {/* <section className="bg-gradient-hero text-white py-24">
         <div className="container mx-auto px-6">
           <div className="max-w-4xl mx-auto text-center">
-            <Badge variant="secondary" className="mb-6 bg-primary/20 text-primary-glow border-primary/30">
+            <Badge
+              variant="secondary"
+              className="mb-6 bg-primary/20 text-primary-glow border-primary/30"
+            >
+              
+              
               Enterprise IoT Integration Platform
             </Badge>
             <h1 className="text-4xl md:text-5xl font-bold mb-6">
-              The RCOM Gateway Platform – 
-              <span className="bg-gradient-to-r from-primary-glow to-primary bg-clip-text text-transparent"> Event‑Driven Automation</span> for the Physical World
+              The RCOM Gateway Platform –
+              <span className="bg-gradient-to-r from-primary-glow to-primary bg-clip-text text-transparent">
+                {" "}
+                Event‑Driven Automation
+              </span>{" "}
+              for the Physical World
             </h1>
             <p className="text-xl text-gray-300 mb-8 leading-relaxed">
-              RCOM Gateway is a powerful software platform that connects your world of devices to your world of software. 
-              It's an integration hub that captures every scan, read, or sensor signal and turns it into immediate, automated action. 
-              With a modular, scalable architecture, RCOM Gateway lets you build digital twin models of your operations and 
+              RCOM Gateway is a powerful software platform that connects your world of devices to your world of software.
+              It's an integration hub that captures every scan, read, or sensor signal and turns it into immediate, automated action.
+              With a modular, scalable architecture, RCOM Gateway lets you build digital twin models of your operations and
               streamline processes without writing a line of code.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -108,48 +191,70 @@ const Product = () => {
                   <ArrowRight className="w-5 h-5 ml-2" />
                 </Button>
               </Link>
-              <Button variant="outline" size="lg" className="bg-white/10 border-white/20 text-white hover:bg-white/20">
+              <Button
+                variant="outline"
+                size="lg"
+                className="bg-white/10 border-white/20 text-white hover:bg-white/20"
+              >
                 Watch Demo Video
               </Button>
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
-      {/* Key Features */}
+      {/* Redesigned Platform Capabilities */}
       <section className="py-24 bg-background" id="features">
         <div className="container mx-auto px-6">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Platform Capabilities</h2>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              Platform Capabilities
+            </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
               Comprehensive features designed for enterprise-grade IoT integration and automation
             </p>
           </div>
-          
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {features.map((feature, index) => (
-              <Card key={index} className="bg-gradient-card border-border/50 hover:shadow-lg transition-all duration-300">
-                <CardContent className="p-6">
-                  <div className="flex items-center mb-4">
-                    <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mr-4">
-                      <feature.icon className="w-6 h-6 text-primary" />
+          <div className="space-y-20">
+            {features.map((feature, index) => {
+              const isEven = index % 2 === 0;
+              return (
+                <div
+                  key={index}
+                  className={`flex flex-col-reverse md:flex-row items-center md:justify-between gap-10 md:gap-20 ${
+                    isEven ? "" : "md:flex-row-reverse"
+                  }`}
+                >
+                  {/* Feature Info */}
+                  <div className="w-full md:w-1/2">
+                    <div className="flex items-center mb-4">
+                      <div className="w-14 h-14 bg-primary/10 rounded-lg flex items-center justify-center mr-4">
+                        <feature.icon className="w-7 h-7 text-primary" />
+                      </div>
+                      <h3 className="text-2xl font-semibold">{feature.title}</h3>
                     </div>
-                    <h3 className="text-lg font-semibold">{feature.title}</h3>
+                    <p className="text-muted-foreground mb-4 text-lg leading-relaxed">
+                      {feature.description}
+                    </p>
+                    <ul className="space-y-2">
+                      {feature.highlights.map((highlight, idx) => (
+                        <li key={idx} className="flex items-center text-base">
+                          <CheckCircle className="w-5 h-5 text-primary mr-2 flex-shrink-0" />
+                          <span>{highlight}</span>
+                        </li>
+                      ))}
+                    </ul>
                   </div>
-                  <p className="text-muted-foreground mb-4 leading-relaxed">
-                    {feature.description}
-                  </p>
-                  <ul className="space-y-2">
-                    {feature.highlights.map((highlight, idx) => (
-                      <li key={idx} className="flex items-center text-sm">
-                        <CheckCircle className="w-4 h-4 text-primary mr-2 flex-shrink-0" />
-                        <span>{highlight}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </CardContent>
-              </Card>
-            ))}
+                  {/* Feature Graphic/Animation */}
+                  <div className="w-full md:w-1/2 flex items-center justify-center">
+                    <Card className="bg-gradient-card border-none shadow-xl w-full max-w-md">
+                      <CardContent className="flex items-center justify-center p-10 min-h-[220px]">
+                        {featureGraphics[index]}
+                      </CardContent>
+                    </Card>
+                  </div>
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>
@@ -157,10 +262,12 @@ const Product = () => {
       {/* How It Works */}
       <section className="py-24 bg-muted/30">
         <div className="container mx-auto px-6">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">How RCOM Gateway Works</h2>
+          {/* <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              How RCOM Gateway Works
+            </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              From device event to business action in milliseconds – see how the platform transforms 
+              From device event to business action in milliseconds – see how the platform transforms
               physical data into automated workflows
             </p>
           </div>
@@ -176,23 +283,28 @@ const Product = () => {
                     {step.step}
                   </div>
                   {index < workflowSteps.length - 1 && (
-                    <div className="hidden lg:block absolute top-8 left-full w-full h-0.5 bg-gradient-to-r from-primary to-primary/30 transform -translate-y-1/2" 
-                         style={{ width: 'calc(100% - 2rem)' }}></div>
+                    <div
+                      className="hidden lg:block absolute top-8 left-full w-full h-0.5 bg-gradient-to-r from-primary to-primary/30 transform -translate-y-1/2"
+                      style={{ width: "calc(100% - 2rem)" }}
+                    ></div>
                   )}
                 </div>
                 <h3 className="text-lg font-semibold mb-2">{step.title}</h3>
-                <p className="text-muted-foreground text-sm leading-relaxed">{step.description}</p>
+                <p className="text-muted-foreground text-sm leading-relaxed">
+                  {step.description}
+                </p>
               </div>
             ))}
-          </div>
+          </div> */}
+          <RCOMGatewayWorkflow/>
 
           <div className="text-center mt-12">
             <Card className="max-w-2xl mx-auto bg-gradient-card border-primary/20">
               <CardContent className="p-8">
                 <h3 className="text-xl font-semibold mb-4">The Result</h3>
                 <p className="text-muted-foreground leading-relaxed">
-                  Within milliseconds, the warehouse dashboard updates the pallet's location to 'in transit', 
-                  an email notification is sent to the logistics team, and all irrelevant reads are filtered out. 
+                  Within milliseconds, the warehouse dashboard updates the pallet's location to 'in transit',
+                  an email notification is sent to the logistics team, and all irrelevant reads are filtered out.
                   No manual steps or custom coding involved – everything configured entirely within the platform.
                 </p>
               </CardContent>
@@ -210,8 +322,8 @@ const Product = () => {
                 Secure & Scalable by Design
               </h2>
               <p className="text-xl text-muted-foreground mb-8 leading-relaxed">
-                Deploy on a single server or across global sites with cloud or on-prem options. 
-                Multi-tenant support serves multiple facilities or clients from one platform, 
+                Deploy on a single server or across global sites with cloud or on-prem options.
+                Multi-tenant support serves multiple facilities or clients from one platform,
                 with role-based access control to protect data.
               </p>
               <div className="space-y-4">
@@ -232,23 +344,41 @@ const Product = () => {
             <div className="relative">
               <Card className="bg-enterprise text-enterprise-foreground">
                 <CardContent className="p-8">
-                  <h3 className="text-xl font-semibold mb-6 text-center">Performance Metrics</h3>
+                  <h3 className="text-xl font-semibold mb-6 text-center">
+                    Performance Metrics
+                  </h3>
                   <div className="grid grid-cols-2 gap-6">
                     <div className="text-center">
-                      <div className="text-3xl font-bold text-primary-glow mb-2">99.9%</div>
-                      <div className="text-sm text-enterprise-foreground/70">Uptime SLA</div>
+                      <div className="text-3xl font-bold text-primary-glow mb-2">
+                        99.9%
+                      </div>
+                      <div className="text-sm text-enterprise-foreground/70">
+                        Uptime SLA
+                      </div>
                     </div>
                     <div className="text-center">
-                      <div className="text-3xl font-bold text-primary-glow mb-2">15M+</div>
-                      <div className="text-sm text-enterprise-foreground/70">Events/Hour</div>
+                      <div className="text-3xl font-bold text-primary-glow mb-2">
+                        15M+
+                      </div>
+                      <div className="text-sm text-enterprise-foreground/70">
+                        Events/Hour
+                      </div>
                     </div>
                     <div className="text-center">
-                      <div className="text-3xl font-bold text-primary-glow mb-2">&lt;1ms</div>
-                      <div className="text-sm text-enterprise-foreground/70">Processing Time</div>
+                      <div className="text-3xl font-bold text-primary-glow mb-2">
+                        &lt;1ms
+                      </div>
+                      <div className="text-sm text-enterprise-foreground/70">
+                        Processing Time
+                      </div>
                     </div>
                     <div className="text-center">
-                      <div className="text-3xl font-bold text-primary-glow mb-2">1000+</div>
-                      <div className="text-sm text-enterprise-foreground/70">Devices Supported</div>
+                      <div className="text-3xl font-bold text-primary-glow mb-2">
+                        1000+
+                      </div>
+                      <div className="text-sm text-enterprise-foreground/70">
+                        Devices Supported
+                      </div>
                     </div>
                   </div>
                 </CardContent>
@@ -275,7 +405,11 @@ const Product = () => {
               </Button>
             </Link>
             <Link to="/pricing">
-              <Button variant="outline" size="lg" className="bg-white/10 border-white/20 text-white hover:bg-white/20">
+              <Button
+                variant="outline"
+                size="lg"
+                className="bg-white/10 border-white/20 text-white hover:bg-white/20"
+              >
                 View Pricing
               </Button>
             </Link>

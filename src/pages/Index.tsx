@@ -5,7 +5,6 @@ import { Badge } from "@/components/ui/badge";
 import RCOMGatewayWorkflow from "@/components/home/workflow";
 import WhyChooseRCOM from "@/components/home/whyRcom";
 import TestimonialsSection from "@/components/home/Testimonials";
-import WarehouseDashboard from "@/components/home/DashBoard";
 import { 
   Zap, 
   Eye, 
