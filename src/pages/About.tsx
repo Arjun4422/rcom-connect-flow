@@ -3,8 +3,36 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { ArrowRight, Users, Target, Award, MapPin, Mail, Linkedin } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useEffect, useRef, useState } from "react";
 
 const About = () => {
+  const CountUp = ({ end, duration = 1500, decimals = 0, suffix = "", prefix = "" }: { end: number; duration?: number; decimals?: number; suffix?: string; prefix?: string; }) => {
+    const [value, setValue] = useState(0);
+    const startTimeRef = useRef<number | null>(null);
+
+    useEffect(() => {
+      let rafId: number;
+
+      const animate = (timestamp: number) => {
+        if (startTimeRef.current === null) startTimeRef.current = timestamp;
+        const elapsed = timestamp - startTimeRef.current;
+        const progress = Math.min(elapsed / duration, 1);
+        const eased = 1 - Math.pow(1 - progress, 3);
+        setValue(parseFloat((end * eased).toFixed(decimals)));
+        if (progress < 1) {
+          rafId = requestAnimationFrame(animate);
+        }
+      };
+
+      rafId = requestAnimationFrame(animate);
+      return () => cancelAnimationFrame(rafId);
+    }, [end, duration, decimals]);
+
+    return (
+      <div className="text-3xl font-bold text-primary mb-2">{prefix}{value.toFixed(decimals)}{suffix}</div>
+    );
+  };
+
   const values = [
     {
       icon: Target,
@@ -117,19 +145,19 @@ const About = () => {
                 <CardContent className="p-8">
                   <div className="grid grid-cols-2 gap-6 text-center">
                     <div>
-                      <div className="text-3xl font-bold text-primary mb-2">50+</div>
+                      <CountUp end={50} suffix="+" />
                       <div className="text-sm text-muted-foreground">Enterprise Clients</div>
                     </div>
                     <div>
-                      <div className="text-3xl font-bold text-primary mb-2">15M+</div>
+                      <CountUp end={15} suffix="M+" />
                       <div className="text-sm text-muted-foreground">Events Processed Daily</div>
                     </div>
                     <div>
-                      <div className="text-3xl font-bold text-primary mb-2">99.9%</div>
+                      <CountUp end={99.9} decimals={1} suffix="%" />
                       <div className="text-sm text-muted-foreground">Platform Uptime</div>
                     </div>
                     <div>
-                      <div className="text-3xl font-bold text-primary mb-2">15</div>
+                      <CountUp end={15} />
                       <div className="text-sm text-muted-foreground">Countries Served</div>
                     </div>
                   </div>

@@ -150,7 +150,7 @@ const HeroSection: React.FC = () => {
             </h1>
             
             <p className="text-xl text-gray-300 mb-12 leading-relaxed max-w-5xl mx-auto">
-            RCOM Gateway is a powerful software platform that connects your world of devices to your world of software. It's an integration hub that captures every scan, read, or sensor signal and turns it into immediate, automated action. With a modular, scalable architecture, RCOM Gateway lets you build digital twin models of your operations and streamline processes without writing a line of code.
+            RCOM Gateway is a powerful software platform that connects your world of Auto-ID devices to your world of software. It's an integration hub that captures every scan, read, or sensor signal and turns it into immediate, automated action. With a modular, scalable architecture, RCOM Gateway lets you build digital twin models of your operations and streamline processes without writing a line of code.
               </p>
           </div>
 
