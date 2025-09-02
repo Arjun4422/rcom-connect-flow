@@ -21,33 +21,33 @@ const featureGraphics = [
   // You can replace these with SVGs, Lottie animations, or custom illustrations
   // For now, we use Lucide icons in a styled way as placeholders
   (
-    <div className="flex items-center justify-center w-full h-full">
-      <Wifi className="w-24 h-24 text-primary-glow drop-shadow-lg" />
+    <div className="flex items-center justify-center w-full h-full ">
+      <Wifi className="w-24 h-24 text-white drop-shadow-lg animate-pulse" />
     </div>
   ),
   (
     <div className="flex items-center justify-center w-full h-full">
-      <Workflow className="w-24 h-24 text-primary-glow drop-shadow-lg" />
+      <Workflow className="w-24 h-24 text-white drop-shadow-lg animate-pulse" />
     </div>
   ),
   (
     <div className="flex items-center justify-center w-full h-full">
-      <Zap className="w-24 h-24 text-primary-glow drop-shadow-lg animate-pulse" />
+      <Zap className="w-24 h-24 text-white drop-shadow-lg animate-pulse" />
     </div>
   ),
   (
     <div className="flex items-center justify-center w-full h-full">
-      <Database className="w-24 h-24 text-primary-glow drop-shadow-lg" />
+      <Database className="w-24 h-24 text-white drop-shadow-lg animate-pulse" />
     </div>
   ),
   (
     <div className="flex items-center justify-center w-full h-full">
-      <BarChart3 className="w-24 h-24 text-primary-glow drop-shadow-lg" />
+      <BarChart3 className="w-24 h-24 text-white drop-shadow-lg animate-pulse" />
     </div>
   ),
   (
     <div className="flex items-center justify-center w-full h-full">
-      <Smartphone className="w-24 h-24 text-primary-glow drop-shadow-lg" />
+      <Smartphone className="w-24 h-24 text-white drop-shadow-lg animate-pulse" />
     </div>
   ),
 ];
@@ -57,6 +57,7 @@ const Product = () => {
     {
       icon: Wifi,
       title: "Connect Any Device",
+      color: "from-blue-500 to-cyan-500",
       description:
         "Out-of-the-box connectors for RFID, barcodes, BLE, sensors and more. Easily onboard new devices with standard protocols – no custom coding required.",
       highlights: [
@@ -69,6 +70,7 @@ const Product = () => {
     {
       icon: Workflow,
       title: "Visual Workflows (Low-Code)",
+      color: "from-purple-500 to-pink-500",
       description:
         "Design automation workflows with an intuitive drag-and-drop editor. Convert raw reads into meaningful actions in minutes.",
       highlights: [
@@ -81,6 +83,7 @@ const Product = () => {
     {
       icon: Zap,
       title: "Real-Time Processing",
+      color: "from-emerald-500 to-teal-500",
       description:
         "Handle high volume of events with sub-second processing. RCOM's event engine filters, enriches, and responds to data streams in real time.",
       highlights: [
@@ -93,6 +96,7 @@ const Product = () => {
     {
       icon: Database,
       title: "Enterprise Integration",
+      color: "from-indigo-500 to-purple-500",
       description:
         "Built-in integrations for MQTT, REST APIs, databases, and SAP systems. No data silos – direct integration with your ERP, WMS, or cloud analytics.",
       highlights: [
@@ -105,6 +109,7 @@ const Product = () => {
     {
       icon: BarChart3,
       title: "Digital Twin & Data Storage",
+      color: "from-green-500 to-teal-500",
       description:
         "Model your operation with digital objects. Track every asset or item with custom attributes, location hierarchy, and complete history.",
       highlights: [
@@ -117,6 +122,7 @@ const Product = () => {
     {
       icon: Smartphone,
       title: "Custom Dashboards & UI",
+      color: "from-indigo-500 to-purple-500",
       description:
         "Build interactive dashboards directly in RCOM Gateway. Create live maps, operational dashboards, or data entry forms – all powered by real-time data.",
       highlights: [
@@ -159,49 +165,6 @@ const Product = () => {
     <div className="min-h-screen">
       {/* Hero Section */}
       <HeroSection/>
-      {/* <section className="bg-gradient-hero text-white py-24">
-        <div className="container mx-auto px-6">
-          <div className="max-w-4xl mx-auto text-center">
-            <Badge
-              variant="secondary"
-              className="mb-6 bg-primary/20 text-primary-glow border-primary/30"
-            >
-              
-              
-              Enterprise IoT Integration Platform
-            </Badge>
-            <h1 className="text-4xl md:text-5xl font-bold mb-6">
-              The RCOM Gateway Platform –
-              <span className="bg-gradient-to-r from-primary-glow to-primary bg-clip-text text-transparent">
-                {" "}
-                Event‑Driven Automation
-              </span>{" "}
-              for the Physical World
-            </h1>
-            <p className="text-xl text-gray-300 mb-8 leading-relaxed">
-              RCOM Gateway is a powerful software platform that connects your world of devices to your world of software.
-              It's an integration hub that captures every scan, read, or sensor signal and turns it into immediate, automated action.
-              With a modular, scalable architecture, RCOM Gateway lets you build digital twin models of your operations and
-              streamline processes without writing a line of code.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link to="/contact">
-                <Button variant="hero" size="lg">
-                  Schedule Technical Consultation
-                  <ArrowRight className="w-5 h-5 ml-2" />
-                </Button>
-              </Link>
-              <Button
-                variant="outline"
-                size="lg"
-                className="bg-white/10 border-white/20 text-white hover:bg-white/20"
-              >
-                Watch Demo Video
-              </Button>
-            </div>
-          </div>
-        </div>
-      </section> */}
 
       {/* Redesigned Platform Capabilities */}
       <section className="py-24 bg-background" id="features">
@@ -227,7 +190,7 @@ const Product = () => {
                   {/* Feature Info */}
                   <div className="w-full md:w-1/2">
                     <div className="flex items-center mb-4">
-                      <div className="w-14 h-14 bg-primary/10 rounded-lg flex items-center justify-center mr-4">
+                      <div className="w-14 h-14 bg-primary/10 rounded-lg flex items-center justify-center mr-4 ">
                         <feature.icon className="w-7 h-7 text-primary" />
                       </div>
                       <h3 className="text-2xl font-semibold">{feature.title}</h3>
@@ -247,7 +210,7 @@ const Product = () => {
                   {/* Feature Graphic/Animation */}
                   <div className="w-full md:w-1/2 flex items-center justify-center">
                     <Card className="bg-gradient-card border-none shadow-xl w-full max-w-md">
-                      <CardContent className="flex items-center justify-center p-10 min-h-[220px]">
+                      <CardContent className={`flex items-center justify-center p-10 min-h-[220px] rounded-xl bg-gradient-to-r ${feature.color}`}>
                         {featureGraphics[index]}
                       </CardContent>
                     </Card>
@@ -262,54 +225,10 @@ const Product = () => {
       {/* How It Works */}
       <section className="py-24 bg-muted/30">
         <div className="container mx-auto px-6">
-          {/* <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              How RCOM Gateway Works
-            </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              From device event to business action in milliseconds – see how the platform transforms
-              physical data into automated workflows
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {workflowSteps.map((step, index) => (
-              <div key={index} className="text-center">
-                <div className="relative mb-6">
-                  <div className="w-16 h-16 bg-gradient-primary rounded-full flex items-center justify-center text-2xl mx-auto mb-4">
-                    {step.icon}
-                  </div>
-                  <div className="absolute -top-2 -right-2 w-8 h-8 bg-enterprise text-enterprise-foreground rounded-full flex items-center justify-center text-sm font-bold">
-                    {step.step}
-                  </div>
-                  {index < workflowSteps.length - 1 && (
-                    <div
-                      className="hidden lg:block absolute top-8 left-full w-full h-0.5 bg-gradient-to-r from-primary to-primary/30 transform -translate-y-1/2"
-                      style={{ width: "calc(100% - 2rem)" }}
-                    ></div>
-                  )}
-                </div>
-                <h3 className="text-lg font-semibold mb-2">{step.title}</h3>
-                <p className="text-muted-foreground text-sm leading-relaxed">
-                  {step.description}
-                </p>
-              </div>
-            ))}
-          </div> */}
+         
           <RCOMGatewayWorkflow/>
 
-          <div className="text-center mt-12">
-            <Card className="max-w-2xl mx-auto bg-gradient-card border-primary/20">
-              <CardContent className="p-8">
-                <h3 className="text-xl font-semibold mb-4">The Result</h3>
-                <p className="text-muted-foreground leading-relaxed">
-                  Within milliseconds, the warehouse dashboard updates the pallet's location to 'in transit',
-                  an email notification is sent to the logistics team, and all irrelevant reads are filtered out.
-                  No manual steps or custom coding involved – everything configured entirely within the platform.
-                </p>
-              </CardContent>
-            </Card>
-          </div>
+          
         </div>
       </section>
 
@@ -389,7 +308,7 @@ const Product = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-24 bg-gradient-hero text-white">
+      <section className="py-24 bg-slate-900 text-white inset-0 bg-gradient-to-br from-slate-900 via-blue-900/20 to-slate-900">
         <div className="container mx-auto px-6 text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">
             Ready to Connect Your Operations?

@@ -1,142 +1,279 @@
-import React, { useState, useEffect } from 'react';
-import { ArrowRight, Scan, Database, Eye, Settings } from 'lucide-react';
+import React from 'react';
+import { ArrowRight, Database, Cpu, Zap, Eye, Network, Play, ArrowDown } from 'lucide-react';
+
+const steps = [
+  {
+    id: 1,
+    title: "Connect & Capture",
+    icon: <Database className="w-6 h-6" />,
+    color: "from-blue-500 to-cyan-500",
+    content: {
+      title: "Connect & Capture (Event Ingestion)",
+      description: "RCOM listens to your operation via ingestion channels: MQTT, REST API endpoints, and the Scheduler. Every incoming item is treated as an event. Supported trigger types include:",
+      details: [
+        "EpcisMessage (full EPCIS 2.0 docs)",
+        "EpcisObject (per-event EPCIS records)", 
+        "Object Change (CRUD on stored objects)",
+        "On Timer (timer completions from workflows)",
+        "Ghost Data (compact payloads used with RCOM Mobile)"
+      ]
+    }
+  },
+  {
+    id: 2,
+    title: "Match & Route",
+    icon: <Cpu className="w-6 h-6" />,
+    color: "from-purple-500 to-pink-500",
+    content: {
+      title: "Match & Route (Event Processor)",
+      description: "An Event Processor watches your selected source (REST route, MQTT topic, or scheduled trigger), applies filters (e.g., EPCIS bizStep, disposition, topic), maps payload fields to workflow inputs, and selects the correct workflow version for controlled, repeatable execution.",
+      details: [
+        "Watches REST routes, MQTT topics, or scheduled triggers",
+        "Applies EPCIS bizStep, disposition, and topic filters",
+        "Maps payload fields to workflow inputs",
+        "Selects correct workflow version for execution"
+      ]
+    }
+  },
+  {
+    id: 3,
+    title: "Execute Automation",
+    icon: <Zap className="w-6 h-6" />,
+    color: "from-yellow-500 to-orange-500",
+    content: {
+      title: "Execute Automation (Low-Code Workflow Engine)",
+      description: "Your visual workflow runs at high throughput: validate/transform data, make decisions, branch/loop, create/update/read objects, publish MQTT, start timers, push updates to dashboards/maps, log results, or run custom scripts when needed. Built for parallelism, it handles device bursts smoothly.",
+      details: [
+        "Validate/transform data and make decisions",
+        "Branch/loop through complex logic flows",
+        "Create/update/read objects and publish MQTT",
+        "Start timers and push updates to dashboards/maps",
+        "Log results and run custom scripts when needed"
+      ]
+    }
+  },
+  {
+    id: 4,
+    title: "Persist as Digital Twins",
+    icon: <Eye className="w-6 h-6" />,
+    color: "from-green-500 to-teal-500",
+    content: {
+      title: "Persist as Digital Twins (Object Groups)",
+      description: "Store operational state as Objects inside Object Groups—your digital twins for pallets, patients, assets, rooms, devices, etc. Schemas support typed attributes, relations, audit/history, and precise storage hierarchy (Storage Number → Location → Area → Bin). Workflows can set/query storage and attributes at any time.",
+      details: [
+        "Digital twins for pallets, patients, assets, rooms, devices",
+        "Typed attributes, relations, audit/history",
+        "Storage hierarchy (Number → Location → Area → Bin)",
+        "Workflows can set/query storage and attributes anytime"
+      ]
+    }
+  },
+  {
+    id: 5,
+    title: "Visualize & Interact",
+    icon: <Network className="w-6 h-6" />,
+    color: "from-indigo-500 to-purple-500",
+    content: {
+      title: "Visualize & Interact (Custom UI & Maps)",
+      description: "See outcomes instantly on Custom UIs (HTML/JS dashboards, forms) and Custom Maps (your floorplans with zones). Teams track flows in real time, click a zone to inspect contents, and follow guided actions—scoped by Access Groups; UIs can subscribe to MQTT for live updates.",
+      details: [
+        "Custom UIs (HTML/JS dashboards, forms)",
+        "Custom Maps (floorplans with zones)",
+        "Real-time flow tracking and zone inspection",
+        "Access Groups scoping and MQTT live updates"
+      ]
+    }
+  }
+];
+
+const StepCard = ({ step, index, isLast }) => (
+  <div key={step.id} className="relative">
+    {/* Mobile Layout */}
+    <div className="flex flex-col sm:hidden items-center">
+      <div 
+        className={`
+          w-14 h-14 rounded-xl bg-gradient-to-r ${step.color} flex items-center justify-center text-white shadow-lg mb-2
+        `}
+      >
+        {step.icon}
+      </div>
+      <div className="w-8 h-8 rounded-full border-2 border-gray-400 bg-white flex items-center justify-center font-bold text-gray-700 mb-2">
+        {step.id}
+      </div>
+      <div 
+        className={`
+          bg-white rounded-2xl shadow-lg p-4 border-l-4 border-gradient-to-b w-full max-w-xs mx-auto mb-2
+        `}
+        style={{ borderLeftColor: step.color.includes('blue') ? '#3b82f6' : step.color.includes('purple') ? '#8b5cf6' : step.color.includes('yellow') ? '#f59e0b' : step.color.includes('green') ? '#10b981' : '#6366f1' }}
+      >
+        <h3 className="text-lg font-bold text-gray-800 mb-1">
+          {step.content.title}
+        </h3>
+        <p className="text-gray-600 mb-2 leading-relaxed">
+          {step.content.description}
+        </p>
+        <div>
+          <div className="border-t border-gray-200 pt-2">
+            <ul className="grid grid-cols-1 gap-1">
+              {step.content.details.map((detail, idx) => (
+                <li key={idx} className="text-sm text-gray-500 flex items-start">
+                  <span className={`w-2 h-2 rounded-full bg-gradient-to-r ${step.color} mt-1 mr-2 flex-shrink-0`}></span>
+                  <span>{detail}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </div>
+      {/* Vertical Arrow (except for last item) */}
+      {!isLast && (
+        <div className="flex flex-col items-center my-2">
+          <ArrowDown className="w-5 h-5 text-gray-400" />
+        </div>
+      )}
+    </div>
+    {/* Desktop Layout */}
+    <div className="hidden sm:flex items-center space-x-4 md:space-x-6">
+      {/* Icon */}
+      <div 
+        className={`
+          w-16 h-16 rounded-xl bg-gradient-to-r ${step.color} flex items-center justify-center text-white shadow-lg flex-shrink-0
+        `}
+      >
+        {step.icon}
+      </div>
+      {/* Connection Line */}
+      <div className="w-10 md:w-12 h-0.5 bg-gray-300 flex-shrink-0"></div>
+      {/* Number Circle */}
+      <div className="w-10 h-10 rounded-full border-2 border-gray-400 bg-white flex items-center justify-center font-bold text-gray-700 flex-shrink-0">
+        {step.id}
+      </div>
+      {/* Connection Line */}
+      <div className="w-10 md:w-12 h-0.5 bg-gray-300 flex-shrink-0"></div>
+      {/* Content Block */}
+      <div className="flex-1 min-w-0">
+        <div 
+          className={`
+            bg-white rounded-2xl shadow-lg p-6 border-l-4 border-gradient-to-b
+          `}
+          style={{ borderLeftColor: step.color.includes('blue') ? '#3b82f6' : step.color.includes('purple') ? '#8b5cf6' : step.color.includes('yellow') ? '#f59e0b' : step.color.includes('green') ? '#10b981' : '#6366f1' }}
+        >
+          <h3 className="text-xl font-bold text-gray-800 mb-2">
+            {step.content.title}
+          </h3>
+          <p className="text-gray-600 mb-4 leading-relaxed">
+            {step.content.description}
+          </p>
+          <div>
+            <div className="border-t border-gray-200 pt-4">
+              <ul className="grid grid-cols-1 md:grid-cols-2 gap-2">
+                {step.content.details.map((detail, idx) => (
+                  <li key={idx} className="text-sm text-gray-500 flex items-start">
+                    <span className={`w-2 h-2 rounded-full bg-gradient-to-r ${step.color} mt-1.5 mr-2 flex-shrink-0`}></span>
+                    <span>{detail}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    {/* Desktop Vertical Arrow (except for last item) */}
+    {!isLast && (
+      <div className="hidden sm:flex justify-start ml-5 mt-4 mb-2">
+        <ArrowDown className="w-6 h-6 text-gray-400" />
+      </div>
+    )}
+  </div>
+);
 
 const RCOMGatewayWorkflow = () => {
-  const [animatedStep, setAnimatedStep] = useState(0);
-
-  const steps = [
-    {
-      number: "1",
-      title: "Device Event",
-      subtitle: "Scan, read, or sensor signal",
-      icon: Scan,
-      color: "from-blue-500 to-blue-600"
-    },
-    {
-      number: "2", 
-      title: "Gateway",
-      subtitle: "Captures & processes event",
-      icon: Database,
-      color: "from-purple-500 to-purple-600"
-    },
-    {
-      number: "3",
-      title: "Workflow", 
-      subtitle: "Visual automation rules",
-      icon: Eye,
-      color: "from-emerald-500 to-emerald-600"
-    },
-    {
-      number: "4",
-      title: "Your System",
-      subtitle: "Updates ERP, alerts, actions", 
-      icon: Settings,
-      color: "from-orange-500 to-orange-600"
-    },
-    
-  ];
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setAnimatedStep((prev) => (prev + 1) % steps.length);
-    }, 2000);
-    return () => clearInterval(interval);
-  }, []);
-
   return (
-    <div className=" bg-gradient-to-br from-slate-50 to-blue-50 py-16 px-8">
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100 py-8 sm:py-12 px-2 sm:px-6">
       <div className="max-w-6xl mx-auto">
-        
         {/* Header */}
-        <div className="text-center mb-16">
-          <h1 className="text-4xl md:text-5xl font-bold text-slate-800 mb-6">
-            How RCOM Gateway Works
+        <div className="text-center mb-10 sm:mb-16">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-3 sm:mb-4">
+            How it works
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600"> (end-to-end)</span>
           </h1>
-          <p className="text-lg text-slate-600 max-w-4xl mx-auto leading-relaxed">
-            A device scan or sensor reading flows into RCOM Gateway, which processes it through visual
-            workflows, then updates your systems in milliseconds. <span className="font-semibold text-blue-600">No custom code needed.</span>
+          <h2 className="text-xl sm:text-2xl md:text-3xl font-semibold text-gray-700 mb-4 sm:mb-6">
+            How RCOM turns scans into system actions
+          </h2>
+          <p className="text-base sm:text-xl text-gray-600 max-w-2xl mx-auto">
+            From the first device read to a live result — in <span className="font-semibold text-indigo-600">milliseconds</span>.
           </p>
         </div>
 
-        {/* Workflow Steps */}
-        <div className="relative">
+        {/* Responsive Flow */}
+        <div className="space-y-6">
+          {steps.map((step, index) => (
+            <StepCard
+              key={step.id}
+              step={step}
+              index={index}
+              isLast={index === steps.length - 1}
+            />
+          ))}
+
+        
+        </div>
+
+        {/* Add-on Module */}
+        <div className="mt-12 sm:mt-16">
+          <div className="text-center mb-8">
           
-          {/* Connection Line */}
-          <div className="absolute top-24 left-0 right-0 h-0.5 bg-gradient-to-r from-blue-200 via-purple-200 via-emerald-200 to-orange-200 hidden md:block">
-            <div className="h-full bg-gradient-to-r from-blue-500 via-purple-500 via-emerald-500 to-orange-500 w-0 animate-pulse"></div>
+            <div className="w-16 h-1 bg-gradient-to-r from-orange-500 to-red-500 mx-auto rounded-full"></div>
           </div>
-
-          {/* Steps Container */}
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8 md:gap-4">
-            {steps.map((step, index) => {
-              const Icon = step.icon;
-              const isAnimated = animatedStep === index;
-              
-              return (
-                <div key={step.number} className="relative flex flex-col items-center">
-                  
-                  {/* Step Circle */}
-                  <div className={`relative w-20 h-20 rounded-full bg-gradient-to-br ${step.color} flex items-center justify-center shadow-lg mb-6 transition-all duration-500 ${
-                    isAnimated ? 'scale-110 shadow-xl' : 'hover:scale-105'
-                  }`}>
-                    
-                    {/* Pulse Effect */}
-                    {isAnimated && (
-                      <div className={`absolute inset-0 rounded-full bg-gradient-to-br ${step.color} animate-ping opacity-30`}></div>
-                    )}
-                    
-                    {/* Icon */}
-                    <Icon className="w-8 h-8 text-white relative z-10" />
-                    
-                    {/* Number Badge */}
-                    <div className="absolute -top-2 -right-2 w-8 h-8 bg-white rounded-full flex items-center justify-center shadow-md">
-                      <span className="text-sm font-bold text-slate-700">{step.number}</span>
-                    </div>
-                  </div>
-
-                  {/* Step Content */}
-                  <div className="text-center max-w-48">
-                    <h3 className={`text-xl font-bold text-slate-800 mb-2 transition-all duration-300 ${
-                      isAnimated ? 'scale-105' : ''
-                    }`}>
-                      {step.title}
-                    </h3>
-                    <p className="text-slate-600 text-sm leading-relaxed">
-                      {step.subtitle}
-                    </p>
-                  </div>
-
-                  {/* Arrow (Desktop Only) */}
-                  {index < steps.length - 1 && (
-                    <div className="hidden md:block absolute top-4 -right-8 z-10">
-                      <div className={`w-12 h-12 rounded-full bg-white shadow-md flex items-center justify-center transition-all duration-300 ${
-                        isAnimated ? 'scale-110 bg-blue-50' : ''
-                      }`}>
-                        <ArrowRight className={`w-5 h-5 text-slate-600 transition-all duration-300 ${
-                          isAnimated ? 'text-blue-600 translate-x-0.5' : ''
-                        }`} />
-                      </div>
-                    </div>
-                  )}
+          
+          <div className="bg-white rounded-2xl shadow-lg p-6 sm:p-8 border-l-4 border-orange-500 max-w-4xl mx-auto">
+            <div className="flex items-start space-x-4">
+              <div className="w-12 h-12 rounded-xl bg-gradient-to-r from-orange-500 to-red-500 flex items-center justify-center text-white shadow-lg flex-shrink-0">
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+              </div>
+              <div className="flex-1">
+                <h4 className="text-xl font-bold text-gray-800 mb-2">
+                  Orchestrate by time (Scheduler & On-Timer)
+                </h4>
+                <p className="text-gray-600 mb-4 leading-relaxed">
+                  Not everything is device-driven. Use the Scheduler to fire events on a schedule (daily runs, one-offs) and the On Timer trigger to resume a workflow after a delay (e.g., "re-check in 10 minutes"). Event Processors listen for these timer events and continue the flow automatically.
+                </p>
+                <div className="border-t border-gray-200 pt-4">
+                  <ul className="grid grid-cols-1 md:grid-cols-2 gap-2">
+                    <li className="text-sm text-gray-500 flex items-start">
+                      <span className="w-2 h-2 rounded-full bg-gradient-to-r from-orange-500 to-red-500 mt-1.5 mr-2 flex-shrink-0"></span>
+                      <span>Schedule events (daily runs, one-offs)</span>
+                    </li>
+                    <li className="text-sm text-gray-500 flex items-start">
+                      <span className="w-2 h-2 rounded-full bg-gradient-to-r from-orange-500 to-red-500 mt-1.5 mr-2 flex-shrink-0"></span>
+                      <span>On Timer trigger for workflow delays</span>
+                    </li>
+                    <li className="text-sm text-gray-500 flex items-start">
+                      <span className="w-2 h-2 rounded-full bg-gradient-to-r from-orange-500 to-red-500 mt-1.5 mr-2 flex-shrink-0"></span>
+                      <span>Event Processors listen for timer events</span>
+                    </li>
+                    <li className="text-sm text-gray-500 flex items-start">
+                      <span className="w-2 h-2 rounded-full bg-gradient-to-r from-orange-500 to-red-500 mt-1.5 mr-2 flex-shrink-0"></span>
+                      <span>Automatic flow continuation</span>
+                    </li>
+                  </ul>
                 </div>
-              );
-            })}
+              </div>
+            </div>
           </div>
         </div>
 
-        {/* Call to Action */}
-        <div className="text-center mt-16">
-          <button className="group inline-flex items-center gap-3 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 hover:scale-105 hover:shadow-lg">
-            <span>See Detailed Platform Overview</span>
-            <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
-          </button>
-        </div>
+      
 
-        {/* Decorative Elements */}
-        <div className="absolute inset-0 pointer-events-none overflow-hidden">
-          <div className="absolute top-20 left-10 w-32 h-32 bg-blue-100 rounded-full opacity-50 animate-pulse"></div>
-          <div className="absolute bottom-20 right-10 w-24 h-24 bg-purple-100 rounded-full opacity-50 animate-pulse delay-1000"></div>
-          <div className="absolute top-40 right-20 w-16 h-16 bg-emerald-100 rounded-full opacity-50 animate-pulse delay-2000"></div>
+        {/* Performance Badge */}
+        <div className="fixed bottom-3 right-3 sm:bottom-6 sm:right-6 bg-white rounded-full shadow-lg px-3 sm:px-4 py-1.5 sm:py-2 border border-gray-200 z-40">
+          <div className="flex items-center space-x-2">
+            <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+            <span className="text-xs sm:text-sm font-medium text-gray-700">Processing in milliseconds</span>
+          </div>
         </div>
       </div>
     </div>

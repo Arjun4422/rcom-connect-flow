@@ -141,7 +141,7 @@ export default function IndustrySolutions() {
         </div>
 
         {/* Bottom Stats Section */}
-        <div className="bg-gradient-to-r from-slate-800 to-slate-900 rounded-3xl p-12 text-white text-center">
+        {/* <div className="bg-gradient-to-r from-slate-800 to-slate-900 rounded-3xl p-12 text-white text-center">
           <h2 className="text-3xl font-bold mb-6">
             Trusted by Industry Leaders
           </h2>
@@ -163,7 +163,7 @@ export default function IndustrySolutions() {
               <div className="text-slate-300">Support</div>
             </div>
           </div>
-        </div>
+        </div> */}
 
       
       </div>

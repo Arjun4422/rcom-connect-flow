@@ -138,60 +138,66 @@ export default function TestimonialsSection() {
   const t = testimonials[activeTestimonial];
 
   return (
-    <div className="bg-gradient-to-br from-slate-100 to-blue-50 py-16 px-8">
+    <div className="bg-gradient-to-br from-slate-100 to-blue-50 py-10 px-2 sm:py-16 sm:px-8">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-slate-800 mb-6">
+        <div className="text-center mb-10 sm:mb-16">
+          <h2 className="text-2xl sm:text-4xl md:text-5xl font-bold text-slate-800 mb-4 sm:mb-6">
             What Our Customers Say
           </h2>
-          <p className="text-xl text-slate-600 max-w-3xl mx-auto">
+          <p className="text-base sm:text-xl text-slate-600 max-w-3xl mx-auto">
             Join thousands of companies already transforming their operations with RCOM Gateway
           </p>
         </div>
 
         {/* Main Testimonial Display */}
-        <div className="relative mb-16">
+        <div className="relative mb-10 sm:mb-16">
           <div
-            className="bg-white rounded-3xl shadow-2xl p-12 max-w-5xl mx-auto relative overflow-hidden"
-            style={{ minHeight: 500, height: 500, maxHeight: 500 }}
+            className="bg-white rounded-3xl shadow-2xl p-4 xs:p-6 sm:p-8 md:p-12 max-w-full sm:max-w-3xl md:max-w-5xl mx-auto relative overflow-hidden flex flex-col"
+            style={{
+              minHeight: '420px',
+              height: '420px', // Fixed height for all cards
+              maxHeight: '420px',
+            }}
           >
             {/* Background Quote Icon */}
-            <div className="absolute top-8 left-8 opacity-10 pointer-events-none select-none">
-              <Quote className="w-24 h-24 text-blue-600" />
+            <div className="absolute top-2 left-2 sm:top-8 sm:left-8 opacity-10 pointer-events-none select-none">
+              <Quote className="w-12 h-12 sm:w-24 sm:h-24 text-blue-600" />
             </div>
 
             {/* Testimonial Content */}
-            <div className="relative z-10 h-full flex flex-col justify-center">
+            <div className="relative z-10 flex-1 flex flex-col justify-start pb-32">
               {/* Stars */}
-              <div className="flex justify-center mb-6">
+              <div className="flex justify-center mb-4 sm:mb-6">
                 {Array.from({ length: t.rating }).map((_, i) => (
-                  <Star key={i} className="w-6 h-6 text-yellow-400 fill-current" />
+                  <Star key={i} className="w-4 h-4 sm:w-6 sm:h-6 text-yellow-400 fill-current" />
                 ))}
               </div>
 
               {/* Quote */}
-              <blockquote className="text-2xl md:text-l font-medium text-slate-800 text-center leading-relaxed mb-8">
+              <blockquote className="text-base xs:text-lg sm:text-2xl md:text-l font-medium text-slate-800 text-center leading-relaxed mb-4 sm:mb-8">
                 "{t.quote}"
               </blockquote>
+            </div>
 
+            {/* Fixed Result Highlight and Author Info */}
+            <div className="absolute left-0 right-0 bottom-0 z-20 flex flex-col items-center pb-6 sm:pb-10">
               {/* Result Highlight */}
-              <div className="text-center mb-8">
-                <span className="inline-block bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-2 rounded-full font-semibold">
+              <div className="text-center mb-3 sm:mb-4">
+                <span className="inline-block bg-gradient-to-r from-blue-600 to-purple-600 text-white px-4 py-1.5 sm:px-6 sm:py-2 rounded-full font-semibold text-xs sm:text-base">
                   {t.results}
                 </span>
               </div>
-
               {/* Author Info */}
-              <div className="flex items-center justify-center gap-4">
-                <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full flex items-center justify-center text-white font-bold text-lg">
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4">
+                <div className="w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full flex items-center justify-center text-white font-bold text-base sm:text-lg">
                   {t.avatar}
                 </div>
-                <div className="text-left">
-                  <div className="font-bold text-slate-800 text-lg">{t.author}</div>
-                  <div className="text-slate-600">{t.title}</div>
-                  <div className="text-blue-600 font-semibold">{t.company}</div>
-                  <div className="text-sm text-slate-500">{t.industry}</div>
+                <div className="text-center sm:text-left">
+                  <div className="font-bold text-slate-800 text-base sm:text-lg">{t.author}</div>
+                  <div className="text-slate-600 text-xs sm:text-base">{t.title}</div>
+                  <div className="text-blue-600 font-semibold text-xs sm:text-base">{t.company}</div>
+                  <div className="text-xs text-slate-500">{t.industry}</div>
                 </div>
               </div>
             </div>

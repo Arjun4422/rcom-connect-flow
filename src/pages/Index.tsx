@@ -280,24 +280,24 @@ const Index = () => {
             ))}
           </div>
         </div>
-        <div className="bg-gradient-to-r from-slate-800 to-slate-900 rounded-3xl mx-20 p-12 text-white text-center">
+        <div className="bg-gradient-to-r from-slate-800 to-slate-900 rounded-3xl mx-10 my-10 p-8 text-white text-center">
           <h2 className="text-3xl font-bold mb-6">
             Trusted by Industry Leaders
           </h2>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            <div className="space-y-2">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
+            <div className="space-y-2 text-center">
               <div className="text-4xl font-bold text-blue-400">500+</div>
               <div className="text-slate-300">Companies</div>
             </div>
-            <div className="space-y-2">
+            <div className="space-y-2 text-center">
               <div className="text-4xl font-bold text-emerald-400">99.9%</div>
               <div className="text-slate-300">Uptime</div>
             </div>
-            <div className="space-y-2">
+            <div className="space-y-2 text-center">
               <div className="text-4xl font-bold text-orange-400">50M+</div>
               <div className="text-slate-300">Devices Connected</div>
             </div>
-            <div className="space-y-2">
+            <div className="space-y-2 text-center">
               <div className="text-4xl font-bold text-purple-400">24/7</div>
               <div className="text-slate-300">Support</div>
             </div>
