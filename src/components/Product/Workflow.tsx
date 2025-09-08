@@ -269,12 +269,7 @@ const RCOMGatewayWorkflow = () => {
       
 
         {/* Performance Badge */}
-        <div className="fixed bottom-3 right-3 sm:bottom-6 sm:right-6 bg-white rounded-full shadow-lg px-3 sm:px-4 py-1.5 sm:py-2 border border-gray-200 z-40">
-          <div className="flex items-center space-x-2">
-            <div className="w-2 h-2 bg-green-500 rounded-full"></div>
-            <span className="text-xs sm:text-sm font-medium text-gray-700">Processing in milliseconds</span>
-          </div>
-        </div>
+       
       </div>
     </div>
   );
