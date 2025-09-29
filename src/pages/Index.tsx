@@ -268,10 +268,10 @@ const Index = () => {
                         {industry.description}
                       </p>
                       <Link to={industry.link}>
-                        <Button variant="outline" size="sm" className="group-hover:shadow-md transition-all">
+                        {/* <Button variant="outline" size="sm" className="group-hover:shadow-md transition-all">
                           Learn More
                           <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
-                        </Button>
+                        </Button> */}
                       </Link>
                     </div>
                   </div>
