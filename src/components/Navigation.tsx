@@ -1,13 +1,7 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Menu, X, ChevronDown } from "lucide-react";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
+import { Menu, X } from "lucide-react";
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -15,12 +9,6 @@ const Navigation = () => {
 
   const isActive = (path: string) => location.pathname === path;
 
-  const solutions = [
-    { name: "Logistics & Supply Chain", path: "/solutions/logistics" },
-    { name: "Healthcare", path: "/solutions/healthcare" },
-    { name: "Manufacturing", path: "/solutions/manufacturing" },
-    { name: "Smart Infrastructure", path: "/solutions/smart-infrastructure" },
-  ];
 
   return (
     <nav className="bg-background/95 backdrop-blur-sm border-b border-border sticky top-0 z-50">
@@ -53,22 +41,14 @@ const Navigation = () => {
               Product
             </Link>
             
-            {/* Solutions Dropdown */}
-            <DropdownMenu>
-              <DropdownMenuTrigger className="flex items-center space-x-1 text-sm font-medium text-muted-foreground hover:text-primary transition-colors">
-                <span>Solutions</span>
-                <ChevronDown className="w-4 h-4" />
-              </DropdownMenuTrigger>
-              <DropdownMenuContent align="start" className="w-56">
-                {solutions.map((solution) => (
-                  <DropdownMenuItem key={solution.path} asChild>
-                    <Link to={solution.path} className="w-full">
-                      {solution.name}
-                    </Link>
-                  </DropdownMenuItem>
-                ))}
-              </DropdownMenuContent>
-            </DropdownMenu>
+            <Link
+              to="/solutions"
+              className={`text-sm font-medium transition-colors hover:text-primary ${
+                isActive("/solutions") ? "text-primary" : "text-muted-foreground"
+              }`}
+            >
+              Solutions
+            </Link>
 
             <Link
               to="/pricing"
@@ -132,18 +112,14 @@ const Navigation = () => {
               >
                 Product
               </Link>
-              <div className="ml-4 space-y-2">
-                {solutions.map((solution) => (
-                  <Link
-                    key={solution.path}
-                    to={solution.path}
-                    className="block text-sm text-muted-foreground hover:text-primary transition-colors"
-                    onClick={() => setIsOpen(false)}
-                  >
-                    {solution.name}
-                  </Link>
-                ))}
-              </div>
+              <Link
+                to="/solutions"
+                className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
+                onClick={() => setIsOpen(false)}
+              >
+                Solutions
+              </Link>
+              
               <Link
                 to="/pricing"
                 className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors"

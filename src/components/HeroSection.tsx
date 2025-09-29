@@ -96,7 +96,7 @@ const HeroSection = () => {
   }, []);
 
   return (
-    <section className="relative min-h-screen flex items-center bg-gradient-hero overflow-hidden">
+    <section className="relative h-screen max-h-[800px] flex items-center bg-gradient-hero overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-blue-900/20 to-slate-900">
         {/* Animated Lucide Icons in the background */}
         <div className="pointer-events-none absolute inset-0 z-0">

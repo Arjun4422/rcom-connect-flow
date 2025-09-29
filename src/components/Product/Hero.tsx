@@ -87,7 +87,7 @@ const LiveDataStream: React.FC = () => {
   const maxValue = Math.max(...dataPoints, 1);
 
   return (
-    <div className="bg-slate-900/50 rounded-lg p-6 border border-blue-500/20">
+    <div className="bg-slate-900/50 rounded-lg p-6 border  border-blue-500/20">
       <div className="flex justify-between items-center mb-4">
         <div className="flex items-center">
           <Activity className="w-5 h-5 text-blue-400 mr-2" />
@@ -127,7 +127,7 @@ const LiveDataStream: React.FC = () => {
 
 const HeroSection: React.FC = () => {
   return (
-    <section className="relative overflow-hidden min-h-screen bg-slate-900">
+    <section className="relative overflow-hidden h-screen max-h-[800px] bg-slate-900">
       {/* Background */}
       <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-blue-900/20 to-slate-900" />
       <FloatingParticles />
