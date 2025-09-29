@@ -228,27 +228,7 @@ const Pricing = () => {
               </thead>
               <tbody>
                 {/* Pricing */}
-                <tr className="border-t border-border/50 bg-primary/5">
-                  <td className="p-4 font-bold text-primary">Base Price per month</td>
-                  <td className="text-center p-4"></td>
-                  <td className="text-center p-4"></td>
-                  <td className="text-center p-4"></td>
-                  <td className="text-center p-4"></td>
-                </tr>
-                <tr className="border-t border-border/50">
-                  <td className="p-4 font-medium pl-8">On-Premise</td>
-                  <td className="text-center p-4 font-bold text-lg">€200</td>
-                  <td className="text-center p-4 font-bold text-lg">€500</td>
-                  <td className="text-center p-4 font-bold text-lg">€1,000</td>
-                  <td className="text-center p-4 font-bold text-lg">RFP</td>
-                </tr>
-                <tr className="border-t border-border/50 bg-muted/20">
-                  <td className="p-4 font-medium pl-8">SaaS</td>
-                  <td className="text-center p-4 font-bold text-lg text-primary">RFP</td>
-                  <td className="text-center p-4 font-bold text-lg text-primary">RFP</td>
-                  <td className="text-center p-4 font-bold text-lg text-primary">RFP</td>
-                  <td className="text-center p-4 font-bold text-lg text-primary">RFP</td>
-                </tr>
+               
 
                 {/* Volume Licenses */}
                 <tr className="border-t border-border/50 bg-primary/5">

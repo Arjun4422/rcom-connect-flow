@@ -38,7 +38,7 @@ const Footer = () => {
                 </Link>
               </li>
               <li>
-                <Link to="/product#features" className="text-enterprise-foreground/70 hover:text-primary-glow transition-colors">
+                <Link to="/product" className="text-enterprise-foreground/70 hover:text-primary-glow transition-colors">
                   Features
                 </Link>
               </li>
@@ -48,7 +48,7 @@ const Footer = () => {
                 </Link>
               </li>
               <li>
-                <a href="#" className="text-enterprise-foreground/70 hover:text-primary-glow transition-colors">
+                <a href="https://docs.rcom-gateway.com/" className="text-enterprise-foreground/70 hover:text-primary-glow transition-colors">
                   Documentation
                 </a>
               </li>
@@ -57,26 +57,19 @@ const Footer = () => {
 
           {/* Solutions Links */}
           <div>
-            <h3 className="font-semibold mb-4 text-enterprise-foreground">Solutions</h3>
+            <h3 className="font-semibold mb-4 text-enterprise-foreground">Documenation</h3>
+            <ul className="space-y-3 text-sm">
+            <li>
+                <a href="https://docs.rcom-gateway.com/" className="text-enterprise-foreground/70 hover:text-primary-glow transition-colors">
+                  Documentation
+                </a>
+              </li>
+            </ul>
+            <h3 className="font-semibold mb-4 text-enterprise-foreground mt-3">Solutions</h3>
             <ul className="space-y-3 text-sm">
               <li>
-                <Link to="/solutions/logistics" className="text-enterprise-foreground/70 hover:text-primary-glow transition-colors">
-                  Logistics & Supply Chain
-                </Link>
-              </li>
-              <li>
-                <Link to="/solutions/healthcare" className="text-enterprise-foreground/70 hover:text-primary-glow transition-colors">
-                  Healthcare
-                </Link>
-              </li>
-              <li>
-                <Link to="/solutions/manufacturing" className="text-enterprise-foreground/70 hover:text-primary-glow transition-colors">
-                  Manufacturing
-                </Link>
-              </li>
-              <li>
-                <Link to="/solutions/smart-infrastructure" className="text-enterprise-foreground/70 hover:text-primary-glow transition-colors">
-                  Smart Infrastructure
+                <Link to="/solutions" className="text-enterprise-foreground/70 hover:text-primary-glow transition-colors">
+                  RCOM Gateway applications
                 </Link>
               </li>
             </ul>
