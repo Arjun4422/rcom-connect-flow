@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { Link } from "react-router-dom";
+
 import {
   ArrowRight,
   Play,
@@ -190,6 +192,7 @@ const HeroSection: React.FC = () => {
           </div>
 
           <div className="flex flex-col sm:flex-row gap-6 justify-center">
+          <Link to="/contact" className="w-full sm:w-auto">
             <Button 
               size="lg" 
               className="bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700 text-white px-8 py-4 text-lg font-semibold shadow-2xl transform hover:scale-105 transition-all duration-300"
@@ -197,6 +200,7 @@ const HeroSection: React.FC = () => {
               Schedule Technical Consultation
               <ArrowRight className="w-5 h-5 ml-2" />
             </Button>
+            </Link>
             <Button
               variant="outline"
               size="lg"

@@ -1,4 +1,6 @@
 import React, { useState } from 'react'
+import { Link } from "react-router-dom";
+
 import {
   ArrowRight,
   Check,
@@ -19,16 +21,7 @@ import {
   Link2, Brain, CheckCircle2
 } from 'lucide-react'
 
-/**
- * Visual fixes & polish (aligned to the provided mock):
- * - Removed non-existent `bg-gradient-hero` class causing inconsistent backgrounds
- * - Standardized color system to a calm navy + blue accent palette
- * - Increased contrast for accessibility (WCAG AA on buttons & text)
- * - Reduced neon tints; replaced with subtle tints and slate neutrals
- * - Fixed mismatched borders on light sections (no white/10 on white)
- * - Unified card styles across sections
- * - Simplified gradients to primary usage only (hero + CTA)
- */
+
 
 interface FilterState {
   objective: string[]
@@ -121,7 +114,7 @@ const App: React.FC = () => {
       complexity: 'Starter',
       why: 'Eliminate picking errors with real-time validation.',
       howItWorks:
-        'Scan item → Workflow validates against order → Custom UI shows next pick → Alert on error → Update order status.',
+        'Scan item → Validate against order → Custom UI shows next pick → Alert on error → Update order status.',
     },
     {
       id: '5',
@@ -132,7 +125,7 @@ const App: React.FC = () => {
       complexity: 'Advanced',
       why: 'Monitor work-in-progress as it moves through manufacturing zones.',
       howItWorks:
-        'Zone entry/exit detection → Update work center status → Live count dashboards → Bottleneck alerts → ERP work order sync.',
+        'Zone entry/exit → Update work center status → Live count dashboards → Bottleneck alerts → ERP work order sync.',
     },
     {
       id: '6',
@@ -141,20 +134,20 @@ const App: React.FC = () => {
       environment: 'Facility',
       signal: ['RFID'],
       complexity: 'Starter',
-      why: 'Never lose expensive tools or fixtures again.',
+      why: 'Prevent loss of high-value tools and fixtures.',
       howItWorks:
-        'Check-out/check-in reads → Associate with user → Track usage history → Alert on missing items → Generate custody reports.',
+        'Check-out/check-in reads → Associate with user/job → Usage history → Missing-item alerts → Custody reports.',
     },
     {
       id: '7',
-      title: 'Cold-Chain Door Excursions',
+      title: 'Cold-Chain Excursions',
       objective: ['Condition', 'Alert'],
       environment: 'Facility',
       signal: ['Sensor', 'RFID'],
       complexity: 'Advanced',
       why: 'Protect temperature-sensitive inventory automatically.',
       howItWorks:
-        'Temperature sensor + door sensor → Detect excursion event → Alert relevant team → Log to digital twin → Generate compliance report.',
+        'Temp/door sensors → Detect excursion → Alert team → Update digital twin → Compliance report generated.',
     },
     {
       id: '8',
@@ -165,18 +158,18 @@ const App: React.FC = () => {
       complexity: 'Starter',
       why: 'Control and log access to secure areas.',
       howItWorks:
-        'Badge read → Workflow checks permissions → Grant/deny access → Log entry/exit → Real-time occupancy tracking → Compliance reports.',
+        'Badge read → Permission check → Grant/deny → Log entry/exit → Occupancy tracking → Compliance reports.',
     },
     {
       id: '9',
-      title: 'Bed & Asset Rounds Dashboard for Wards',
+      title: 'Bed & Asset Rounds Dashboard',
       objective: ['Track', 'Guide'],
       environment: 'Campus',
       signal: ['BLE'],
       complexity: 'Starter',
       why: 'Speed up equipment rounds and reduce search time.',
       howItWorks:
-        'BLE beacon detection → Map asset locations → Custom UI shows ward status → Guide staff to items → Update availability.',
+        'BLE detection → Map locations → Custom UI shows ward status → Guide staff → Update availability.',
     },
     {
       id: '10',
@@ -185,20 +178,20 @@ const App: React.FC = () => {
       environment: 'Campus',
       signal: ['BLE'],
       complexity: 'Advanced',
-      why: 'Track patient journey through care milestones automatically.',
+      why: 'Capture delays and throughput across care milestones.',
       howItWorks:
-        'Badge tracking across zones → Workflow logs milestones → Alert on delays → EMR integration → Real-time family updates.',
+        'Badge tracking across zones → Log milestones → Delay alerts → EMR integration → Family updates.',
     },
     {
       id: '11',
       title: 'Kanban Refill Triggers',
       objective: ['Count', 'Orchestrate'],
       environment: 'Facility',
-      signal: ['RFID'],
+      signal: ['RFID', 'Barcode'],
       complexity: 'Starter',
-      why: 'Automate just-in-time replenishment on the factory floor.',
+      why: 'Automate just-in-time replenishment.',
       howItWorks:
-        'Low-level detection → Workflow triggers refill order → Alert material handler → Track fulfillment → Update ERP inventory.',
+        'Low-level detection → Trigger refill order → Alert material handler → Track fulfillment → ERP inventory sync.',
     },
     {
       id: '12',
@@ -207,53 +200,53 @@ const App: React.FC = () => {
       environment: 'Campus',
       signal: ['RFID', 'Vision'],
       complexity: 'Advanced',
-      why: 'Automate truck and trailer check-in and placement.',
+      why: 'Automate truck/trailer check-in and placement.',
       howItWorks:
-        'License plate + RFID read → Validate appointment → Assign dock/yard spot → Guide driver → Update TMS → Log transaction.',
+        'ANPR + RFID → Validate appointment → Assign dock/yard → Guide driver → Update TMS → Log transaction.',
     },
     {
       id: '13',
       title: 'Smart Parking Occupancy',
       objective: ['Count', 'Alert'],
       environment: 'Campus',
-      signal: ['BLE', 'Vision'],
+      signal: ['BLE', 'Vision', 'Sensor'],
       complexity: 'Starter',
-      why: 'Show real-time parking availability to reduce congestion.',
+      why: 'Show real-time parking availability and enforce rules.',
       howItWorks:
-        'Sensor detects vehicle → Update occupancy count → Display on signage → Mobile app integration → Send alerts when full.',
+        'Space sensor/vision → Update occupancy → Signage/app display → Alerts when full → Analytics.',
     },
     {
       id: '14',
-      title: 'Visitor & Vendor Self-Service Portal',
+      title: 'Visitor & Vendor Self-Service',
       objective: ['Guide', 'Audit'],
       environment: 'Campus',
-      signal: [],
+      signal: ['Barcode', 'Vision'],
       complexity: 'Starter',
-      why: 'Streamline guest check-in without reception desk.',
+      why: 'Streamline check-in without a reception line.',
       howItWorks:
-        'Custom UI registration → Generate QR/badge → Track entry/exit → Host notification → Compliance logging → Auto-expire access.',
+        'Custom UI registration → QR/badge → Entry/exit tracking → Host notify → Compliance logging → Auto-expire access.',
     },
     {
       id: '15',
       title: 'Instrument Set Traceability',
       objective: ['Trace', 'Verify'],
-      environment: 'Campus',
+      environment: 'Facility',
       signal: ['RFID'],
       complexity: 'Advanced',
       why: 'Ensure sterile instrument sets are complete and traceable.',
       howItWorks:
-        'Read full set → Validate against manifest → Track sterilization cycle → Associate with procedure → EPCIS documentation.',
+        'Read full set → Validate manifest → Track sterilization → Associate to procedure → EPCIS documentation.',
     },
     {
       id: '16',
-      title: 'Paper-Less Inspections with Photo Proof',
+      title: 'Paperless Inspections with Photo Proof',
       objective: ['Audit', 'Guide'],
       environment: 'Facility',
-      signal: [],
+      signal: ['Vision', 'Barcode'],
       complexity: 'Starter',
-      why: 'Replace paper forms with digital checklists and evidence.',
+      why: 'Replace paper forms with digital, auditable checklists.',
       howItWorks:
-        'Custom UI checklist → Capture photos/scans → Workflow validation → Store with timestamp → Export reports → Role-based review.',
+        'Custom UI checklist → Capture photos/scans → Validate → Timestamp/store → Export report → Role-based review.',
     },
     {
       id: '17',
@@ -262,9 +255,9 @@ const App: React.FC = () => {
       environment: 'Facility',
       signal: ['RFID', 'Barcode'],
       complexity: 'Starter',
-      why: 'Conduct accurate cycle counts in minutes instead of hours.',
+      why: 'Perform accurate counts in minutes, not hours.',
       howItWorks:
-        'RFID bulk read or barcode scan → Compare to expected → Flag discrepancies → Workflow for adjustment → Sync to ERP.',
+        'Bulk read/scan → Compare to expected → Flag discrepancies → Adjustment workflow → ERP sync.',
     },
     {
       id: '18',
@@ -273,20 +266,20 @@ const App: React.FC = () => {
       environment: 'Campus',
       signal: ['RFID', 'Barcode'],
       complexity: 'Starter',
-      why: 'Automate media circulation and prevent loss.',
+      why: 'Automate circulation and reduce loss.',
       howItWorks:
-        'Patron scan + item scan → Validate availability → Update circulation system → Due date tracking → Overdue alerts.',
+        'Patron + item scan → Validate availability → Update circulation → Due date tracking → Overdue alerts.',
     },
     {
       id: '19',
       title: 'Rental & Field Equipment Custody',
       objective: ['Trace', 'Alert'],
       environment: 'Field',
-      signal: ['RFID', 'BLE'],
+      signal: ['RFID', 'BLE', 'GPS'],
       complexity: 'Advanced',
-      why: 'Track equipment from warehouse to job site and back.',
+      why: 'Track equipment from depot to job site and back.',
       howItWorks:
-        'Check-out/check-in → GPS + RFID tracking → Usage logging → Maintenance alerts → Billing integration → Audit trail.',
+        'Check-out/in → GPS/BLE presence → Usage logging → Maintenance alerts → Billing integration → Audit trail.',
     },
     {
       id: '20',
@@ -295,11 +288,176 @@ const App: React.FC = () => {
       environment: 'Campus',
       signal: ['BLE'],
       complexity: 'Starter',
-      why: 'Ensure critical equipment is available when needed.',
+      why: 'Ensure critical equipment is always available.',
       howItWorks:
-        'Real-time location tracking → Availability status → Alert on low availability → Custom dashboard → Predictive positioning.',
+        'Real-time location → Availability thresholds → Alerts → Dashboard visibility → Predictive placement.',
     },
-  ]
+    {
+      id: '21',
+      title: 'Kitting & Assembly Error-Proofing',
+      objective: ['Verify', 'Guide'],
+      environment: 'Facility',
+      signal: ['Barcode', 'RFID'],
+      complexity: 'Starter',
+      why: 'Prevent wrong-part assembly at stations.',
+      howItWorks:
+        'Scan part at station → Check BOM/route → OK/NOK prompt → Log trace → Andon alert on errors.',
+    },
+    {
+      id: '22',
+      title: 'IT Asset Tracking in Data Centers',
+      objective: ['Track', 'Audit'],
+      environment: 'DataCenter',
+      signal: ['RFID', 'Barcode'],
+      complexity: 'Advanced',
+      why: 'Maintain accurate location and custody of IT hardware.',
+      howItWorks:
+        'Rack/room reads → Update asset twin → Move approvals → Change logs → CMDB sync.',
+    },
+    {
+      id: '23',
+      title: 'Pharma Serialization & Pedigree',
+      objective: ['Trace', 'Verify'],
+      environment: 'Transit',
+      signal: ['Barcode', 'RFID'],
+      complexity: 'Advanced',
+      why: 'Ensure DSCSA/traceability compliance.',
+      howItWorks:
+        'Scan serials at steps → EPCIS lineage → Verify chain-of-custody → Exception alerts → Regulator-ready reports.',
+    },
+    {
+      id: '24',
+      title: 'Lab Sample Chain of Custody',
+      objective: ['Trace', 'Alert'],
+      environment: 'Facility',
+      signal: ['Barcode', 'RFID', 'Sensor'],
+      complexity: 'Advanced',
+      why: 'Preserve sample integrity and auditability.',
+      howItWorks:
+        'Tube/box scan → Location/time capture → Temp sensor watch → Alerts on deviation → LIMS update.',
+    },
+    {
+      id: '25',
+      title: 'Construction Site Access & Safety',
+      objective: ['Gate', 'Alert'],
+      environment: 'Field',
+      signal: ['RFID', 'BLE', 'Vision'],
+      complexity: 'Starter',
+      why: 'Control access and enforce PPE/safety zones.',
+      howItWorks:
+        'Badge read/vision check → Permit validation → Zone presence → Safety breach alerts → Incident log.',
+    },
+    {
+      id: '26',
+      title: 'Retail Backroom to Salesfloor Replenishment',
+      objective: ['Count', 'Orchestrate'],
+      environment: 'Retail',
+      signal: ['RFID', 'Barcode'],
+      complexity: 'Starter',
+      why: 'Keep shelves stocked with minimal labor.',
+      howItWorks:
+        'Backroom reads → Gap detection vs planogram → Replenish task → UI pick list → POS/ERP sync.',
+    },
+    {
+      id: '27',
+      title: 'Airport Baggage Tracking',
+      objective: ['Track', 'Trace'],
+      environment: 'Transit',
+      signal: ['RFID', 'Barcode'],
+      complexity: 'Advanced',
+      why: 'Reduce mishandled bags and speed transfers.',
+      howItWorks:
+        'BHS portal reads → Flight mapping → Misroute alerts → Customer notifications → Airline DCS update.',
+    },
+    {
+      id: '28',
+      title: 'Hotel Linen & Laundry Automation',
+      objective: ['Track', 'Count'],
+      environment: 'Facility',
+      signal: ['RFID'],
+      complexity: 'Starter',
+      why: 'Account for linens through wash cycles and reduce loss.',
+      howItWorks:
+        'Bag/garment reads → Cycle states → Replacement thresholds → Vendor reconciliation → Cost reports.',
+    },
+    {
+      id: '29',
+      title: 'Waste & Recycling Bin Collection',
+      objective: ['Verify', 'Count'],
+      environment: 'Field',
+      signal: ['RFID', 'GPS', 'Sensor'],
+      complexity: 'Starter',
+      why: 'Verify service and optimize routes.',
+      howItWorks:
+        'Bin RFID + truck GPS → Service event → Weight/level sensor → Route KPI → Billing/CRM update.',
+    },
+    {
+      id: '30',
+      title: 'Museum/Exhibit Asset Security',
+      objective: ['Gate', 'Alert'],
+      environment: 'Facility',
+      signal: ['RFID', 'BLE', 'Vision'],
+      complexity: 'Starter',
+      why: 'Detect unauthorized movement instantly.',
+      howItWorks:
+        'Zone breach detection → Silent alert → Camera snapshot → Guard workflow → Incident record.',
+    },
+    {
+      id: '31',
+      title: 'Livestock & Farm Asset Tracking',
+      objective: ['Track', 'Condition'],
+      environment: 'Field',
+      signal: ['RFID', 'BLE', 'GPS', 'Sensor'],
+      complexity: 'Advanced',
+      why: 'Monitor location and health of animals/equipment.',
+      howItWorks:
+        'Tag reads/GPS → Geo-fence events → Temp/activity sensors → Vet alerts → Herd reports.',
+    },
+    {
+      id: '32',
+      title: 'University Asset Audit & Loaners',
+      objective: ['Audit', 'Trace'],
+      environment: 'Campus',
+      signal: ['RFID', 'Barcode'],
+      complexity: 'Starter',
+      why: 'Track AV/IT equipment loans and room assets.',
+      howItWorks:
+        'Issue/return scans → Due dates → Room sweeps → Missing alerts → Chargeback/export.',
+    },
+    {
+      id: '33',
+      title: 'Ports & Container Terminal Moves',
+      objective: ['Track', 'Orchestrate'],
+      environment: 'Transit',
+      signal: ['RFID', 'Vision', 'GPS'],
+      complexity: 'Advanced',
+      why: 'Coordinate container moves with live yard state.',
+      howItWorks:
+        'Gate/RTG reads + GPS → Assign moves → Optimize sequencing → TOS/ERP updates → Exceptions handled.',
+    },
+    {
+      id: '34',
+      title: 'Food Production Trace & Recall Readiness',
+      objective: ['Trace', 'Verify'],
+      environment: 'Facility',
+      signal: ['Barcode', 'RFID', 'Sensor'],
+      complexity: 'Advanced',
+      why: 'Trace ingredients to finished goods for rapid recalls.',
+      howItWorks:
+        'Lot scans at steps → EPCIS lineage → Temp/humidity checks → COA linkage → Recall query in seconds.',
+    },
+    {
+      id: '35',
+      title: 'Event/Conference Attendee Flow',
+      objective: ['Track', 'Guide'],
+      environment: 'Campus',
+      signal: ['RFID', 'Barcode', 'BLE'],
+      complexity: 'Starter',
+      why: 'Understand traffic and personalize experience.',
+      howItWorks:
+        'Badge scans/beacons → Session check-ins → Heatmaps → Capacity alerts → Sponsor lead delivery.',
+    },
+  ];
 
   const faqs = [
     {
@@ -358,18 +516,21 @@ const App: React.FC = () => {
           <div className="items-center">
             <div className='text-center '>
               <h1 className="text-5xl lg:text-6xl font-bold mb-6 tracking-tight">
-                <span className="bg-gradient-to-r from-white to-sky-200 bg-clip-text text-transparent">Connect Every Device. Automate Any Process.</span>
+                <span className='bg-gradient-to-r from-blue-400 via-cyan-400 to-blue-600 bg-clip-text text-transparent'>Solutions </span>
+                <span className="bg-gradient-to-r from-white to-sky-200 bg-clip-text text-transparent"> without limits.</span>
               </h1>
               <p className="text-lg text-slate-300 mb-8 leading-relaxed">
-                If your operation emits a scan, read, ping, or frame — RCOM Gateway can turn it into action. Build end-to-end automation across warehouses, hospitals, factories, campuses, yards, labs, and beyond.
+              If it can be automated with Auto-ID, RCOM Gateway can run it. Build end-to-end automation across warehouses, hospitals, factories, campuses, yards, labs, and more.
               </p>
               <div className="flex flex-wrap gap-4 justify-center items-center">
+              <Link to="/contact" className="w-full sm:w-auto">
                 <button className="bg-gradient-to-r from-blue-600 to-sky-500 px-6 py-3 rounded-lg font-semibold text-white hover:from-blue-700 hover:to-sky-600 focus:outline-none focus:ring-2 focus:ring-sky-400/60">
                   Request a Demo
                 </button>
-                <button className="px-6 py-3 rounded-lg font-semibold border border-slate-600 text-slate-100 hover:bg-white/5 focus:outline-none focus:ring-2 focus:ring-slate-400/40">
+                </Link>
+                {/* <button className="px-6 py-3 rounded-lg font-semibold border border-slate-600 text-slate-100 hover:bg-white/5 focus:outline-none focus:ring-2 focus:ring-slate-400/40">
                   See it in Action
-                </button>
+                </button> */}
               </div>
             </div>
           </div>
@@ -480,7 +641,7 @@ const App: React.FC = () => {
       <section id="applications" className="py-20 bg-slate-950">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-10">
-            <h2 className="text-3xl font-bold mb-2">Hundreds of ways to use RCOM — here are some favorites</h2>
+            <h2 className="text-3xl font-bold mb-2">Hundreds of ways to use RCOM. <span className='bg-gradient-to-r from-blue-400 via-cyan-400 to-blue-600 bg-clip-text text-transparent'> Here are some favorites</span></h2>
             <p className="text-slate-300">Filter by what matters to you</p>
           </div>
 
@@ -715,12 +876,12 @@ const App: React.FC = () => {
               <div className="text-slate-600">Event processing time</div>
             </div>
           </div>
-          <div className={lightCard}>
+          {/* <div className={lightCard}>
             <blockquote className="text-xl text-slate-800 italic mb-2">
               "We automated gate checks and synced to ERP in real time — reconciliation went from hours to minutes."
             </blockquote>
             <div className="text-slate-600">— Operations Manager, Fortune 500 Logistics</div>
-          </div>
+          </div> */}
         </div>
       </section>
 
@@ -754,9 +915,15 @@ const App: React.FC = () => {
               Whether you're looking for operational outcomes or technical details, we're here to help.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
+            <Link to="/contact" className="w-full sm:w-auto">
               <button className="bg-white text-blue-700 px-7 py-3 rounded-lg font-semibold hover:bg-blue-50">Request a Demo</button>
+            </Link>
+            <Link to="/contact" className="w-full sm:w-auto">
+            </Link>
               <button className="border-2 border-white text-white px-7 py-3 rounded-lg font-semibold hover:bg-white/10">Talk to an Engineer</button>
+            <Link to="https://docs.rcom-gateway.com/" className="w-full sm:w-auto">
               <button className="border-2 border-white text-white px-7 py-3 rounded-lg font-semibold hover:bg-white/10">Read the Docs</button>
+            </Link>
             </div>
           </div>
         </div>
