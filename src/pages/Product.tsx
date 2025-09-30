@@ -1,6 +1,5 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
 import {
   Workflow,
   Zap,
@@ -306,6 +305,8 @@ const Product = () => {
           </div>
         </div>
       </section>
+
+   
 
       {/* CTA Section */}
       <section className="py-24 bg-slate-900 text-white inset-0 bg-gradient-to-br from-slate-900 via-blue-900/20 to-slate-900">
