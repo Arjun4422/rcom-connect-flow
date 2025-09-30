@@ -78,7 +78,9 @@ const Index = () => {
   return (
     <div className="min-h-screen">
       <HeroSection />
+      <div className="hidden sm:block">
       <RCOMStory />
+      </div>
 
       {/* Trusted by section */}
       
