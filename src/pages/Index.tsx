@@ -4,6 +4,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import RCOMGatewayWorkflow from "@/components/home/workflow";
 import WhyChooseRCOM from "@/components/home/whyRcom";
+import RCOMStory from "@/components/home/StoryTabs";
 import TestimonialsSection from "@/components/home/Testimonials";
 import { 
   Zap, 
@@ -77,8 +78,11 @@ const Index = () => {
   return (
     <div className="min-h-screen">
       <HeroSection />
+      <RCOMStory />
+
+      {/* Trusted by section */}
       
-      <section className="py-10 bg-background">
+      {/* <section className="py-10 bg-background">
         <div className="container mx-auto px-6">
           <div className="text-center mb-6">
             <span className="uppercase text-xs tracking-widest text-muted-foreground font-semibold">
@@ -97,7 +101,7 @@ const Index = () => {
                   minWidth: "max-content",
                 }}
               >
-                {/* 5 Brands, repeated for seamless infinite scroll */}
+              
                 {[
                   {
                     svg: (
@@ -198,7 +202,6 @@ const Index = () => {
                 ))}
               </div>
             </div>
-            {/* Infinity marquee animation */}
             <style>
               {`
                 @keyframes infinite-marquee {
@@ -213,7 +216,7 @@ const Index = () => {
             </style>
           </div>
         </div>
-      </section>
+      </section> */}
 
     
       
