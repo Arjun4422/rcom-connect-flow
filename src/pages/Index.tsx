@@ -16,7 +16,9 @@ import {
   Factory,
   Building2,
   Truck,
-  Heart
+  Heart,
+  Cpu,
+  Workflow as WorkflowIcon
 } from "lucide-react";
 import { Link } from "react-router-dom";
 
@@ -78,9 +80,77 @@ const Index = () => {
   return (
     <div className="min-h-screen">
       <HeroSection />
-      <div className="hidden sm:block">
+      <section className="py-16 bg-slate-950 border-b border-slate-900/60 text-slate-100">
+        <div className="container mx-auto px-6">
+          <div className="max-w-5xl mx-auto text-center mb-12">
+            <span className="inline-flex items-center gap-2 bg-slate-800/70 border border-slate-700/70 rounded-full px-4 py-1.5 text-sm font-semibold text-primary">
+              <CheckCircle className="w-4 h-4" />
+              Unified Suite, Two Specialized Layers
+            </span>
+            <h2 className="text-3xl md:text-4xl font-bold mt-6 mb-4">
+              RCOM Gateway Suite: Edge to Enterprise in Sync
+            </h2>
+            <p className="text-lg text-slate-300 leading-relaxed">
+              Deploy one platform to capture, clean, and act on Auto-ID and IoT events. RCOM Agents sit with your devices to normalize signals, while RCOM Gateway orchestrates workflows, twins, and integrations for enterprise outcomes.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+            <div className="bg-slate-900/70 border border-slate-800 rounded-2xl p-6">
+              <div className="flex items-start gap-4">
+                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-500 to-cyan-500 flex items-center justify-center flex-shrink-0">
+                  <Cpu className="w-6 h-6 text-white" />
+                </div>
+                <div>
+                  <h3 className="text-xl font-semibold text-white">RCOM Agents</h3>
+                  <p className="text-sm text-slate-300 mt-2">
+                    Device Edge Layer — install near readers, scanners, and sensors to filter noise, buffer during outages, and stream structured events upstream.
+                  </p>
+                  <div className="flex flex-wrap gap-2 mt-4 text-xs text-slate-400">
+                    <span className="px-3 py-1 bg-slate-800/60 rounded-full border border-slate-700/60">Vendor-neutral</span>
+                    <span className="px-3 py-1 bg-slate-800/60 rounded-full border border-slate-700/60">Store-and-forward</span>
+                    <span className="px-3 py-1 bg-slate-800/60 rounded-full border border-slate-700/60">Local validation</span>
+                  </div>
+                  <div className="mt-5">
+                    <Link to="/solutions-agents" className="inline-flex items-center text-sm font-medium text-cyan-400 hover:text-cyan-300 transition-colors">
+                      Explore Agents
+                      <ArrowRight className="w-4 h-4 ml-2" />
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="bg-slate-900/70 border border-slate-800 rounded-2xl p-6">
+              <div className="flex items-start gap-4">
+                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-purple-500 to-indigo-500 flex items-center justify-center flex-shrink-0">
+                  <WorkflowIcon className="w-6 h-6 text-white" />
+                </div>
+                <div>
+                  <h3 className="text-xl font-semibold text-white">RCOM Gateway</h3>
+                  <p className="text-sm text-slate-300 mt-2">
+                    Logic Control Layer — design workflows, digital twins, and integrations to push cleansed edge events into ERP, WMS, MES, analytics, or custom dashboards.
+                  </p>
+                  <div className="flex flex-wrap gap-2 mt-4 text-xs text-slate-400">
+                    <span className="px-3 py-1 bg-slate-800/60 rounded-full border border-slate-700/60">Low-code workflows</span>
+                    <span className="px-3 py-1 bg-slate-800/60 rounded-full border border-slate-700/60">Real-time automation</span>
+                    <span className="px-3 py-1 bg-slate-800/60 rounded-full border border-slate-700/60">Enterprise integrations</span>
+                  </div>
+                  <div className="mt-5">
+                    <Link to="/solutions" className="inline-flex items-center text-sm font-medium text-cyan-400 hover:text-cyan-300 transition-colors">
+                      Explore Gateway
+                      <ArrowRight className="w-4 h-4 ml-2" />
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      {/* <div className="hidden sm:block">
       <RCOMStory />
-      </div>
+      </div> */}
 
       {/* Trusted by section */}
       

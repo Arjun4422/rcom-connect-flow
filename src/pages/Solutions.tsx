@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Link } from "react-router-dom";
 
 import {
@@ -56,6 +56,7 @@ const App: React.FC = () => {
   })
   const [expandedApp, setExpandedApp] = useState<string | null>(null)
   const [expandedFaq, setExpandedFaq] = useState<number | null>(null)
+  const [showAllApps, setShowAllApps] = useState(false)
 
   // Accent gradients toned down to match mock
   const patterns = [
@@ -497,6 +498,7 @@ const App: React.FC = () => {
     if (activeFilters.complexity.length > 0 && !activeFilters.complexity.includes(app.complexity)) return false
     return true
   })
+  const displayedApplications = showAllApps ? filteredApplications : filteredApplications.slice(0, 6)
   const steps = [
     { name: 'Connect', icon: Link2, description: 'Link devices' },
     { name: 'Detect', icon: Eye, description: 'Capture data' },
@@ -507,6 +509,10 @@ const App: React.FC = () => {
   
   const hasActiveFilters = Object.values(activeFilters).some(arr => arr.length > 0)
 
+  useEffect(() => {
+    setShowAllApps(false)
+  }, [activeFilters])
+
   return (
     <div className="min-h-screen text-slate-100 bg-slate-950">
       {/* HERO */}
@@ -516,11 +522,13 @@ const App: React.FC = () => {
           <div className="items-center">
             <div className='text-center '>
               <h1 className="text-5xl lg:text-6xl font-bold mb-6 tracking-tight">
-                <span className='bg-gradient-to-r from-blue-400 via-cyan-400 to-blue-600 bg-clip-text text-transparent'>Solutions </span>
+                <span className='bg-gradient-to-r from-blue-400 via-cyan-400 to-blue-600 bg-clip-text text-transparent'>Workflow Engine </span>
                 <span className="bg-gradient-to-r from-white to-sky-200 bg-clip-text text-transparent"> without limits.</span>
               </h1>
               <p className="text-lg text-slate-300 mb-8 leading-relaxed">
-              If it can be automated with Auto-ID, RCOM Gateway can run it. Build end-to-end automation across warehouses, hospitals, factories, campuses, yards, labs, and more.
+              RCOM Gateway is a central automation layer between the physical world and digital operations. Every tag read, scan, or sensor signal becomes a Gateway Event that can trigger workflows, update digital twins, send alerts, or push insights to dashboards.
+<br />
+At its core is a low-code workflow engine, letting you design rules visually — not through complex custom code. This means you can automate responses to real-world events in real time, without traditional middleware development
               </p>
               <div className="flex flex-wrap gap-4 justify-center items-center">
               <Link to="/contact" className="w-full sm:w-auto">
@@ -701,12 +709,12 @@ const App: React.FC = () => {
                 </button>
               )}
             </div>
-            <div className="text-sm text-slate-400">Showing {filteredApplications.length} of {applications.length} applications</div>
+            <div className="text-sm text-slate-400">Showing {displayedApplications.length} of {filteredApplications.length} matching applications</div>
           </div>
 
           {/* Application Cards */}
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {filteredApplications.map(app => (
+            {displayedApplications.map(app => (
               <div key={app.id} className={darkCard}>
                 <div className="flex flex-wrap gap-2 mb-3">
                   {app.objective.map(obj => (
@@ -731,6 +739,16 @@ const App: React.FC = () => {
               </div>
             ))}
           </div>
+          {filteredApplications.length > 6 && (
+            <div className="mt-8 text-center">
+              <button
+                onClick={() => setShowAllApps(prev => !prev)}
+                className="px-6 py-3 rounded-lg font-semibold border border-slate-600 text-slate-100 hover:bg-white/5 transition"
+              >
+                {showAllApps ? 'Show less' : 'Show more'}
+              </button>
+            </div>
+          )}
         </div>
       </section>
 

@@ -1,15 +1,33 @@
 import React from 'react';
-import { ArrowRight, Database, Cpu, Zap, Eye, Network, Play, ArrowDown } from 'lucide-react';
+import { ArrowRight, Database, Cpu, Zap, Eye, Network, Play, ArrowDown,Wifi } from 'lucide-react';
 
 const steps = [
   {
     id: 1,
+    title: "Capture at the Edge",
+    icon: <Wifi className="w-6 h-6" />,
+    color: "from-sky-500 to-blue-500",
+    content: {
+      title: "Capture at the Edge (RCOM Agent)",
+      description:
+        "RCOM Agents run close to your RFID readers, barcode scanners, BLE sensors, or vision systems. They capture raw device output, apply local logic like filtering or aggregation, and forward structured events securely to RCOM Gateway or other systems using REST or MQTT.",
+      details: [
+        "Deployed near RFID, barcode, BLE, or vision devices",
+        "Captures and normalizes raw device output",
+        "Applies edge filtering, buffering, or local rules",
+        "Transmits structured events to Gateway via REST or MQTT"
+      ]
+    }
+  },
+  
+  {
+    id: 2,
     title: "Connect & Capture",
     icon: <Database className="w-6 h-6" />,
     color: "from-blue-500 to-cyan-500",
     content: {
       title: "Connect & Capture (Event Ingestion)",
-      description: "RCOM listens to your operation via ingestion channels: MQTT, REST API endpoints, and the Scheduler. Every incoming item is treated as an event. Supported trigger types include:",
+      description: "RCOM Gateway listens to your operation via ingestion channels: MQTT, REST API endpoints, and the Scheduler. Every incoming item is treated as an event. Supported trigger types include:",
       details: [
         "EpcisMessage (full EPCIS 2.0 docs)",
         "EpcisObject (per-event EPCIS records)", 
@@ -20,7 +38,7 @@ const steps = [
     }
   },
   {
-    id: 2,
+    id: 3,
     title: "Match & Route",
     icon: <Cpu className="w-6 h-6" />,
     color: "from-purple-500 to-pink-500",
@@ -36,7 +54,7 @@ const steps = [
     }
   },
   {
-    id: 3,
+    id: 4,
     title: "Execute Automation",
     icon: <Zap className="w-6 h-6" />,
     color: "from-yellow-500 to-orange-500",
@@ -53,7 +71,7 @@ const steps = [
     }
   },
   {
-    id: 4,
+    id: 5,
     title: "Persist as Digital Twins",
     icon: <Eye className="w-6 h-6" />,
     color: "from-green-500 to-teal-500",
@@ -69,7 +87,7 @@ const steps = [
     }
   },
   {
-    id: 5,
+    id: 6,
     title: "Visualize & Interact",
     icon: <Network className="w-6 h-6" />,
     color: "from-indigo-500 to-purple-500",

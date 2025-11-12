@@ -1,14 +1,16 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ChevronDown } from "lucide-react";
 import Logo from "../assets/logo.svg"
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [isSolutionsHovered, setIsSolutionsHovered] = useState(false);
   const location = useLocation();
 
   const isActive = (path: string) => location.pathname === path;
+  const isSolutionsActive = location.pathname === "/solutions" || location.pathname === "/solutions-agents";
 
 
   return (
@@ -42,14 +44,42 @@ const Navigation = () => {
               Product
             </Link>
             
-            <Link
-              to="/solutions"
-              className={`text-sm font-medium transition-colors hover:text-primary ${
-                isActive("/solutions") ? "text-primary" : "text-muted-foreground"
-              }`}
+            {/* Solutions Dropdown */}
+            <div 
+              className="relative"
+              onMouseEnter={() => setIsSolutionsHovered(true)}
+              onMouseLeave={() => setIsSolutionsHovered(false)}
             >
-              Solutions
-            </Link>
+              <div
+                className={`text-sm font-medium transition-colors cursor-pointer flex items-center gap-1 ${
+                  isSolutionsActive ? "text-primary" : "text-muted-foreground hover:text-primary"
+                }`}
+              >
+                Solutions
+                <ChevronDown className={`w-4 h-4 transition-transform ${isSolutionsHovered ? 'rotate-180' : ''}`} />
+              </div>
+              
+              {isSolutionsHovered && (
+                <div className="absolute top-full left-0 pt-2 w-48 z-50">
+                  <div className="bg-popover border border-border rounded-md shadow-lg overflow-hidden">
+                    <Link
+                      to="/solutions"
+                      className="block px-4 py-2 text-sm text-muted-foreground hover:bg-accent hover:text-accent-foreground transition-colors"
+                      onClick={() => setIsSolutionsHovered(false)}
+                    >
+                      RCOM Gateway
+                    </Link>
+                    <Link
+                      to="/solutions-agents"
+                      className="block px-4 py-2 text-sm text-muted-foreground hover:bg-accent hover:text-accent-foreground transition-colors"
+                      onClick={() => setIsSolutionsHovered(false)}
+                    >
+                      RCOM Agents
+                    </Link>
+                  </div>
+                </div>
+              )}
+            </div>
 
             <Link
               to="/pricing"
@@ -113,13 +143,25 @@ const Navigation = () => {
               >
                 Product
               </Link>
-              <Link
-                to="/solutions"
-                className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
-                onClick={() => setIsOpen(false)}
-              >
-                Solutions
-              </Link>
+              <div className="pl-2">
+                <div className="text-sm font-medium text-muted-foreground mb-2">Solutions</div>
+                <div className="pl-4 space-y-2">
+                  <Link
+                    to="/solutions"
+                    className="block text-sm text-muted-foreground hover:text-primary transition-colors"
+                    onClick={() => setIsOpen(false)}
+                  >
+                    RCOM Gateway
+                  </Link>
+                  <Link
+                    to="/solutions-agents"
+                    className="block text-sm text-muted-foreground hover:text-primary transition-colors"
+                    onClick={() => setIsOpen(false)}
+                  >
+                    RCOM Agents
+                  </Link>
+                </div>
+              </div>
               
               <Link
                 to="/pricing"

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { ArrowRight, Scan, Database, Eye, Settings } from 'lucide-react';
+import { ArrowRight, Scan, Database, Eye, Settings, Bot } from 'lucide-react';
 
 const RCOMGatewayWorkflow = () => {
   const [animatedStep, setAnimatedStep] = useState(0);
@@ -13,21 +13,28 @@ const RCOMGatewayWorkflow = () => {
       color: "from-blue-500 to-blue-600"
     },
     {
-      number: "2", 
-      title: "Gateway",
+      number: "2",
+      title: "RCOM Agent",
+      subtitle: "Capture, filter, and buffer data at the source",
+      icon: Bot,
+      color: "from-blue-300 to-blue-600"
+    },
+    {
+      number: "3", 
+      title: "RCOM Gateway",
       subtitle: "Captures & processes event",
       icon: Database,
       color: "from-purple-500 to-purple-600"
     },
     {
-      number: "3",
+      number: "4",
       title: "Workflow", 
       subtitle: "Visual automation rules",
       icon: Eye,
       color: "from-emerald-500 to-emerald-600"
     },
     {
-      number: "4",
+      number: "5",
       title: "Your System",
       subtitle: "Updates ERP, alerts, actions", 
       icon: Settings,
@@ -61,12 +68,12 @@ const RCOMGatewayWorkflow = () => {
         <div className="relative">
           
           {/* Connection Line */}
-          <div className="absolute top-24 left-0 right-0 h-0.5 bg-gradient-to-r from-blue-200 via-purple-200 via-emerald-200 to-orange-200 hidden md:block">
+          <div className="absolute top-20 left-0 right-0 h-0.5 bg-gradient-to-r from-blue-200 via-purple-200 via-emerald-200 to-orange-200 hidden lg:block">
             <div className="h-full bg-gradient-to-r from-blue-500 via-purple-500 via-emerald-500 to-orange-500 w-0 animate-pulse"></div>
           </div>
 
           {/* Steps Container */}
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8 md:gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6">
             {steps.map((step, index) => {
               const Icon = step.icon;
               const isAnimated = animatedStep === index;
@@ -75,7 +82,7 @@ const RCOMGatewayWorkflow = () => {
                 <div key={step.number} className="relative flex flex-col items-center">
                   
                   {/* Step Circle */}
-                  <div className={`relative w-20 h-20 rounded-full bg-gradient-to-br ${step.color} flex items-center justify-center shadow-lg mb-6 transition-all duration-500 ${
+                  <div className={`relative w-16 h-16 rounded-full bg-gradient-to-br ${step.color} flex items-center justify-center shadow-lg mb-4 transition-all duration-500 ${
                     isAnimated ? 'scale-110 shadow-xl' : 'hover:scale-105'
                   }`}>
                     
@@ -85,33 +92,33 @@ const RCOMGatewayWorkflow = () => {
                     )}
                     
                     {/* Icon */}
-                    <Icon className="w-8 h-8 text-white relative z-10" />
+                    <Icon className="w-6 h-6 text-white relative z-10" />
                     
                     {/* Number Badge */}
-                    <div className="absolute -top-2 -right-2 w-8 h-8 bg-white rounded-full flex items-center justify-center shadow-md">
-                      <span className="text-sm font-bold text-slate-700">{step.number}</span>
+                    <div className="absolute -top-2 -right-2 w-7 h-7 bg-white rounded-full flex items-center justify-center shadow-md">
+                      <span className="text-xs font-bold text-slate-700">{step.number}</span>
                     </div>
                   </div>
 
                   {/* Step Content */}
-                  <div className="text-center max-w-48">
-                    <h3 className={`text-xl font-bold text-slate-800 mb-2 transition-all duration-300 ${
+                  <div className="text-center max-w-44">
+                    <h3 className={`text-lg font-bold text-slate-800 mb-1 transition-all duration-300 ${
                       isAnimated ? 'scale-105' : ''
                     }`}>
                       {step.title}
                     </h3>
-                    <p className="text-slate-600 text-sm leading-relaxed">
+                    <p className="text-slate-600 text-xs leading-relaxed">
                       {step.subtitle}
                     </p>
                   </div>
 
                   {/* Arrow (Desktop Only) */}
                   {index < steps.length - 1 && (
-                    <div className="hidden md:block absolute top-4 -right-8 z-10">
-                      <div className={`w-12 h-12 rounded-full bg-white shadow-md flex items-center justify-center transition-all duration-300 ${
+                    <div className="hidden lg:block absolute top-2 -right-6 z-10">
+                      <div className={`w-10 h-10 rounded-full bg-white shadow-md flex items-center justify-center transition-all duration-300 ${
                         isAnimated ? 'scale-110 bg-blue-50' : ''
                       }`}>
-                        <ArrowRight className={`w-5 h-5 text-slate-600 transition-all duration-300 ${
+                        <ArrowRight className={`w-4 h-4 text-slate-600 transition-all duration-300 ${
                           isAnimated ? 'text-blue-600 translate-x-0.5' : ''
                         }`} />
                       </div>
@@ -125,10 +132,22 @@ const RCOMGatewayWorkflow = () => {
 
         {/* Call to Action */}
         <div className="text-center mt-16">
-          <button className="group inline-flex items-center gap-3 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 hover:scale-105 hover:shadow-lg">
-            <span>See Detailed Platform Overview</span>
-            <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
-          </button>
+          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
+            <a
+              href="/solutions"
+              className="group inline-flex items-center gap-3 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 hover:scale-105 hover:shadow-lg"
+            >
+              <span>Explore Gateway Solutions</span>
+              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
+            </a>
+            <a
+              href="/solutions-agents"
+              className="group inline-flex items-center gap-3 bg-gradient-to-r from-cyan-600 to-teal-700 hover:from-cyan-700 hover:to-teal-800 text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 hover:scale-105 hover:shadow-lg"
+            >
+              <span>Explore Agent Solutions</span>
+              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
+            </a>
+          </div>
         </div>
 
         {/* Decorative Elements */}

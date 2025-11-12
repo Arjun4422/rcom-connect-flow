@@ -132,21 +132,19 @@ const HeroSection = () => {
               <div className="inline-flex items-center px-3 py-1 rounded-full bg-primary/10 border border-primary/20 mb-4 sm:mb-6">
                 <Zap className="w-4 h-4 text-primary mr-2" />
                 <span className="text-sm font-medium text-primary">
-                  Enterprise IoT Integration Platform
+                  Introducing the RCOM Gateway Suite
                 </span>
               </div>
 
               <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 sm:mb-6 leading-tight">
-                Connect Every Device.{" "}
+                RCOM Gateway Suite{" "}
                 <span className="bg-gradient-to-r from-primary-glow to-primary bg-clip-text text-transparent">
-                  Automate Any Process.
+                  connects every device and orchestrates the edge.
                 </span>
               </h1>
 
               <p className="text-base sm:text-lg md:text-xl text-gray-300 mb-6 sm:mb-8 leading-relaxed">
-                RCOM Gateway is a high-throughput IoT integration platform that bridges Auto-ID devices
-                and enterprise systems in real time. Transform floods of RFID, sensor, and barcode data
-                into actionable insights and automated workflows.
+                The RCOM Gateway Suite pairs <span className="text-primary font-semibold">RCOM Agents</span> for edge data collection with <span className="text-primary font-semibold">RCOM Gateway</span> for logic control. Deploy, normalize, and buffer reads at the device layer, then drive enterprise workflows, twins, and alerts without writing custom middleware.
               </p>
 
               <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 mb-8 sm:mb-12 w-full sm:w-auto">

@@ -11,10 +11,13 @@ import {
   CheckCircle,
   Wifi,
   BarChart3,
+  Cpu,
+  Server,
 } from "lucide-react";
 import { Link } from "react-router-dom";
 import HeroSection from "@/components/Product/Hero";
 import RCOMGatewayWorkflow from "@/components/Product/Workflow";
+import { motion } from "framer-motion";
 
 const featureGraphics = [
   // You can replace these with SVGs, Lottie animations, or custom illustrations
@@ -52,13 +55,45 @@ const featureGraphics = [
 ];
 
 const Product = () => {
+  const suite = [
+    {
+    icon: Cpu,
+    title: "RCOM Agent (Edgeware)",
+    badge: "Edge",
+    color: "from-emerald-500 to-teal-500",
+    description:
+    "Lightweight software that runs near your devices to normalize, filter, dedupe, and buffer events at the source. Publishes structured data securely to RCOM Gateway—or directly to your systems.",
+    bullets: [
+    "Runs on industrial PCs & readers",
+    "Local rules & noise reduction",
+    "Offline buffers & retries",
+    "MQTT/REST uplink with TLS",
+    ],
+    cta: { href: "/solutions-agents", label: "Explore Agent" },
+    },
+    {
+    icon: Server,
+    title: "RCOM Gateway",
+    badge: "Core Platform",
+    color: "from-indigo-500 to-purple-500",
+    description:
+    "Event-driven integration and low-code workflow engine that transforms device data into business actions. Connects with ERP, WMS, databases, and dashboards.",
+    bullets: [
+    "Visual workflows (low-code)",
+    "Digital twin object store",
+    "REST/MQTT/SQL/SAP integrations",
+    "Multi-tenant security & RBAC",
+    ],
+    cta: { href: "/solutions", label: "Explore Gateway" },
+    },
+    ];
   const features = [
     {
       icon: Wifi,
       title: "Connect Any Device",
       color: "from-blue-500 to-cyan-500",
       description:
-        "Out-of-the-box connectors for RFID, barcodes, BLE, sensors and more. Easily onboard new devices with standard protocols – no custom coding required.",
+        "Out-of-the-box connectors for RFID, barcodes, BLE, and sensors — onboard new devices through RCOM Agents with standard protocols, no coding needed.",
       highlights: [
         "RAIN RFID/UHF Support",
         "Barcode Scanners (1D/2D)",
@@ -164,6 +199,62 @@ const Product = () => {
     <div className="min-h-screen">
       {/* Hero Section */}
       <HeroSection/>
+      {/* NEW: Suite Overview (Agent + Gateway) */}
+<section className="py-20 bg-muted/30" id="suite">
+  <div className="container mx-auto px-6">
+    <div className="text-center mb-12">
+      <h2 className="text-3xl md:text-4xl font-bold mb-4">RCOM Suite: Edge + Core</h2>
+      <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+        RCOM is two tightly coupled components: lightweight Agents at the edge, and a powerful Gateway at the core. Use them together—or start with one and scale.
+      </p>
+    </div>
+    <div className="grid md:grid-cols-2 gap-6">
+      {suite.map((s, i) => (
+        <motion.div
+          key={s.title}
+          initial={{ opacity: 0, y: 12 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ delay: i * 0.05 }}
+          viewport={{ once: true }}
+          className="flex"
+        >
+          <Card className="overflow-hidden flex flex-col flex-1 h-full">
+            <div className="flex flex-col md:h-full h-auto">
+              {/* Top Section */}
+              <CardContent className={`p-8 bg-gradient-to-r ${s.color} rounded-b-none text-white flex flex-col flex-1`}>
+                <div className="flex items-center gap-3">
+                  <s.icon className="w-6 h-6" />
+                  <span className="text-xs uppercase tracking-wide bg-white/20 px-2 py-1 rounded-md">{s.badge}</span>
+                </div>
+                <h3 className="text-2xl font-semibold mt-4">{s.title}</h3>
+                <p className="mt-2 text-white/90 leading-relaxed flex-1">{s.description}</p>
+              </CardContent>
+              {/* Bottom Section */}
+              <CardContent className="p-8 flex-1 flex flex-col min-h-[220px]">
+                <ul className="grid sm:grid-cols-2 gap-2 flex-grow">
+                  {s.bullets.map((b) => (
+                    <li key={b} className="flex items-center text-base">
+                      <CheckCircle className="w-5 h-5 text-primary mr-2 shrink-0" />
+                      <span>{b}</span>
+                    </li>
+                  ))}
+                </ul>
+                <div className="mt-6">
+                  <Link to={s.cta.href}>
+                    <Button variant="default" size="sm">
+                      {s.cta.label}
+                      <ArrowRight className="w-4 h-4 ml-2" />
+                    </Button>
+                  </Link>
+                </div>
+              </CardContent>
+            </div>
+          </Card>
+        </motion.div>
+      ))}
+    </div>
+  </div>
+</section>
 
       {/* Redesigned Platform Capabilities */}
       <section className="py-24 bg-background" id="features">

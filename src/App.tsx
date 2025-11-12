@@ -14,6 +14,7 @@ const Contact = lazy(() => import("./pages/Contact"));
 const Pricing = lazy(() => import("./pages/Pricing"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 const Solutions = lazy(() => import("./pages/Solutions"));
+const SolutionsAgents = lazy(() => import("./pages/SolutionsAgents"));
 import LoadingIndicator from "./components/LoadingIndicator";
 
 const queryClient = new QueryClient();
@@ -36,6 +37,7 @@ const App = () => (
                 <Route path="/contact" element={<Contact />} />
                 <Route path="/pricing" element={<Pricing />} />
                 <Route path="/solutions" element={<Solutions />} />
+                <Route path="/solutions-agents" element={<SolutionsAgents />} />
                 {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
                 <Route path="*" element={<NotFound />} />
               </Routes>

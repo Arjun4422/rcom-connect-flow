@@ -51,7 +51,7 @@ const WhyChooseRCOM = () => {
         <div className="text-center mb-20">
           <h1 className="text-5xl md:text-6xl font-bold text-slate-800 mb-6 leading-tight">
             Why Choose 
-            <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent"> RCOM Gateway</span>?
+            <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent"> RCOM Gateway Suite</span>?
           </h1>
           <p className="text-xl text-slate-600 max-w-4xl mx-auto leading-relaxed">
             Transform your IoT data into automated business processes with our comprehensive
