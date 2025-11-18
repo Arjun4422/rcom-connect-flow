@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from "react-router-dom";
 import { 
   Radio, 
   Camera, 
@@ -16,6 +17,7 @@ import {
   Brain,
   Send,
   Workflow,
+  CheckCircle,
   Plug,
   Globe,
   Server,
@@ -272,6 +274,69 @@ const SolutionsAgents = () => {
           </div>
         </div>
       </section>
+
+      <section className="py-16 bg-slate-950 border-b border-slate-900/60 text-slate-100">
+<div className="container mx-auto px-6">
+<div className="max-w-5xl mx-auto text-center mb-12">
+<span className="inline-flex items-center gap-2 bg-slate-800/70 border border-slate-700/70 rounded-full px-4 py-1.5 text-sm font-semibold text-primary">
+<CheckCircle className="w-4 h-4" />
+Two Ways to Use RCOM Agents
+</span>
+<h2 className="text-3xl md:text-4xl font-bold mt-6 mb-4">
+Flexible Edge Processing for Any Architecture
+</h2>
+<p className="text-lg text-slate-300 leading-relaxed">
+RCOM Agents can work hand‑in‑hand with RCOM Gateway for end‑to‑end automation, or operate independently by streaming device data directly to any external system you choose.
+</p>
+</div>
+
+
+<div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+{/* Method 1 */}
+<div className="bg-slate-900/70 border border-slate-800 rounded-2xl p-6">
+<div className="flex items-start gap-4">
+<div className="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-500 to-cyan-500 flex items-center justify-center flex-shrink-0">
+<Cpu className="w-6 h-6 text-white" />
+</div>
+<div>
+<h3 className="text-xl font-semibold text-white">Method 1: Paired with RCOM Gateway</h3>
+<p className="text-sm text-slate-300 mt-2">
+Agents capture, filter, buffer, and normalize raw device data, then forward clean events to RCOM Gateway where workflows, digital twins, routing logic, and integrations take over.
+</p>
+<div className="flex flex-wrap gap-2 mt-4 text-xs text-slate-400">
+<span className="px-3 py-1 bg-slate-800/60 rounded-full border border-slate-700/60">Advanced automation</span>
+<span className="px-3 py-1 bg-slate-800/60 rounded-full border border-slate-700/60">Workflow‑driven logic</span>
+<span className="px-3 py-1 bg-slate-800/60 rounded-full border border-slate-700/60">Digital twins & reporting</span>
+</div>
+
+</div>
+</div>
+</div>
+
+
+{/* Method 2 */}
+<div className="bg-slate-900/70 border border-slate-800 rounded-2xl p-6">
+<div className="flex items-start gap-4">
+<div className="w-12 h-12 rounded-xl bg-gradient-to-br from-purple-500 to-indigo-500 flex items-center justify-center flex-shrink-0">
+<Cpu className="w-6 h-6 text-white" />
+</div>
+<div>
+<h3 className="text-xl font-semibold text-white">Method 2: Direct to Any System</h3>
+<p className="text-sm text-slate-300 mt-2">
+Agents can bypass the Gateway entirely and push structured tag reads or sensor events straight into REST APIs, MQTT topics, or custom middleware of your choice.
+</p>
+<div className="flex flex-wrap gap-2 mt-4 text-xs text-slate-400">
+<span className="px-3 py-1 bg-slate-800/60 rounded-full border border-slate-700/60">Vendor‑agnostic</span>
+<span className="px-3 py-1 bg-slate-800/60 rounded-full border border-slate-700/60">Flexible integrations</span>
+<span className="px-3 py-1 bg-slate-800/60 rounded-full border border-slate-700/60">Lightweight edge layer</span>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
 
       {/* WHY AGENTS SECTION */}
       <section className="py-20 bg-slate-900">

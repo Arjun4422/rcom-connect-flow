@@ -81,6 +81,78 @@ const Index = () => {
     <div className="min-h-screen">
       <HeroSection />
       <section className="py-16 bg-slate-950 border-b border-slate-900/60 text-slate-100">
+<div className="container mx-auto px-6">
+<div className="max-w-5xl mx-auto text-center mb-12">
+<span className="inline-flex items-center gap-2 bg-slate-800/70 border border-slate-700/70 rounded-full px-4 py-1.5 text-sm font-semibold text-primary">
+<CheckCircle className="w-4 h-4" />
+Two Ways to Use RCOM Agents
+</span>
+<h2 className="text-3xl md:text-4xl font-bold mt-6 mb-4">
+Flexible Edge Processing for Any Architecture
+</h2>
+<p className="text-lg text-slate-300 leading-relaxed">
+RCOM Agents can work hand‑in‑hand with RCOM Gateway for end‑to‑end automation, or operate independently by streaming device data directly to any external system you choose.
+</p>
+</div>
+
+
+<div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+{/* Method 1 */}
+<div className="bg-slate-900/70 border border-slate-800 rounded-2xl p-6">
+<div className="flex items-start gap-4">
+<div className="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-500 to-cyan-500 flex items-center justify-center flex-shrink-0">
+<Cpu className="w-6 h-6 text-white" />
+</div>
+<div>
+<h3 className="text-xl font-semibold text-white">Method 1: Paired with RCOM Gateway</h3>
+<p className="text-sm text-slate-300 mt-2">
+Agents capture, filter, buffer, and normalize raw device data, then forward clean events to RCOM Gateway where workflows, digital twins, routing logic, and integrations take over.
+</p>
+<div className="flex flex-wrap gap-2 mt-4 text-xs text-slate-400">
+<span className="px-3 py-1 bg-slate-800/60 rounded-full border border-slate-700/60">Advanced automation</span>
+<span className="px-3 py-1 bg-slate-800/60 rounded-full border border-slate-700/60">Workflow‑driven logic</span>
+<span className="px-3 py-1 bg-slate-800/60 rounded-full border border-slate-700/60">Digital twins & reporting</span>
+</div>
+<div className="mt-5">
+<Link to="/solutions" className="inline-flex items-center text-sm font-medium text-cyan-400 hover:text-cyan-300 transition-colors">
+View Gateway Features
+<ArrowRight className="w-4 h-4 ml-2" />
+</Link>
+</div>
+</div>
+</div>
+</div>
+
+
+{/* Method 2 */}
+<div className="bg-slate-900/70 border border-slate-800 rounded-2xl p-6">
+<div className="flex items-start gap-4">
+<div className="w-12 h-12 rounded-xl bg-gradient-to-br from-purple-500 to-indigo-500 flex items-center justify-center flex-shrink-0">
+<Cpu className="w-6 h-6 text-white" />
+</div>
+<div>
+<h3 className="text-xl font-semibold text-white">Method 2: Direct to Any System</h3>
+<p className="text-sm text-slate-300 mt-2">
+Agents can bypass the Gateway entirely and push structured tag reads or sensor events straight into REST APIs, MQTT topics, or custom middleware of your choice.
+</p>
+<div className="flex flex-wrap gap-2 mt-4 text-xs text-slate-400">
+<span className="px-3 py-1 bg-slate-800/60 rounded-full border border-slate-700/60">Vendor‑agnostic</span>
+<span className="px-3 py-1 bg-slate-800/60 rounded-full border border-slate-700/60">Flexible integrations</span>
+<span className="px-3 py-1 bg-slate-800/60 rounded-full border border-slate-700/60">Lightweight edge layer</span>
+</div>
+<div className="mt-5">
+<Link to="/solutions-agents" className="inline-flex items-center text-sm font-medium text-cyan-400 hover:text-cyan-300 transition-colors">
+Explore Agent Use Cases
+<ArrowRight className="w-4 h-4 ml-2" />
+</Link>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+      <section className="py-16 bg-slate-950 border-b border-slate-900/60 text-slate-100">
         <div className="container mx-auto px-6">
           <div className="max-w-5xl mx-auto text-center mb-12">
             <span className="inline-flex items-center gap-2 bg-slate-800/70 border border-slate-700/70 rounded-full px-4 py-1.5 text-sm font-semibold text-primary">
@@ -148,176 +220,12 @@ const Index = () => {
           </div>
         </div>
       </section>
-      {/* <div className="hidden sm:block">
-      <RCOMStory />
-      </div> */}
-
-      {/* Trusted by section */}
-      
-      {/* <section className="py-10 bg-background">
-        <div className="container mx-auto px-6">
-          <div className="text-center mb-6">
-            <span className="uppercase text-xs tracking-widest text-muted-foreground font-semibold">
-              Trusted by leading organizations
-            </span>
-          </div>
-          <div className="relative flex justify-center">
-            <div
-              className="overflow-hidden w-1/2 mx-auto"
-              style={{ maxWidth: "600px" }}
-            >
-              <div
-                className="flex items-center gap-12 animate-infinite-marquee"
-                style={{
-                  animation: "infinite-marquee 18s linear infinite",
-                  minWidth: "max-content",
-                }}
-              >
-              
-                {[
-                  {
-                    svg: (
-                      <svg className="w-12 h-12 text-primary" fill="none">
-                        <rect width="100%" height="100%" rx="8" fill="currentColor" opacity="0.08" />
-                        <path d="M6 12h12M12 6v12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-                      </svg>
-                    ),
-                    name: "PlusCorp",
-                  },
-                  {
-                    svg: (
-                      <svg className="w-12 h-12 text-primary" fill="none">
-                        <rect width="100%" height="100%" rx="8" fill="currentColor" opacity="0.08" />
-                        <circle cx="12" cy="12" r="6" stroke="currentColor" strokeWidth="2" />
-                      </svg>
-                    ),
-                    name: "CircleOne",
-                  },
-                  {
-                    svg: (
-                      <svg className="w-12 h-12 text-primary" fill="none">
-                        <rect width="100%" height="100%" rx="8" fill="currentColor" opacity="0.08" />
-                        <rect x="7" y="7" width="10" height="10" stroke="currentColor" strokeWidth="2" />
-                      </svg>
-                    ),
-                    name: "SquareNet",
-                  },
-                  {
-                    svg: (
-                      <svg className="w-12 h-12 text-primary" fill="none">
-                        <rect width="100%" height="100%" rx="8" fill="currentColor" opacity="0.08" />
-                        <polygon points="12,6 18,18 6,18" stroke="currentColor" strokeWidth="2" fill="none" />
-                      </svg>
-                    ),
-                    name: "Triad",
-                  },
-                  {
-                    svg: (
-                      <svg className="w-12 h-12 text-primary" fill="none">
-                        <rect width="100%" height="100%" rx="8" fill="currentColor" opacity="0.08" />
-                        <path d="M6 18L18 6M6 6l12 12" stroke="currentColor" strokeWidth="2" />
-                      </svg>
-                    ),
-                    name: "Xeno",
-                  },
-                ].concat([
-                  {
-                    svg: (
-                      <svg className="w-12 h-12 text-primary" fill="none">
-                        <rect width="100%" height="100%" rx="8" fill="currentColor" opacity="0.08" />
-                        <path d="M6 12h12M12 6v12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-                      </svg>
-                    ),
-                    name: "PlusCorp",
-                  },
-                  {
-                    svg: (
-                      <svg className="w-12 h-12 text-primary" fill="none">
-                        <rect width="100%" height="100%" rx="8" fill="currentColor" opacity="0.08" />
-                        <circle cx="12" cy="12" r="6" stroke="currentColor" strokeWidth="2" />
-                      </svg>
-                    ),
-                    name: "CircleOne",
-                  },
-                  {
-                    svg: (
-                      <svg className="w-12 h-12 text-primary" fill="none">
-                        <rect width="100%" height="100%" rx="8" fill="currentColor" opacity="0.08" />
-                        <rect x="7" y="7" width="10" height="10" stroke="currentColor" strokeWidth="2" />
-                      </svg>
-                    ),
-                    name: "SquareNet",
-                  },
-                  {
-                    svg: (
-                      <svg className="w-12 h-12 text-primary" fill="none">
-                        <rect width="100%" height="100%" rx="8" fill="currentColor" opacity="0.08" />
-                        <polygon points="12,6 18,18 6,18" stroke="currentColor" strokeWidth="2" fill="none" />
-                      </svg>
-                    ),
-                    name: "Triad",
-                  },
-                  {
-                    svg: (
-                      <svg className="w-12 h-12 text-primary" fill="none">
-                        <rect width="100%" height="100%" rx="8" fill="currentColor" opacity="0.08" />
-                        <path d="M6 18L18 6M6 6l12 12" stroke="currentColor" strokeWidth="2" />
-                      </svg>
-                    ),
-                    name: "Xeno",
-                  },
-                ]).map((brand, idx) => (
-                  <div className="flex flex-col items-center" key={idx}>
-                    {brand.svg}
-                    <span className="text-xs mt-2 text-muted-foreground">{brand.name}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-            <style>
-              {`
-                @keyframes infinite-marquee {
-                  0% { transform: translateX(0); }
-                  100% { transform: translateX(-50%); }
-                }
-                .animate-infinite-marquee {
-                  animation: infinite-marquee 18s linear infinite;
-                  will-change: transform;
-                }
-              `}
-            </style>
-          </div>
-        </div>
-      </section> */}
 
     
       
       {/* Key Benefits */}
       <WhyChooseRCOM />
-      {/* <section className="py-24 bg-gradient-subtle">
-        <div className="container mx-auto px-6">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Why Choose RCOM Gateway?</h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Transform your IoT data into automated business processes with our comprehensive integration platform
-            </p>
-          </div>
-          
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {benefits.map((benefit, index) => (
-              <Card key={index} className="text-center bg-gradient-card border-border/50 hover:shadow-lg transition-all duration-300">
-                <CardContent className="p-6">
-                  <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <benefit.icon className="w-8 h-8 text-primary" />
-                  </div>
-                  <h3 className="text-lg font-semibold mb-3">{benefit.title}</h3>
-                  <p className="text-muted-foreground leading-relaxed">{benefit.description}</p>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section> */}
+    
 
       {/* Industry Solutions */}
       <section className="py-10 bg-background">
