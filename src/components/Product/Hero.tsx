@@ -131,8 +131,16 @@ const HeroSection: React.FC = () => {
   return (
     <section className="relative overflow-hidden h-screen max-h-[800px] bg-slate-900">
       {/* Background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-blue-900/20 to-slate-900" />
+      <div className="absolute inset-0  bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950" />
       <FloatingParticles />
+      {/* Animated background grid */}
+      <div className="absolute inset-0 opacity-20">
+        <div className="absolute inset-0" style={{
+          backgroundImage: 'linear-gradient(#06b6d4 1px, transparent 1px), linear-gradient(90deg, #06b6d4 1px, transparent 1px)',
+          backgroundSize: '50px 50px',
+          animation: 'gridMove 20s linear infinite'
+        }}/>
+      </div>
       
       <div className="relative z-10 container mx-auto px-6 pt-10 pb-20">
         <div className="max-w-6xl mx-auto">

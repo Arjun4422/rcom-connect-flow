@@ -107,9 +107,9 @@ const Index = () => {
                     Device Edge Layer — install near readers, scanners, and sensors to filter noise, buffer during outages, and stream structured events upstream.
                   </p>
                   <div className="flex flex-wrap gap-2 mt-4 text-xs text-slate-400">
-                    <span className="px-3 py-1 bg-slate-800/60 rounded-full border border-slate-700/60">Vendor-neutral</span>
+                    <span className="px-3 py-1 bg-slate-800/60 rounded-full border border-slate-700/60">Vendor-neutral-system</span>
                     <span className="px-3 py-1 bg-slate-800/60 rounded-full border border-slate-700/60">Store-and-forward</span>
-                    <span className="px-3 py-1 bg-slate-800/60 rounded-full border border-slate-700/60">Local validation</span>
+                    <span className="px-3 py-1 bg-slate-800/60 rounded-full border border-slate-700/60">Local validation and preprocessing </span>
                   </div>
                   <div className="mt-5">
                     <Link to="/solutions-agents" className="inline-flex items-center text-sm font-medium text-cyan-400 hover:text-cyan-300 transition-colors">

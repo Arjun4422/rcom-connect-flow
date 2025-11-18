@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from "react-router-dom";
+import RCOMWorkflow from "../components/Solutions/RCOMWorkflow"
 
 import {
   ArrowRight,
@@ -516,8 +517,15 @@ const App: React.FC = () => {
   return (
     <div className="min-h-screen text-slate-100 bg-slate-950">
       {/* HERO */}
-      <section className="relative overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-b from-[#0b1325] via-[#0d1730] to-[#0f1c36]" />
+      <section className="relative overflow-hidden min-h-screen">
+      <div className="absolute inset-0  bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950" />
+       <div className="absolute inset-0 opacity-20">
+        <div className="absolute inset-0" style={{
+          backgroundImage: 'linear-gradient(#06b6d4 1px, transparent 1px), linear-gradient(90deg, #06b6d4 1px, transparent 1px)',
+          backgroundSize: '50px 50px',
+          animation: 'gridMove 20s linear infinite'
+        }}/>
+      </div>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-28">
           <div className="items-center">
             <div className='text-center '>
@@ -540,6 +548,7 @@ At its core is a low-code workflow engine, letting you design rules visually —
                   See it in Action
                 </button> */}
               </div>
+              <RCOMWorkflow />
             </div>
           </div>
         </div>

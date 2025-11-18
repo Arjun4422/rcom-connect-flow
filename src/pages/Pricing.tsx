@@ -145,8 +145,10 @@ const Pricing = () => {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="py-24 bg-slate-900 text-white inset-0 bg-gradient-to-br from-slate-900 via-blue-900/20 to-slate-900 ">
+      <section className="py-24 bg-slate-900 text-white inset-0 bg-slate-950/90 p-4 shadow-[0_0_80px_rgba(56,189,248,0.35)] backdrop-blur">
+     
         <div className="container mx-auto px-6">
+      
           <div className="max-w-4xl mx-auto text-center">
             <Badge variant="secondary" className="mb-6 bg-primary/20 text-primary-glow border-primary/30">
               Pricing Plans
