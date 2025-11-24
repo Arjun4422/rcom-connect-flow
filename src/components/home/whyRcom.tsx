@@ -129,11 +129,11 @@ const WhyChooseRCOM = () => {
        
 
         {/* Floating Decorations */}
-        <div className="absolute inset-0 pointer-events-none overflow-hidden">
+        {/* <div className="absolute inset-0 pointer-events-none overflow-hidden">
           <div className="absolute top-32 left-10 w-20 h-20 bg-blue-200 rounded-full opacity-20 animate-float"></div>
           <div className="absolute top-80 right-20 w-16 h-16 bg-purple-200 rounded-full opacity-20 animate-float delay-1000"></div>
           <div className="absolute bottom-40 left-1/4 w-12 h-12 bg-emerald-200 rounded-full opacity-20 animate-float delay-2000"></div>
-        </div>
+        </div> */}
       </div>
 
       <style >{`

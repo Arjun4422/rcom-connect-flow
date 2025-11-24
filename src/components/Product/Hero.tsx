@@ -89,7 +89,7 @@ const LiveDataStream: React.FC = () => {
   const maxValue = Math.max(...dataPoints, 1);
 
   return (
-    <div className="bg-slate-900/50 rounded-lg p-6 border  border-blue-500/20">
+    <div className="bg-slate-900/50 rounded-lg p-6 border min-h-screen border-blue-500/20">
       <div className="flex justify-between items-center mb-4">
         <div className="flex items-center">
           <Activity className="w-5 h-5 text-blue-400 mr-2" />

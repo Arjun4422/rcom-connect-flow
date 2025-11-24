@@ -25,11 +25,12 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
+      <Suspense fallback={<LoadingIndicator label="Loading page" />}> 
         <div className="min-h-screen flex flex-col">
           <ScrollToTop />
           <Navigation />
           <main className="flex-1">
-            <Suspense fallback={<LoadingIndicator label="Loading page" />}> 
+            
               <Routes>
                 <Route path="/" element={<Index />} />
                 <Route path="/product" element={<Product />} />
@@ -41,10 +42,10 @@ const App = () => (
                 {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
                 <Route path="*" element={<NotFound />} />
               </Routes>
-            </Suspense>
           </main>
           <Footer />
         </div>
+        </Suspense>
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>

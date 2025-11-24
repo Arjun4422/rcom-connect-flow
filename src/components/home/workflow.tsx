@@ -151,11 +151,11 @@ const RCOMGatewayWorkflow = () => {
         </div>
 
         {/* Decorative Elements */}
-        <div className="absolute inset-0 pointer-events-none overflow-hidden">
+        {/* <div className="absolute inset-0 pointer-events-none overflow-hidden">
           <div className="absolute top-20 left-10 w-32 h-32 bg-blue-100 rounded-full opacity-50 animate-pulse"></div>
           <div className="absolute bottom-20 right-10 w-24 h-24 bg-purple-100 rounded-full opacity-50 animate-pulse delay-1000"></div>
           <div className="absolute top-40 right-20 w-16 h-16 bg-emerald-100 rounded-full opacity-50 animate-pulse delay-2000"></div>
-        </div>
+        </div> */}
       </div>
     </div>
   );

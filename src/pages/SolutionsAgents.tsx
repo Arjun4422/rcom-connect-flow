@@ -150,16 +150,103 @@ const SolutionsAgents = () => {
           </div>
 
           {/* Enhanced Hero Visual - Flow Diagram with Buffer */}
+          {/* Enhanced Hero Visual - Flow Diagram with Buffer */}
           <div className="mt-16 max-w-5xl mx-auto">
-            <div className="relative bg-slate-900/50 rounded-2xl p-8 border border-slate-700/50">
+            <div className="relative bg-slate-900/50 rounded-2xl p-4 sm:p-6 lg:p-8 border border-slate-700/50">
               {isBuffering && (
-                <div className="absolute top-4 right-4 flex items-center gap-2 bg-amber-500/20 border border-amber-500/40 rounded-lg px-3 py-2">
-                  <AlertCircle className="w-4 h-4 text-amber-400" />
-                  <span className="text-xs font-semibold text-amber-400">Network issue - buffering locally</span>
+                <div className="absolute top-2 right-2 sm:top-4 sm:right-4 flex items-center gap-2 bg-amber-500/20 border border-amber-500/40 rounded-lg px-2 py-1 sm:px-3 sm:py-2">
+                  <AlertCircle className="w-3 h-3 sm:w-4 sm:h-4 text-amber-400" />
+                  <span className="text-xs font-semibold text-amber-400 hidden sm:inline">Network issue - buffering locally</span>
+                  <span className="text-xs font-semibold text-amber-400 sm:hidden">Buffering</span>
                 </div>
               )}
               
-              <div className="flex items-center justify-between gap-4 md:gap-8">
+              {/* Mobile Layout (vertical) */}
+              <div className="flex flex-col gap-4 lg:hidden">
+                {/* Devices */}
+                <div>
+                  <h3 className="text-xs font-semibold text-slate-400 mb-2 text-center">Edge Devices</h3>
+                  <div className="grid grid-cols-4 gap-2">
+                    <div className="bg-slate-800/60 border border-cyan-400/30 rounded-lg p-2 flex flex-col items-center">
+                      <Radio className="w-4 h-4 text-cyan-400 mb-1" />
+                      <span className="text-xs text-cyan-400">RFID</span>
+                    </div>
+                    <div className="bg-slate-800/60 border border-cyan-400/30 rounded-lg p-2 flex flex-col items-center">
+                      <Camera className="w-4 h-4 text-cyan-400 mb-1" />
+                      <span className="text-xs text-cyan-400">Vision</span>
+                    </div>
+                    <div className="bg-slate-800/60 border border-cyan-400/30 rounded-lg p-2 flex flex-col items-center">
+                      <Wifi className="w-4 h-4 text-cyan-400 mb-1" />
+                      <span className="text-xs text-cyan-400">RTLS</span>
+                    </div>
+                    <div className="bg-slate-800/60 border border-cyan-400/30 rounded-lg p-2 flex flex-col items-center">
+                      <Database className="w-4 h-4 text-cyan-400 mb-1" />
+                      <span className="text-xs text-cyan-400">Sensor</span>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Arrow Down 1 */}
+                <div className="flex justify-center">
+                  <ArrowRight className="w-5 h-5 text-cyan-400 rotate-90" />
+                </div>
+
+                {/* Agent */}
+                <div>
+                  <h3 className="text-xs font-semibold text-slate-400 mb-2 text-center">RCOM Agent</h3>
+                  <div className="relative flex justify-center">
+                    <div className="bg-gradient-to-br from-blue-600 to-cyan-600 rounded-xl p-4 flex items-center justify-center shadow-lg shadow-blue-500/30">
+                      <Cpu className="w-8 h-8 text-white" />
+                    </div>
+                    {isBuffering && (
+                      <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 bg-amber-500 text-white text-xs px-2 py-1 rounded-full font-semibold">
+                        Buffering
+                      </div>
+                    )}
+                  </div>
+                  <p className="text-xs text-slate-400 text-center mt-2">Filter • Validate • Buffer</p>
+                </div>
+
+                {/* Arrow Down 2 */}
+                <div className="flex justify-center">
+                  <ArrowRight className={`w-5 h-5 text-blue-400 rotate-90 ${isBuffering ? 'opacity-30' : ''}`} />
+                </div>
+
+                {/* Gateway */}
+                <div>
+                  <h3 className="text-xs font-semibold text-slate-400 mb-2 text-center">RCOM Gateway</h3>
+                  <div className="flex justify-center">
+                    <div className="bg-gradient-to-br from-indigo-600 to-purple-600 rounded-xl p-4 flex items-center justify-center shadow-lg shadow-indigo-500/30">
+                      <Network className="w-8 h-8 text-white" />
+                    </div>
+                  </div>
+                  <p className="text-xs text-slate-400 text-center mt-2">Workflow Engine</p>
+                </div>
+
+                {/* Arrow Down 3 */}
+                <div className="flex justify-center">
+                  <ArrowRight className="w-5 h-5 text-indigo-400 rotate-90" />
+                </div>
+
+                {/* Systems */}
+                <div>
+                  <h3 className="text-xs font-semibold text-slate-400 mb-2 text-center">Enterprise</h3>
+                  <div className="flex gap-2 justify-center">
+                    <div className="bg-slate-800/60 border border-indigo-400/30 rounded-lg px-3 py-1.5">
+                      <span className="text-xs text-indigo-400 font-semibold">ERP</span>
+                    </div>
+                    <div className="bg-slate-800/60 border border-indigo-400/30 rounded-lg px-3 py-1.5">
+                      <span className="text-xs text-indigo-400 font-semibold">WMS</span>
+                    </div>
+                    <div className="bg-slate-800/60 border border-indigo-400/30 rounded-lg px-3 py-1.5">
+                      <span className="text-xs text-indigo-400 font-semibold">MES</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Desktop Layout (horizontal) */}
+              <div className="hidden lg:flex items-center justify-between gap-4 xl:gap-8">
                 {/* Devices */}
                 <div className="flex-1">
                   <div className="text-center mb-4">
@@ -186,7 +273,7 @@ const SolutionsAgents = () => {
                 </div>
 
                 {/* Arrow 1 */}
-                <div className="relative flex-shrink-0 w-16 md:w-24 h-1">
+                <div className="relative flex-shrink-0 w-16 xl:w-24 h-1">
                   <div className="absolute top-1/2 left-0 right-0 h-0.5 bg-gradient-to-r from-cyan-400 to-blue-500 transform -translate-y-1/2"></div>
                   {eventPosition >= 0 && eventPosition <= 33 && !isBuffering && (
                     <div 
@@ -218,7 +305,7 @@ const SolutionsAgents = () => {
                 </div>
 
                 {/* Arrow 2 */}
-                <div className="relative flex-shrink-0 w-16 md:w-24 h-1">
+                <div className="relative flex-shrink-0 w-16 xl:w-24 h-1">
                   <div className={`absolute top-1/2 left-0 right-0 h-0.5 bg-gradient-to-r from-blue-500 to-indigo-500 transform -translate-y-1/2 ${isBuffering ? 'opacity-30' : ''}`}></div>
                   {eventPosition >= 33 && eventPosition <= 66 && !isBuffering && (
                     <div 
@@ -241,7 +328,7 @@ const SolutionsAgents = () => {
                 </div>
 
                 {/* Arrow 3 */}
-                <div className="relative flex-shrink-0 w-16 md:w-24 h-1">
+                <div className="relative flex-shrink-0 w-16 xl:w-24 h-1">
                   <div className="absolute top-1/2 left-0 right-0 h-0.5 bg-gradient-to-r from-indigo-500 to-purple-500 transform -translate-y-1/2"></div>
                   {eventPosition >= 66 && eventPosition <= 100 && (
                     <div 
