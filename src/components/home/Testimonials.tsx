@@ -146,7 +146,7 @@ export default function TestimonialsSection() {
             What Our Customers Say
           </h2>
           <p className="text-base sm:text-xl text-slate-600 max-w-3xl mx-auto">
-            Join thousands of companies already transforming their operations with RCOM Gateway
+          Join organizations across healthcare, logistics, and manufacturing already transforming their operations with RCOM Gateway Suite
           </p>
         </div>
 

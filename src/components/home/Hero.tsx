@@ -1,5 +1,6 @@
 import { ChevronDown, Activity, Shield, Zap } from 'lucide-react';
 import EdgeVisualization from './EdgeVisualization';
+import { Link } from 'react-router-dom';
 
 export default function Hero() {
   return (
@@ -28,14 +29,17 @@ export default function Hero() {
             </span>
           </h1>
 
-          <p className="text-base sm:text-lg md:text-xl text-slate-300 mb-6 md:mb-10 leading-relaxed">
-          The RCOM Gateway Suite pairs <span className="text-purple-400 font-semibold">RCOM Agents</span> for edge data collection with <span className="text-emerald-400 font-semibold">RCOM Gateway</span> for logic control. Deploy, normalize, and buffer reads at the device layer, then drive enterprise workflows, twins, and alerts without writing custom middleware.
+    
+        <p className="text-base sm:text-lg md:text-xl text-slate-300 mb-6 md:mb-10 leading-relaxed">
+        <span className="text-purple-400 font-semibold">RCOM Agents</span> collect and clean data at the edge, while <span className="text-emerald-400 font-semibold">RCOM Gateway</span> runs low-code workflows in the core. Deploy, normalize, and buffer reads at the device layer, then drive enterprise workflows, digital twins, and alerts - without custom middleware.
         </p>
 
           <div className="flex flex-col sm:flex-row gap-4">
-            <button className="group px-8 py-4 bg-gradient-to-r from-cyan-500 to-violet-500 text-white font-semibold rounded-lg hover:shadow-lg hover:shadow-cyan-500/50 transition-all duration-300 hover:scale-105">
+           <Link to="/contact">
+           <button className="group px-8 py-4 bg-gradient-to-r from-cyan-500 to-violet-500 text-white font-semibold rounded-lg hover:shadow-lg hover:shadow-cyan-500/50 transition-all duration-300 hover:scale-105">
               Book a Demo
             </button>
+           </Link>
             <button className="px-8 py-4 bg-white/5 backdrop-blur-sm border border-white/10 text-white font-semibold rounded-lg hover:bg-white/10 transition-all duration-300">
               Watch 2-Minute Overview
             </button>
@@ -48,11 +52,11 @@ export default function Hero() {
             </div>
             <div className="flex items-center gap-2 text-slate-400">
               <Zap className="w-5 h-5 text-cyan-400" />
-              <span className="text-sm">Device-agnostic</span>
+              <span className="text-sm">Device-agnostic Auto-ID & IoT</span>
             </div>
             <div className="flex items-center gap-2 text-slate-400">
               <Shield className="w-5 h-5 text-cyan-400" />
-              <span className="text-sm">Built for warehouses & hospitals</span>
+              <span className="text-sm">Built for high-throughput operations</span>
             </div>
           </div>
         </div>

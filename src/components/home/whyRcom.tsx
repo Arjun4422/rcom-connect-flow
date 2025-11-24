@@ -18,7 +18,7 @@ const WhyChooseRCOM = () => {
       id: 2,
       icon: Settings,
       title: "Flexible Automation",
-      description: "No-code workflows adapt to your processes, from warehouse to hospital.",
+      description: "Low-code workflows adapt to your processes—from warehouse and hospital to factory and campus.",
       benefits: ["Drag & drop interface", "Custom workflows", "No coding required"],
       color: "from-purple-500 to-pink-500",
       bgGradient: "from-purple-50 to-pink-50"
@@ -27,7 +27,7 @@ const WhyChooseRCOM = () => {
       id: 3,
       icon: Database,
       title: "Unified Data Integration",
-      description: "Consolidate RFID, barcode, and sensor data into your enterprise systems seamlessly.",
+      description: "Bring RFID, barcode, BLE, vision, and sensor data into your enterprise systems seamlessly.",
       benefits: ["Multi-format support", "Enterprise integration", "Seamless connectivity"],
       color: "from-emerald-500 to-teal-500",
       bgGradient: "from-emerald-50 to-teal-50"
@@ -36,7 +36,7 @@ const WhyChooseRCOM = () => {
       id: 4,
       icon: Zap,
       title: "Scalable & Secure",
-      description: "Enterprise-grade platform that grows with you – scale from one site to global operations securely.",
+      description: "An enterprise-grade platform that grows from a single site to global operations with strong security controls.",
       benefits: ["Enterprise security", "Global scalability", "Future-ready platform"],
       color: "from-orange-500 to-red-500",
       bgGradient: "from-orange-50 to-red-50"
@@ -54,8 +54,8 @@ const WhyChooseRCOM = () => {
             <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent"> RCOM Gateway Suite</span>?
           </h1>
           <p className="text-xl text-slate-600 max-w-4xl mx-auto leading-relaxed">
-            Transform your IoT data into automated business processes with our comprehensive
-            <span className="font-semibold text-blue-600"> integration platform</span>
+          Transform your Auto-ID and IoT data into automated business processes with a unified 
+            <span className="font-semibold text-blue-600"> edge-to-cloud platform.</span>
           </p>
         </div>
 
@@ -128,12 +128,6 @@ const WhyChooseRCOM = () => {
 
        
 
-        {/* Floating Decorations */}
-        {/* <div className="absolute inset-0 pointer-events-none overflow-hidden">
-          <div className="absolute top-32 left-10 w-20 h-20 bg-blue-200 rounded-full opacity-20 animate-float"></div>
-          <div className="absolute top-80 right-20 w-16 h-16 bg-purple-200 rounded-full opacity-20 animate-float delay-1000"></div>
-          <div className="absolute bottom-40 left-1/4 w-12 h-12 bg-emerald-200 rounded-full opacity-20 animate-float delay-2000"></div>
-        </div> */}
       </div>
 
       <style >{`

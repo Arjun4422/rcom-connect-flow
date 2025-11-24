@@ -36,12 +36,12 @@ const Navigation = () => {
               Home
             </Link>
             <Link
-              to="/product"
+              to="/platform"
               className={`text-sm font-medium transition-colors hover:text-primary ${
-                isActive("/product") ? "text-primary" : "text-muted-foreground"
+                isActive("/platform") ? "text-primary" : "text-muted-foreground"
               }`}
             >
-              Product
+              Platform
             </Link>
             
             {/* Solutions Dropdown */}
@@ -103,7 +103,7 @@ const Navigation = () => {
           <div className="hidden lg:flex items-center space-x-3">
             <Link to="/contact">
               <Button variant="outline" size="sm">
-                Contact Us
+                Contact
               </Button>
             </Link>
             <Link to="/contact">

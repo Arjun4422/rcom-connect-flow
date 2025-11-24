@@ -1,9 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
 import RCOMGatewayWorkflow from "@/components/home/workflow";
 import WhyChooseRCOM from "@/components/home/whyRcom";
-import RCOMStory from "@/components/home/StoryTabs";
 import TestimonialsSection from "@/components/home/Testimonials";
 import Hero from "@/components/home/Hero";
 import { 
@@ -91,7 +89,7 @@ const Index = () => {
               RCOM Gateway Suite: Edge to Enterprise in Sync
             </h2>
             <p className="text-lg text-slate-300 leading-relaxed">
-              Deploy one platform to capture, clean, and act on Auto-ID and IoT events. RCOM Agents sit with your devices to normalize signals, while RCOM Gateway orchestrates workflows, twins, and integrations for enterprise outcomes.
+              Deploy one platform to capture, clean, and act on Auto-ID & IoT events. RCOM Agents sit with your devices to normalize signals, while RCOM Gateway orchestrates workflows, twins, and integrations for enterprise outcomes.
             </p>
           </div>
 
@@ -102,14 +100,14 @@ const Index = () => {
                   <Cpu className="w-6 h-6 text-white" />
                 </div>
                 <div>
-                  <h3 className="text-xl font-semibold text-white">RCOM Agents</h3>
+                  <h3 className="text-xl font-semibold text-white">RCOM Agents (Edge Layer) </h3>
                   <p className="text-sm text-slate-300 mt-2">
-                    Device Edge Layer — install near readers, scanners, and sensors to filter noise, buffer during outages, and stream structured events upstream.
+                    Device Edge Layer - install near readers, scanners, and sensors to filter noise, buffer during outages, and stream structured events upstream.
                   </p>
                   <div className="flex flex-wrap gap-2 mt-4 text-xs text-slate-400">
-                    <span className="px-3 py-1 bg-slate-800/60 rounded-full border border-slate-700/60">Vendor-neutral-system</span>
-                    <span className="px-3 py-1 bg-slate-800/60 rounded-full border border-slate-700/60">Store-and-forward</span>
-                    <span className="px-3 py-1 bg-slate-800/60 rounded-full border border-slate-700/60">Local validation and preprocessing </span>
+                    <span className="px-3 py-1 bg-slate-800/60 rounded-full border border-slate-700/60">Vendor-neutral device support</span>
+                    <span className="px-3 py-1 bg-slate-800/60 rounded-full border border-slate-700/60">Store-and-forward buffering</span>
+                    <span className="px-3 py-1 bg-slate-800/60 rounded-full border border-slate-700/60">Local validation and pre-processing </span>
                   </div>
                   <div className="mt-5">
                     <Link to="/solutions-agents" className="inline-flex items-center text-sm font-medium text-cyan-400 hover:text-cyan-300 transition-colors">
@@ -127,7 +125,7 @@ const Index = () => {
                   <WorkflowIcon className="w-6 h-6 text-white" />
                 </div>
                 <div>
-                  <h3 className="text-xl font-semibold text-white">RCOM Gateway</h3>
+                  <h3 className="text-xl font-semibold text-white">RCOM Gateway (Automation Layer)</h3>
                   <p className="text-sm text-slate-300 mt-2">
                     Logic Control Layer — design workflows, digital twins, and integrations to push cleansed edge events into ERP, WMS, MES, analytics, or custom dashboards.
                   </p>
@@ -159,9 +157,9 @@ const Index = () => {
       <section className="py-10 bg-background">
         <div className="container mx-auto px-6">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Industry Solutions</h2>
+            <h3 className="text-3xl md:text-4xl font-bold mb-4">Example Solutions in Key Environments</h3>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Tailored solutions for your industry's unique challenges and requirements
+            RCOM Gateway Suite can automate any Auto-ID–ready process. Here are just a few of the environments where customers use it today.
             </p>
           </div>
           
@@ -178,12 +176,7 @@ const Index = () => {
                       <p className="text-muted-foreground leading-relaxed mb-4">
                         {industry.description}
                       </p>
-                      <Link to={industry.link}>
-                        {/* <Button variant="outline" size="sm" className="group-hover:shadow-md transition-all">
-                          Learn More
-                          <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
-                        </Button> */}
-                      </Link>
+                     
                     </div>
                   </div>
                 </CardContent>
@@ -197,16 +190,16 @@ const Index = () => {
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
             <div className="space-y-2 text-center">
-              <div className="text-4xl font-bold text-blue-400">500+</div>
-              <div className="text-slate-300">Companies</div>
+              <div className="text-4xl font-bold text-blue-400">Global</div>
+              <div className="text-slate-300">deployments</div>
             </div>
             <div className="space-y-2 text-center">
               <div className="text-4xl font-bold text-emerald-400">99.9%</div>
               <div className="text-slate-300">Uptime</div>
             </div>
             <div className="space-y-2 text-center">
-              <div className="text-4xl font-bold text-orange-400">50M+</div>
-              <div className="text-slate-300">Devices Connected</div>
+              <div className="text-4xl font-bold text-orange-400">Millions</div>
+              <div className="text-slate-300">of devices connected</div>
             </div>
             <div className="space-y-2 text-center">
               <div className="text-4xl font-bold text-purple-400">24/7</div>
@@ -239,7 +232,7 @@ const Index = () => {
                   <ArrowRight className="w-5 h-5 ml-2" />
                 </Button>
               </Link>
-              <Link to="/product">
+              <Link to="/platform">
                 <Button variant="outline" size="lg" className="bg-white/10 border-white/20 text-white hover:bg-white/20">
                   Explore Platform
                 </Button>

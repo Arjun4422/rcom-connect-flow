@@ -22,7 +22,7 @@ const RCOMGatewayWorkflow = () => {
     {
       number: "3", 
       title: "RCOM Gateway",
-      subtitle: "Captures & processes event",
+      subtitle: "Runs low-code business logic",
       icon: Database,
       color: "from-purple-500 to-purple-600"
     },
@@ -56,11 +56,10 @@ const RCOMGatewayWorkflow = () => {
         {/* Header */}
         <div className="text-center mb-16">
           <h1 className="text-4xl md:text-5xl font-bold text-slate-800 mb-6">
-            How RCOM Gateway Works
+            How RCOM Gateway Suite Works
           </h1>
           <p className="text-lg text-slate-600 max-w-4xl mx-auto leading-relaxed">
-            A device scan or sensor reading flows into RCOM Gateway, which processes it through visual
-            workflows, then updates your systems in milliseconds. <span className="font-semibold text-blue-600">No custom code needed.</span>
+          A device scan or sensor reading is captured by RCOM Agents, cleaned at the edge, then sent to RCOM Gateway, which runs visual workflows and updates your systems in milliseconds. <span className="font-semibold text-blue-600">No custom middleware required. </span>
           </p>
         </div>
 
@@ -149,13 +148,6 @@ const RCOMGatewayWorkflow = () => {
             </a>
           </div>
         </div>
-
-        {/* Decorative Elements */}
-        {/* <div className="absolute inset-0 pointer-events-none overflow-hidden">
-          <div className="absolute top-20 left-10 w-32 h-32 bg-blue-100 rounded-full opacity-50 animate-pulse"></div>
-          <div className="absolute bottom-20 right-10 w-24 h-24 bg-purple-100 rounded-full opacity-50 animate-pulse delay-1000"></div>
-          <div className="absolute top-40 right-20 w-16 h-16 bg-emerald-100 rounded-full opacity-50 animate-pulse delay-2000"></div>
-        </div> */}
       </div>
     </div>
   );

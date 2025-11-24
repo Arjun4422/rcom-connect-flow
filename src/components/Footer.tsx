@@ -15,8 +15,7 @@ const Footer = () => {
               <span className="text-xl font-bold">RCOM Gateway</span>
             </div>
             <p className="text-enterprise-foreground/70 mb-6 text-sm leading-relaxed">
-              Bridging the gap between physical devices and digital systems with 
-              enterprise-grade IoT integration platform.
+            Bridging the gap between physical devices and digital systems with an enterprise-grade Auto-ID and IoT integration platform.
             </p>
             <div className="flex space-x-4">
               <a href="#" className="text-enterprise-foreground/70 hover:text-primary-glow transition-colors">
@@ -49,7 +48,7 @@ const Footer = () => {
               </li>
               <li>
                 <a href="https://docs.rcom-gateway.com/" className="text-enterprise-foreground/70 hover:text-primary-glow transition-colors">
-                  Documentation
+                Documentation
                 </a>
               </li>
             </ul>
@@ -69,7 +68,12 @@ const Footer = () => {
             <ul className="space-y-3 text-sm">
               <li>
                 <Link to="/solutions" className="text-enterprise-foreground/70 hover:text-primary-glow transition-colors">
-                  RCOM Gateway applications
+                  RCOM Gateway
+                </Link>
+              </li>
+              <li>
+                <Link to="/solutions-agents" className="text-enterprise-foreground/70 hover:text-primary-glow transition-colors">
+                  RCOM Agent
                 </Link>
               </li>
             </ul>
