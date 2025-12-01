@@ -153,15 +153,14 @@ const HeroSection: React.FC = () => {
               <span className="text-white">RCOM Gateway</span>
               <br />
               <span className="bg-gradient-to-r from-blue-400 via-cyan-400 to-blue-600 bg-clip-text text-transparent">
-                Event‑Driven Automation
+              Event-Driven Automation
               </span>
               <br />
-              <span className="text-white">for the Physical World</span>
+              <span className="text-white"> for the Real World</span>
             </h1>
             
             <p className="text-xl text-gray-300 mb-12 leading-relaxed max-w-5xl mx-auto">
-            RCOM Gateway is a powerful software platform that connects your world of Auto-ID devices to your world of software. It's an integration hub that captures every scan, read, or sensor signal and turns it into immediate, automated action. With a modular, scalable architecture, RCOM Gateway lets you build digital twin models of your operations and streamline processes without writing a line of code.
-              </p>
+            RCOM Gateway connects your Auto-ID and IoT devices to your enterprise systems. It captures every scan, read, or sensor signal and turns it into instant, automated action. Build digital twins, streamline processes, and integrate with your existing systems - without custom middleware.              </p>
           </div>
 
           <div className="flex flex-row gap-6 justify-center items-stretch mb-12">
@@ -192,7 +191,7 @@ const HeroSection: React.FC = () => {
             <Card className="bg-slate-800/50 border-slate-700 flex-1 min-w-[180px]">
               <CardContent className="p-6 text-center">
                 <div className="text-3xl font-bold text-purple-400 mb-2">
-                  <AnimatedCounter target={1000} suffix="+" />
+                  <AnimatedCounter target={10000} suffix="+" />
                 </div>
                 <div className="text-sm text-gray-400">Devices</div>
               </CardContent>

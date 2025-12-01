@@ -203,9 +203,9 @@ const Product = () => {
 <section className="py-20 bg-muted/30" id="suite">
   <div className="container mx-auto px-6">
     <div className="text-center mb-12">
-      <h2 className="text-3xl md:text-4xl font-bold mb-4">RCOM Suite: Edge + Core</h2>
+      <h2 className="text-3xl md:text-4xl font-bold mb-4">RCOM Gateway Suite = Agents at the edge + Gateway at the core.</h2>
       <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-        RCOM is two tightly coupled components: lightweight Agents at the edge, and a powerful Gateway at the core. Use them together—or start with one and scale.
+        RCOM is two tightly coupled components: lightweight Agents at the edge, and a powerful Gateway at the core. Use them together - or start with one and scale.
       </p>
     </div>
     <div className="grid md:grid-cols-2 gap-6">

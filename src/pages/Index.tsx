@@ -199,7 +199,7 @@ const Index = () => {
             </div>
             <div className="space-y-2 text-center">
               <div className="text-4xl font-bold text-orange-400">Millions</div>
-              <div className="text-slate-300">of devices connected</div>
+              <div className="text-slate-300">of events generated</div>
             </div>
             <div className="space-y-2 text-center">
               <div className="text-4xl font-bold text-purple-400">24/7</div>
