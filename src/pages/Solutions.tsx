@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from "react-router-dom";
-import RCOMWorkflow from "../components/Solutions/RCOMWorkflow"
+import PlatformGateway from '@/components/Solutions/Gateway';
+
 
 import {
   ArrowRight,
@@ -515,126 +516,11 @@ const App: React.FC = () => {
   }, [activeFilters])
 
   return (
+    
     <div className="min-h-screen text-slate-100 bg-slate-950">
-      {/* HERO */}
-      <section className="relative overflow-hidden min-h-screen">
-      <div className="absolute inset-0  bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950" />
-       <div className="absolute inset-0 opacity-20">
-        <div className="absolute inset-0" style={{
-          backgroundImage: 'linear-gradient(#06b6d4 1px, transparent 1px), linear-gradient(90deg, #06b6d4 1px, transparent 1px)',
-          backgroundSize: '50px 50px',
-          animation: 'gridMove 20s linear infinite'
-        }}/>
-      </div>
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-28">
-          <div className="items-center">
-            <div className='text-center '>
-              <h1 className="text-5xl lg:text-6xl font-bold mb-6 tracking-tight">
-                <span className='bg-gradient-to-r from-blue-400 via-cyan-400 to-blue-600 bg-clip-text text-transparent'>Workflow Engine </span>
-                <span className="bg-gradient-to-r from-white to-sky-200 bg-clip-text text-transparent"> without limits.</span>
-              </h1>
-              <p className="text-lg text-slate-300 mb-8 leading-relaxed">
-              RCOM Gateway is a central automation layer between the physical world and digital operations. Every tag read, scan, or sensor signal becomes a Gateway Event that can trigger workflows, update digital twins, send alerts, or push insights to dashboards.
-<br />
-At its core is a low-code workflow engine, letting you design rules visually — not through complex custom code. This means you can automate responses to real-world events in real time, without traditional middleware development
-              </p>
-              <div className="flex flex-wrap gap-4 justify-center items-center">
-              <Link to="/contact" className="w-full sm:w-auto">
-                <button className="bg-gradient-to-r from-blue-600 to-sky-500 px-6 py-3 rounded-lg font-semibold text-white hover:from-blue-700 hover:to-sky-600 focus:outline-none focus:ring-2 focus:ring-sky-400/60">
-                  Request a Demo
-                </button>
-                </Link>
-                {/* <button className="px-6 py-3 rounded-lg font-semibold border border-slate-600 text-slate-100 hover:bg-white/5 focus:outline-none focus:ring-2 focus:ring-slate-400/40">
-                  See it in Action
-                </button> */}
-              </div>
-              <RCOMWorkflow />
-            </div>
-          </div>
-        </div>
-      </section>
 
-      {/* PATTERN PRIMER */}
-     
-      <section className="relative py-24 bg-gradient-to-b from-slate-50 to-white overflow-hidden">
-      {/* Background decoration */}
-      <div className="absolute inset-0 bg-grid-slate-100 [mask-image:linear-gradient(0deg,white,rgba(255,255,255,0.6))] -z-10" style={{
-        backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23e2e8f0' fill-opacity='0.4'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`
-      }}></div>
+     <PlatformGateway/>
       
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-        {/* Header */}
-        <div className="text-center mb-16">
-          <div className="inline-block mb-4">
-            <span className="text-sm font-semibold text-sky-600 bg-sky-50 px-4 py-2 rounded-full border border-sky-200">
-              Universal Platform
-            </span>
-          </div>
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-slate-900">
-            One platform. <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-sky-500">Any environment.</span>
-          </h2>
-          <p className="text-lg text-slate-600 max-w-3xl mx-auto leading-relaxed">
-            RCOM Gateway connects Auto-ID and IoT (RFID, barcodes, BLE, sensors, vision) to your systems. Everywhere, the loop is the same:
-          </p>
-        </div>
-
-        {/* Steps Flow */}
-        <div className="relative mb-12">
-          {/* Connection line for desktop */}
-          <div className="hidden md:block absolute top-1/2 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-sky-200 to-transparent transform -translate-y-1/2 -z-10"></div>
-          
-          <div className="flex flex-wrap justify-center items-center gap-6 md:gap-4">
-            {steps.map((step, i) => {
-              const Icon = step.icon;
-              return (
-                <React.Fragment key={step.name}>
-                  <div className="group relative">
-                    {/* Glow effect */}
-                    <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-sky-500 rounded-2xl blur-xl opacity-20 group-hover:opacity-40 transition-opacity duration-300"></div>
-                    
-                    {/* Card */}
-                    <div className="relative rounded-2xl w-40 h-40 flex flex-col items-center justify-center bg-white shadow-lg shadow-sky-500/10 border border-sky-100 group-hover:border-sky-300 transition-all duration-300 group-hover:shadow-xl group-hover:shadow-sky-500/20 group-hover:-translate-y-1">
-                      <div className="absolute -top-3 -right-3 w-8 h-8 bg-gradient-to-br from-blue-600 to-sky-500 rounded-full flex items-center justify-center text-white text-sm font-bold shadow-lg">
-                        {i + 1}
-                      </div>
-                      <div className="w-16 h-16 mb-3 rounded-xl bg-gradient-to-br from-blue-600 to-sky-500 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                        <Icon className="text-white" size={32} strokeWidth={2} />
-                      </div>
-                      <div className="font-bold text-lg text-slate-900">{step.name}</div>
-                      <div className="text-xs text-slate-500 mt-1">{step.description}</div>
-                    </div>
-                  </div>
-                  
-                  {/* Arrow */}
-                  {i < 4 && (
-                    <div className="hidden md:flex items-center">
-                      <ArrowRight className="text-sky-400" size={24} strokeWidth={2.5} />
-                    </div>
-                  )}
-                </React.Fragment>
-              );
-            })}
-          </div>
-        </div>
-
-        {/* CTA */}
-        <div className="text-center mt-16">
-          <a 
-            href="#patterns" 
-            className="group inline-flex items-center gap-3 text-sky-600 hover:text-sky-700 font-semibold text-lg transition-all duration-300"
-          >
-            <span className="relative">
-              Explore solution patterns
-              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-sky-600 group-hover:w-full transition-all duration-300"></span>
-            </span>
-            <ArrowRight 
-              size={20} 
-              className="group-hover:translate-x-1 transition-transform duration-300" 
-            />
-          </a>
-        </div>
-      </div>
-    </section>
       {/* SOLUTION PATTERNS */}
       <section id="patterns" className="py-20 bg-white text-slate-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -934,24 +820,35 @@ At its core is a low-code workflow engine, letting you design rules visually —
       </section>
 
       {/* CTA */}
-      <section className="py-20">
+      <section className="py-20 bg-slate-950">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-gradient-to-r from-blue-700 to-sky-600 rounded-2xl p-12 text-center text-white">
-            <h2 className="text-3xl font-bold mb-3">Map your use case to RCOM in minutes.</h2>
-            <p className="text-lg text-sky-100 mb-8 max-w-2xl mx-auto">
-              Whether you're looking for operational outcomes or technical details, we're here to help.
-            </p>
-            <div className="flex flex-wrap justify-center gap-4">
-            <Link to="/contact" className="w-full sm:w-auto">
-              <button className="bg-white text-blue-700 px-7 py-3 rounded-lg font-semibold hover:bg-blue-50">Request a Demo</button>
-            </Link>
-            <Link to="/contact" className="w-full sm:w-auto">
-            </Link>
-              <button className="border-2 border-white text-white px-7 py-3 rounded-lg font-semibold hover:bg-white/10">Talk to an Engineer</button>
-            <Link to="https://docs.rcom-gateway.com/" className="w-full sm:w-auto">
+          <div className="relative overflow-hidden rounded-2xl p-12 text-center">
+             <div className="absolute inset-0 bg-gradient-to-r from-indigo-700 to-purple-800"></div>
+             <div className="absolute inset-0 opacity-30" style={{
+                backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)',
+                backgroundSize: '24px 24px'
+             }}></div>
+             
+             <div className="relative z-10">
+                <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">
+                  Automate Your Operation in Real Time
+                </h2>
+                <p className="text-indigo-100 mb-8 max-w-2xl mx-auto">
+                   See RCOM Gateway in action with a walkthrough tailored to your use case.
+                </p>
+                <div className="flex flex-wrap justify-center gap-4">
+                <Link to="/contact" className="w-full sm:w-auto">
+                  <button className="bg-white text-indigo-900 px-8 py-3 rounded-lg font-bold hover:bg-indigo-50 transition-all shadow-xl">
+                    Schedule a Demo
+                  </button>
+                  </Link>
+                
+       
+                  <Link to="https://docs.rcom-gateway.com/" className="w-full sm:w-auto">
               <button className="border-2 border-white text-white px-7 py-3 rounded-lg font-semibold hover:bg-white/10">Read the Docs</button>
             </Link>
-            </div>
+                </div>
+             </div>
           </div>
         </div>
       </section>

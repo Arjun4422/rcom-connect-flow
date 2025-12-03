@@ -68,8 +68,8 @@ const Index = () => {
     },
     {
       icon: Building2,
-      title: "Smart Infrastructure",
-      description: "Unify building or city-wide sensor networks. Whether it's smart building management or intelligent transport systems, RCOM orchestrates devices and data.",
+      title: "Retail",
+      description: "Empower real-time inventory accuracy, reduce shrink, and automate replenishment. RCOM connects RFID and barcode events from backroom to salesfloor for faster, smarter retail operations.",
       link: "/solutions/smart-infrastructure",
       color: "text-purple-500"
     }

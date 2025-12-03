@@ -16,6 +16,7 @@ const NotFound = lazy(() => import("./pages/NotFound"));
 const Solutions = lazy(() => import("./pages/Solutions"));
 const SolutionsAgents = lazy(() => import("./pages/SolutionsAgents"));
 import LoadingIndicator from "./components/LoadingIndicator";
+import PlatformGateway from "./components/Solutions/Gateway";
 
 const queryClient = new QueryClient();
 
