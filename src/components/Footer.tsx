@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Mail, Phone, MapPin, Linkedin, Twitter } from "lucide-react";
+import { Mail, Phone, MapPin, Linkedin, Twitter,Globe } from "lucide-react";
 
 const Footer = () => {
   return (
@@ -83,6 +83,11 @@ const Footer = () => {
           <div>
             <h3 className="font-semibold mb-4 text-enterprise-foreground">Contact</h3>
             <ul className="space-y-3 text-sm">
+            <li className="flex items-center space-x-2 text-enterprise-foreground/70">
+                <Globe className="w-4 h-4" />
+               <a href="https://data-elektronik.de"> <span>data-elektronik.de</span></a>
+              </li>
+              
               <li className="flex items-center space-x-2 text-enterprise-foreground/70">
                 <Mail className="w-4 h-4" />
                 <span>info@rcomgateway.com</span>
@@ -104,6 +109,7 @@ const Footer = () => {
             © 2024 RCOM Gateway. All rights reserved.
           </p>
           <div className="flex space-x-6 mt-4 md:mt-0">
+            
             <Link to="/privacy" className="text-enterprise-foreground/70 hover:text-primary-glow text-sm transition-colors">
               Privacy Policy
             </Link>

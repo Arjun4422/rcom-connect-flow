@@ -4,6 +4,7 @@ import { Badge } from "@/components/ui/badge";
 import { ArrowRight, Users, Target, Award, MapPin, Mail, Linkedin } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useEffect, useRef, useState } from "react";
+import PartnersPage from "./Partner";
 
 const About = () => {
   const CountUp = ({ end, duration = 1500, decimals = 0, suffix = "", prefix = "" }: { end: number; duration?: number; decimals?: number; suffix?: string; prefix?: string; }) => {
@@ -97,6 +98,7 @@ const About = () => {
 
   return (
     <div className="min-h-screen">
+      <PartnersPage/>
       {/* Hero Section */}
       <section className="py-24 bg-slate-900 text-white inset-0 bg-slate-950/90 p-4 shadow-[0_0_80px_rgba(56,189,248,0.35)] backdrop-blur ">
         <div className="container mx-auto px-6">
