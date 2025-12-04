@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import RCOMWorkflow from "./RCOMWorkflow"
+import { Link } from "react-router-dom";
 
 import { 
   Network, 
@@ -207,12 +208,14 @@ const PlatformGateway = () => {
               </span>
             </h1>
             <p className="text-lg text-slate-300 mb-8 leading-relaxed max-w-6xl mx-auto">
-              RCOM Gateway is the central brain of your automation stack. Ingest every RFID read, barcode scan, or sensor value and turn it into immediate, smart, automated action—without custom code.
+              RCOM Gateway is the central brain of your automation stack. Ingest every RFID read, barcode scan, or sensor value and turn it into immediate, smart, automated action, without custom code.
             </p>
             <div className="flex flex-wrap gap-4 justify-center items-center">
-              <button className="bg-gradient-to-r from-indigo-600 to-purple-600 px-8 py-3 rounded-lg font-semibold text-white hover:from-indigo-700 hover:to-purple-700 transition-all shadow-lg shadow-indigo-500/25">
+              <Link to="/contact">
+                <button className="bg-gradient-to-r from-indigo-600 to-purple-600 px-8 py-3 rounded-lg font-semibold text-white hover:from-indigo-700 hover:to-purple-700 transition-all shadow-lg shadow-indigo-500/25">
                 Talk to an Engineer
               </button>
+              </Link>
             </div>
           </div>
 
@@ -258,7 +261,7 @@ const PlatformGateway = () => {
                     <div className="absolute inset-0 bg-indigo-500/10 animate-pulse"></div>
                     <Network className="w-12 h-12 text-white mb-3 relative z-10" />
                     <div className="text-sm font-semibold text-white relative z-10">Workflow Engine</div>
-                    <div className="text-xs text-indigo-200 mt-1 relative z-10">Digital Twins • Custom UI</div>
+                    <div className="text-xs text-indigo-200 mt-1 relative z-10">Digital Twins • Custom UI </div>
                   </div>
                 </div>
 
@@ -307,7 +310,7 @@ const PlatformGateway = () => {
               Two Ways to Use RCOM Gateway
             </h2>
             <p className="text-lg text-slate-300 leading-relaxed max-w-2xl mx-auto">
-              Operate as a central orchestration engine for your entire operation — or run standalone in contexts where edge logic or third-party ingestion layers already exist.
+              Operate as a central orchestration engine for your entire operation - or run standalone in contexts where edge logic or third-party ingestion layers already exist.
             </p>
           </div>
 
@@ -416,7 +419,7 @@ const PlatformGateway = () => {
               Inside RCOM Gateway
             </h2>
             <p className="text-lg text-slate-400">
-              From a Single Event to a Full Workflow — Instantly
+              From a Single Event to a Full Workflow - Instantly
             </p>
           </div>
 
@@ -478,26 +481,7 @@ const PlatformGateway = () => {
             })}
           </div>
           
-          {/* Stats Bar */}
-          <div className="mt-16 grid grid-cols-2 md:grid-cols-4 divide-y md:divide-y-0 md:divide-x divide-slate-800 bg-slate-800/30 rounded-2xl border border-slate-800">
-             <div className="p-6 text-center">
-                <div className="text-3xl font-bold text-white mb-1">99.9%</div>
-                <div className="text-xs text-slate-400 uppercase tracking-wide">Uptime</div>
-             </div>
-             <div className="p-6 text-center">
-                <div className="text-3xl font-bold text-white mb-1">15M+</div>
-                <div className="text-xs text-slate-400 uppercase tracking-wide">Events / Hour</div>
-             </div>
-             <div className="p-6 text-center">
-                <div className="text-3xl font-bold text-white mb-1">&lt;1ms</div>
-                <div className="text-xs text-slate-400 uppercase tracking-wide">Execution</div>
-             </div>
-             <div className="p-6 text-center">
-                <div className="text-3xl font-bold text-white mb-1">Multi-site</div>
-                <div className="text-xs text-slate-400 uppercase tracking-wide">Multi-tenant ready</div>
-             </div>
-          </div>
-
+       
         </div>
       </section>
       <section>

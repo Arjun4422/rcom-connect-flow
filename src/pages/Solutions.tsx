@@ -462,23 +462,182 @@ const App: React.FC = () => {
     },
   ];
 
-  const faqs = [
+  const faqs: { q: string; a: React.ReactNode }[] = [
     {
-      q: 'Is RCOM limited to specific industries?',
-      a: 'No. If your environment emits Auto-ID or IoT events (RFID, barcode, BLE, sensors, vision), RCOM applies. We work across warehouses, hospitals, factories, campuses, yards, labs, and more.',
+      q: 'What exactly does RCOM Gateway do?',
+      a: 'RCOM Gateway connects Auto-ID devices (RFID readers, barcode scanners, BLE tags, sensors, vision systems) to your business systems and automates what happens next. It ingests events in real time, runs rule-based workflows, updates digital twins, and pushes clean data to ERP/WMS/MES systems.',
     },
     {
-      q: 'Do we need to build separate apps?',
-      a: 'Usually no. Use Custom UI for dashboards and forms, and Custom Maps for spatial logic. Everything is built into the RCOM platform.',
+      q: 'Does RCOM Gateway replace custom middleware?',
+      a: 'Yes. Instead of writing scripts, adapters, or device-specific services, you create automation visually through a low-code workflow engine. The system handles ingestion, validation, routing, state updates, and integrations — no custom middleware required.',
     },
     {
-      q: 'How do we start small?',
-      a: 'Begin with one pattern like Shipping Verify or Track, then expand using templates. Most customers start with a single use case and grow from there.',
+      q: 'Do I need RCOM Agents, or can devices connect directly?',
+      a: (
+        <>
+          <p className="mb-2">You can use both.</p>
+          <ul className="list-disc list-inside space-y-1">
+            <li>
+              <strong>Direct-to-Gateway:</strong> Ideal for REST/MQTT-capable
+              devices.
+            </li>
+            <li>
+              <strong>With RCOM Agents:</strong> Recommended for RFID portals,
+              high-read zones, and environments with noise or intermittent
+              connectivity. Agents filter, buffer, and normalize data at the
+              edge before sending it to Gateway.
+            </li>
+          </ul>
+        </>
+      ),
     },
-    { q: 'Cloud, on-prem, or hybrid?', a: 'All supported. Many customers run edge readers with cloud orchestration for the best of both worlds.' },
-    { q: 'Does RCOM support EPCIS?', a: 'Yes. We support both document and per-event processing, making RCOM great for traceability and compliance use cases.' },
-    { q: 'What integrations are available?', a: 'REST, MQTT, and database connectors out of the box. Connect to ERP, WMS, EMR, TMS, and virtually any enterprise system.' },
-  ]
+    {
+      q: 'What types of data or events can the Gateway process?',
+      a: (
+        <>
+          <p className="mb-2">Anything from Auto-ID or IoT, including:</p>
+          <ul className="list-disc list-inside space-y-1">
+            <li>
+              EPCIS 2.0 events (Object, Aggregation, Association, Transaction)
+            </li>
+            <li>RFID tag reads (UHFTagRead)</li>
+            <li>Barcode scans</li>
+            <li>BLE sensor values</li>
+            <li>Vision system triggers</li>
+            <li>REST API payloads</li>
+            <li>MQTT messages</li>
+          </ul>
+          <p className="mt-2">
+            The Event Processor routes each event to the correct workflow
+            automatically.
+          </p>
+        </>
+      ),
+    },
+    {
+      q: 'How does RCOM Gateway maintain the state of assets or items?',
+      a: 'Through Object Groups — structured digital twins. Each object stores attributes like ID, status, location, timestamps, and history. Workflows update these objects in real time as events arrive, ensuring single-source, continuously updated state.',
+    },
+    {
+      q: 'Can I integrate Gateway with SAP, Oracle, or other enterprise systems?',
+      a: (
+        <>
+          <p className="mb-2">Absolutely. Gateway supports:</p>
+          <ul className="list-disc list-inside space-y-1">
+            <li>REST (sync/async)</li>
+            <li>Webhooks</li>
+            <li>SQL read/write</li>
+            <li>MQTT publish</li>
+          </ul>
+          <p className="mt-2">
+            This makes it easy to push updates, fetch master data, or trigger
+            ERP/WMS actions without custom middleware.
+          </p>
+        </>
+      ),
+    },
+    {
+      q: 'How do I build automation flows? Do I need coding skills?',
+      a: (
+        <>
+          <p className="mb-2">
+            No coding is required. Automation is built using a drag-and-drop
+            visual workflow designer with actions for:
+          </p>
+          <ul className="list-disc list-inside space-y-1">
+            <li>API calls</li>
+            <li>Data transformation</li>
+            <li>Object creation/updates</li>
+            <li>Notifications</li>
+            <li>Timers and conditional logic</li>
+            <li>EPCIS processing</li>
+          </ul>
+          <p className="mt-2">
+            Developers can extend with scripts, but operations teams can build
+            end-to-end workflows without programming.
+          </p>
+        </>
+      ),
+    },
+    {
+      q: 'Can RCOM Gateway handle high event volumes?',
+      a: (
+        <>
+          <p className="mb-2">
+            Yes. RCOM uses a microservices architecture with:
+          </p>
+          <ul className="list-disc list-inside space-y-1">
+            <li>Horizontally scalable workflow executors</li>
+            <li>Parallel event queues</li>
+            <li>MQTT at QoS1/2</li>
+            <li>PostgreSQL/MSSQL backend</li>
+          </ul>
+          <p className="mt-2">
+            It is used in production scenarios with continuous high-frequency
+            RFID or sensor traffic.
+          </p>
+        </>
+      ),
+    },
+    {
+      q: 'How quickly can I go from device event → ERP update?',
+      a: 'Typically under a second for synchronous flows. Asynchronous flows can process thousands of events per minute with controlled batching or background processing.',
+    },
+    {
+      q: 'How do I visualize locations or zones (warehouse, rooms, gates)?',
+      a: (
+        <>
+          <p className="mb-2">Using Custom Maps:</p>
+          <ul className="list-disc list-inside space-y-1">
+            <li>Upload your floorplan</li>
+            <li>Draw zones (bins, areas, rooms)</li>
+            <li>Link object coordinates</li>
+            <li>See real-time movement and item distribution</li>
+            <li>Trigger workflows on zone entry/exit</li>
+          </ul>
+          <p className="mt-2">
+            Great for warehouses, hospitals, factories, or any spatial workflow.
+          </p>
+        </>
+      ),
+    },
+    {
+      q: 'Is the system secure and multi-tenant?',
+      a: (
+        <>
+          <p className="mb-2">Yes. Security includes:</p>
+          <ul className="list-disc list-inside space-y-1">
+            <li>Role-based access</li>
+            <li>Per-module CRUD permissions</li>
+            <li>Access Groups for data segmentation</li>
+            <li>External authentication (OpenID)</li>
+            <li>TLS/HTTPS</li>
+            <li>Audit and history logs</li>
+          </ul>
+          <p className="mt-2">
+            Multi-tenant deployments isolate data, users, workflows, and
+            dashboards by client or site.
+          </p>
+        </>
+      ),
+    },
+    {
+      q: 'How do I deploy RCOM Gateway?',
+      a: (
+        <>
+          <p className="mb-2">Deployments are flexible:</p>
+          <ul className="list-disc list-inside space-y-1">
+            <li>Docker Compose (single server)</li>
+            <li>Kubernetes for scaling</li>
+            <li>On-prem or cloud (customer or vendor-hosted)</li>
+            <li>
+              Supports dev/stage/prod environments with package-based migration
+            </li>
+          </ul>
+        </>
+      ),
+    },
+  ];
 
   const toggleFilter = (category: keyof FilterState, value: string) => {
     setActiveFilters(prev => ({
@@ -809,10 +968,10 @@ const App: React.FC = () => {
                   onClick={() => setExpandedFaq(expandedFaq === i ? null : i)}
                   className="w-full text-left flex items-center justify-between"
                 >
-                  <span className="font-semibold text-lg pr-4 py-4">{faq.q}</span>
+                  <span className="font-semibold text-lg pr-4 py-1">{faq.q}</span>
                   <ChevronDown size={22} className={`flex-shrink-0 transition ${expandedFaq === i ? 'rotate-180' : ''}`} />
                 </button>
-                {expandedFaq === i && <div className="pb-4 text-slate-200">{faq.a}</div>}
+                {expandedFaq === i && <div className="pb-4 text-slate-300 leading-relaxed">{faq.a}</div>}
               </div>
             ))}
           </div>

@@ -12,6 +12,7 @@ import {
   Filter,
   Shield,
   Settings,
+  Puzzle,
   Network,
   Link2,
   Brain,
@@ -114,6 +115,146 @@ const SolutionsAgents = () => {
     }
   ];
 
+  const faqs: { q: string; a: React.ReactNode }[] = [
+    {
+      q: 'What are RCOM Agents?',
+      a: 'RCOM Agents are lightweight edge applications installed near your Auto-ID hardware (RFID readers, barcode scanners, BLE gateways, sensors). They collect, filter, buffer, and normalize device data before forwarding it to RCOM Gateway or any external system.',
+    },
+    {
+      q: 'Why would I need an Agent if my devices support MQTT/REST?',
+      a: (
+        <>
+          <p className="mb-2">Direct device-to-cloud works for small installations — but not for noisy read zones or high event volume. Agents add operational benefits:</p>
+          <ul className="list-disc list-inside space-y-1">
+            <li>Local filtering and deduplication</li>
+            <li>Read-zone noise reduction</li>
+            <li>Offline buffering</li>
+            <li>Retry and backpressure handling</li>
+            <li>Health monitoring</li>
+          </ul>
+          <p className="mt-2">They turn raw, messy device signals into clean, structured events.</p>
+        </>
+      ),
+    },
+    {
+      q: 'What hardware can RCOM Agents run on?',
+      a: (
+        <>
+          <p className="mb-2">Agents run on:</p>
+          <ul className="list-disc list-inside space-y-1">
+            <li>Industrial PCs</li>
+            <li>Embedded Linux/Windows devices</li>
+            <li>Gateway PCs near RFID portals</li>
+            <li>Some RFID readers with onboard OS (depending on support)</li>
+          </ul>
+          <p className="mt-2">If it can run .NET or a minimal runtime, it can run the Agent.</p>
+        </>
+      ),
+    },
+    {
+      q: 'How do Agents connect to devices?',
+      a: (
+        <>
+          <p className="mb-2">Agents support multiple device protocols depending on the hardware:</p>
+          <ul className="list-disc list-inside space-y-1">
+            <li>Vendor SDK (Impinj, Kathrein, Zebra, etc.)</li>
+            <li>Serial / TCP socket readers</li>
+            <li>BLE scanners</li>
+            <li>REST-capable sensors</li>
+            <li>File or event stream listeners</li>
+          </ul>
+          <p className="mt-2">This makes them vendor-agnostic and ideal for mixed device environments.</p>
+        </>
+      ),
+    },
+    {
+      q: 'How do Agents improve RFID read accuracy?',
+      a: (
+        <>
+          <p className="mb-2">Agents apply:</p>
+          <ul className="list-disc list-inside space-y-1">
+            <li>Timestamp grouping</li>
+            <li>Antenna-based direction logic</li>
+            <li>Filter windows</li>
+            <li>RSSI or EPC-based deduplication</li>
+            <li>Confidence scoring</li>
+          </ul>
+          <p className="mt-2">This ensures only meaningful reads reach your backend, drastically reducing noise and false triggers.</p>
+        </>
+      ),
+    },
+    {
+      q: 'What happens if the network drops or the backend is unavailable?',
+      a: (
+        <>
+          <p className="mb-2">Agents continue operating locally:</p>
+          <ul className="list-disc list-inside space-y-1">
+            <li>Buffer all events safely</li>
+            <li>Queue them on disk</li>
+            <li>Retry sending automatically when the connection returns</li>
+            <li>Maintain device sessions and keep readers active</li>
+          </ul>
+          <p className="mt-2">No data is lost, and operations don’t pause due to backend downtime.</p>
+        </>
+      ),
+    },
+    {
+      q: 'Can Agents run automation or alerts locally?',
+      a: (
+        <>
+          <p className="mb-2">Yes. Agents support local rule execution, allowing you to perform:</p>
+          <ul className="list-disc list-inside space-y-1">
+            <li>Threshold checks (temperature, movement, presence)</li>
+            <li>Local GPIO output</li>
+            <li>Gate/door control</li>
+            <li>Local sound/light alerts</li>
+            <li>Immediate feedback without cloud round-trip</li>
+          </ul>
+          <p className="mt-2">Ideal for time-sensitive or offline workflows.</p>
+        </>
+      ),
+    },
+    {
+      q: 'Do i need Gateway to run Agents?',
+      a: (
+        <>
+          <p className="mb-2">Two modes:</p>
+          <ol className="list-decimal list-inside space-y-2">
+            <li><strong>Paired mode (recommended for full automation)</strong><br/>Agents send normalized events to Gateway → Gateway runs workflows, updates objects, pushes ERP/WMS updates.</li>
+            <li><strong>Standalone mode</strong><br/>Agents push MQTT/REST data directly to your system without Gateway.</li>
+          </ol>
+        </>
+      ),
+    },
+    {
+      q: 'How are Agents managed centrally?',
+      a: (
+        <>
+          <p className="mb-2">From the RCOM Gateway you can:</p>
+          <ul className="list-disc list-inside space-y-1">
+            <li>Register and authenticate Agents</li>
+            <li>View online/offline status</li>
+            <li>Push configuration updates</li>
+            <li>Restart or disable Agents</li>
+            <li>Monitor performance and errors</li>
+            <li>Download Agent install packages</li>
+          </ul>
+          <p className="mt-2">This central control makes multi-site deployments simple.</p>
+        </>
+      ),
+    },
+    {
+      q: 'What’s the difference between Gateway workflows and Agent logic?',
+      a: (
+        <>
+          <p className="mb-2"><strong>Gateway → End-to-end business workflow automation</strong><br/>ERP updates, inventory logic, object groups, maps, dashboards, integrations.</p>
+          <p><strong>Agent → Local device & sensor intelligence</strong><br/>Filtering, buffering, reader control, fast reactions, zone-specific logic.</p>
+          <p className="mt-2">They can work together or separately.</p>
+        </>
+      ),
+    },
+  ];
+
   return (
     <div className="min-h-screen text-slate-100 bg-slate-950">
       {/* HERO SECTION */}
@@ -140,12 +281,14 @@ const SolutionsAgents = () => {
                 Smart Edge Software for Auto-ID Devices
               </span>
             </h1>
-            <p className="text-lg text-slate-300 mb-8 leading-relaxed max-w-3xl mx-auto">
-            Deploy lightweight RCOM Agents near your RFID readers, barcode scanners, and IoT sensors to normalize, filter, and buffer data at the source—then stream clean, structured events securely to RCOM Gateway or any other enterprise system, at scale.            </p>
+            <p className="text-lg text-slate-300 mb-8 leading-relaxed max-w-5xl mx-auto">
+            Deploy lightweight RCOM Agents near your RFID readers, barcode scanners, and IoT sensors to normalize, filter, and buffer data at the source - then stream clean, structured events securely to RCOM Gateway or any other enterprise system, at scale.            </p>
             <div className="flex flex-wrap gap-4 justify-center items-center">
+              <Link to="/contact">
               <button className="bg-gradient-to-r from-blue-600 to-sky-500 px-6 py-3 rounded-lg font-semibold text-white hover:from-blue-700 hover:to-sky-600 focus:outline-none focus:ring-2 focus:ring-sky-400/60 transition-all">
               Talk to an Engineer
               </button>
+              </Link>
             </div>
           </div>
 
@@ -323,7 +466,7 @@ const SolutionsAgents = () => {
                     <div className="bg-gradient-to-br from-indigo-600 to-purple-600 rounded-xl p-6 flex items-center justify-center shadow-lg shadow-indigo-500/30">
                       <Network className="w-12 h-12 text-white" />
                     </div>
-                    <p className="text-xs text-slate-400 mt-2">Workflow Engine</p>
+                    <p className="text-xs text-slate-400 mt-2">Processing Middleware</p>
                   </div>
                 </div>
 
@@ -458,7 +601,7 @@ Agents can bypass the Gateway entirely and push structured tag reads or sensor e
           <div className="text-center">
             <button className="inline-flex items-center gap-2 px-6 py-3 rounded-lg font-semibold border border-sky-500/50 text-sky-400 hover:bg-sky-500/10 focus:outline-none focus:ring-2 focus:ring-sky-400/60 transition-all">
               <Play className="w-5 h-5" />
-              See a 60-second walkthrough
+              See a walkthrough
             </button>
           </div>
         </div>
@@ -572,10 +715,10 @@ Agents can bypass the Gateway entirely and push structured tag reads or sensor e
                 <span className="text-sm font-semibold text-purple-400">Zero Custom Code</span>
               </div>
               <h2 className="text-4xl md:text-5xl font-bold mb-6">
-                Build device workflows visually
+                Build device process templates visually
               </h2>
               <p className="text-lg text-slate-300 mb-6 leading-relaxed">
-                Use the no-code Process Template designer to create reusable workflows. Drag, drop, and configure—no programming required.
+                Use the no-code Process Template designer to create reusable workflows. Drag, drop, and configure - no programming required.
               </p>
               <div className="space-y-4">
                 {[
@@ -733,6 +876,12 @@ Agents can bypass the Gateway entirely and push structured tag reads or sensor e
                 desc: 'Wrap legacy endpoints without ripping and replacing.',
                 icon: RefreshCw,
                 color: 'from-indigo-500 to-violet-500'
+              },
+              {
+                title: 'Mixed-Vendor Hardware',
+                desc: 'Normalize data from different device brands into a single, unified format.',
+                icon: Puzzle,
+                color: 'from-rose-500 to-pink-500'
               }
             ].map((item, idx) => {
               const Icon = item.icon;
@@ -846,7 +995,7 @@ Agents can bypass the Gateway entirely and push structured tag reads or sensor e
           </div>
 
           {/* Quote */}
-          <div className="max-w-4xl mx-auto">
+          {/* <div className="max-w-4xl mx-auto">
             <div className="bg-slate-800/60 rounded-xl p-8 border border-slate-700/60">
               <div className="flex items-start gap-4">
                 <MessageSquare className="w-8 h-8 text-cyan-400 flex-shrink-0 mt-1" />
@@ -860,7 +1009,7 @@ Agents can bypass the Gateway entirely and push structured tag reads or sensor e
                 </div>
               </div>
             </div>
-          </div>
+          </div> */}
         </div>
       </section>
 
@@ -874,28 +1023,7 @@ Agents can bypass the Gateway entirely and push structured tag reads or sensor e
           </div>
 
           <div className="space-y-4">
-            {[
-              {
-                q: 'Do we need Agents to use RCOM Gateway?',
-                a: 'No. You can ingest directly into Gateway. Agents are ideal when you want edge filtering, buffering, or centralized device management.'
-              },
-              {
-                q: 'Push or pull?',
-                a: 'Both models are supported. Choose event publish for streaming or a call-home/polling approach to align with IT policy.'
-              },
-              {
-                q: 'What hardware works?',
-                a: 'Agents are vendor-neutral: RFID readers (Zebra, Impinj, Alien), RTLS systems, barcode scanners, BLE gateways, sensors, and vision endpoints across brands.'
-              },
-              {
-                q: 'How many sites can we manage?',
-                a: 'From a single facility to a global fleet. Use templates to standardize; update and monitor from one place.'
-              },
-              {
-                q: 'What about security?',
-                a: 'Encrypted transport (TLS), scoped credentials, and group-based access controls are standard.'
-              }
-            ].map((faq, i) => (
+            {faqs.map((faq, i) => (
               <div 
                 key={i} 
                 className="bg-slate-800/60 rounded-xl border border-slate-700/60 overflow-hidden hover:border-slate-500/60 transition-all"
@@ -924,21 +1052,34 @@ Agents can bypass the Gateway entirely and push structured tag reads or sensor e
       </section>
 
       {/* FINAL CTA SECTION */}
-      <section className="py-20 bg-gradient-to-b from-slate-900 to-slate-950">
+      <section className="py-20 bg-slate-950">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-gradient-to-r from-blue-700 to-sky-600 rounded-2xl p-12 text-center text-white">
-            <h2 className="text-3xl md:text-4xl font-bold mb-3">
-              Ready to put intelligence at the edge?
-            </h2>
-            <div className="flex flex-wrap justify-center gap-4 mt-8">
-              <button className="bg-white text-blue-700 px-7 py-3 rounded-lg font-semibold hover:bg-blue-50 transition-all">
-                Start an edge pilot
-              </button>
-              <button className="border-2 border-white text-white px-7 py-3 rounded-lg font-semibold hover:bg-white/10 transition-all">
-                Talk to an engineer
-              </button>
+          <div className="relative overflow-hidden rounded-2xl p-12 text-center">
+             <div className="absolute inset-0 bg-gradient-to-r from-blue-700 to-sky-600"></div>
+             <div className="absolute inset-0 opacity-30" style={{
+                backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)',
+                backgroundSize: '24px 24px'
+             }}></div>
+             
+             <div className="relative z-10">
+                <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">
+                  Ready to Put Intelligence at the Edge?
+                </h2>
+                <p className="text-blue-100 mb-8 max-w-2xl mx-auto">
+                   See how RCOM Agents can transform your device data with a walkthrough tailored to your use case.
+                </p>
+                <div className="flex flex-wrap justify-center gap-4">
+                <Link to="/contact" className="w-full sm:w-auto">
+                  <button className="bg-white text-blue-900 px-8 py-3 rounded-lg font-bold hover:bg-blue-50 transition-all shadow-xl">
+                    Talk to an Engineer
+                  </button>
+                  </Link>
+                  <Link to="https://docs.rcom-gateway.com/docs/category/agents" className="w-full sm:w-auto">
+              <button className="border-2 border-white text-white px-7 py-3 rounded-lg font-semibold hover:bg-white/10">Read Agent Docs</button>
+            </Link>
+                </div>
+             </div>
             </div>
-          </div>
         </div>
       </section>
     </div>
