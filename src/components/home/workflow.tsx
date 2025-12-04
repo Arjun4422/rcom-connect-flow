@@ -133,7 +133,7 @@ const RCOMGatewayWorkflow = () => {
         <div className="text-center mt-16">
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
             <a
-              href="/solutions"
+              href="/solutions-gateway"
               className="group inline-flex items-center gap-3 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 hover:scale-105 hover:shadow-lg"
             >
               <span>Explore Gateway Solutions</span>

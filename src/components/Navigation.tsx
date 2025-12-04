@@ -10,7 +10,7 @@ const Navigation = () => {
   const location = useLocation();
 
   const isActive = (path: string) => location.pathname === path;
-  const isSolutionsActive = location.pathname === "/solutions" || location.pathname === "/solutions-agents";
+  const isSolutionsActive = location.pathname === "/solutions-gateway" || location.pathname === "/solutions-agents";
 
 
   return (
@@ -63,7 +63,7 @@ const Navigation = () => {
                 <div className="absolute top-full left-0 pt-2 w-48 z-50">
                   <div className="bg-popover border border-border rounded-md shadow-lg overflow-hidden">
                     <Link
-                      to="/solutions"
+                      to="/solutions-gateway"
                       className="block px-4 py-2 text-sm text-muted-foreground hover:bg-accent hover:text-accent-foreground transition-colors"
                       onClick={() => setIsSolutionsHovered(false)}
                     >
@@ -147,7 +147,7 @@ const Navigation = () => {
                 <div className="text-sm font-medium text-muted-foreground mb-2">Solutions</div>
                 <div className="pl-4 space-y-2">
                   <Link
-                    to="/solutions"
+                    to="/solutions-gateway"
                     className="block text-sm text-muted-foreground hover:text-primary transition-colors"
                     onClick={() => setIsOpen(false)}
                   >

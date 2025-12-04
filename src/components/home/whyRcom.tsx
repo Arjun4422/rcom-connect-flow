@@ -18,7 +18,7 @@ const WhyChooseRCOM = () => {
       id: 2,
       icon: Settings,
       title: "Flexible Automation",
-      description: "Low-code workflows adapt to your processes—from warehouse and hospital to factory and campus.",
+      description: "Low-code workflows adapt to your processes. From warehouse and hospital to factory and campus.",
       benefits: ["Drag & drop interface", "Custom workflows", "No coding required"],
       color: "from-purple-500 to-pink-500",
       bgGradient: "from-purple-50 to-pink-50"

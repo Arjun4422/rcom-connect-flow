@@ -84,7 +84,7 @@ const Product = () => {
     "REST/MQTT/SQL/SAP integrations",
     "Multi-tenant security & RBAC",
     ],
-    cta: { href: "/solutions", label: "Explore Gateway" },
+    cta: { href: "/solutions-gateway", label: "Explore Gateway" },
     },
     ];
   const features = [

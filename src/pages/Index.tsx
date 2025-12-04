@@ -21,29 +21,6 @@ import {
 import { Link } from "react-router-dom";
 
 const Index = () => {
-  const benefits = [
-    {
-      icon: Eye,
-      title: "Real-Time Visibility",
-      description: "Live dashboards and alerts for instant insight into operations."
-    },
-    {
-      icon: Cog,
-      title: "Flexible Automation", 
-      description: "No-code workflows adapt to your processes, from warehouse to hospital."
-    },
-    {
-      icon: Database,
-      title: "Unified Data Integration",
-      description: "Consolidate RFID, barcode, and sensor data into your enterprise systems seamlessly."
-    },
-    {
-      icon: Zap,
-      title: "Scalable & Secure",
-      description: "Enterprise-grade platform that grows with you – scale from one site to global operations securely."
-    }
-  ];
-
   const industries = [
     {
       icon: Truck,
@@ -127,7 +104,7 @@ const Index = () => {
                 <div>
                   <h3 className="text-xl font-semibold text-white">RCOM Gateway (Automation Layer)</h3>
                   <p className="text-sm text-slate-300 mt-2">
-                    Logic Control Layer — design workflows, digital twins, and integrations to push cleansed edge events into ERP, WMS, MES, analytics, or custom dashboards.
+                    Logic Control Layer - design workflows, digital twins, and integrations to push cleansed edge events into ERP, WMS, MES, analytics, or custom dashboards.
                   </p>
                   <div className="flex flex-wrap gap-2 mt-4 text-xs text-slate-400">
                     <span className="px-3 py-1 bg-slate-800/60 rounded-full border border-slate-700/60">Low-code workflows</span>
@@ -135,7 +112,7 @@ const Index = () => {
                     <span className="px-3 py-1 bg-slate-800/60 rounded-full border border-slate-700/60">Enterprise integrations</span>
                   </div>
                   <div className="mt-5">
-                    <Link to="/solutions" className="inline-flex items-center text-sm font-medium text-cyan-400 hover:text-cyan-300 transition-colors">
+                    <Link to="/solutions-gateway" className="inline-flex items-center text-sm font-medium text-cyan-400 hover:text-cyan-300 transition-colors">
                       Explore Gateway
                       <ArrowRight className="w-4 h-4 ml-2" />
                     </Link>

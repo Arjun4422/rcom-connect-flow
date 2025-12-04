@@ -12,7 +12,7 @@ const Footer = () => {
               <div className="w-8 h-8 bg-gradient-primary rounded-lg flex items-center justify-center">
                 <span className="text-primary-foreground font-bold text-lg">R</span>
               </div>
-              <span className="text-xl font-bold">RCOM Gateway</span>
+              <span className="text-xl font-bold">RCOM Gateway Suite</span>
             </div>
             <p className="text-enterprise-foreground/70 mb-6 text-sm leading-relaxed">
             Bridging the gap between physical devices and digital systems with an enterprise-grade Auto-ID and IoT integration platform.
@@ -32,15 +32,11 @@ const Footer = () => {
             <h3 className="font-semibold mb-4 text-enterprise-foreground">Product</h3>
             <ul className="space-y-3 text-sm">
               <li>
-                <Link to="/product" className="text-enterprise-foreground/70 hover:text-primary-glow transition-colors">
+                <Link to="/platform" className="text-enterprise-foreground/70 hover:text-primary-glow transition-colors">
                   Platform Overview
                 </Link>
               </li>
-              <li>
-                <Link to="/product" className="text-enterprise-foreground/70 hover:text-primary-glow transition-colors">
-                  Features
-                </Link>
-              </li>
+             
               <li>
                 <Link to="/pricing" className="text-enterprise-foreground/70 hover:text-primary-glow transition-colors">
                   Pricing
@@ -67,7 +63,7 @@ const Footer = () => {
             <h3 className="font-semibold mb-4 text-enterprise-foreground mt-3">Solutions</h3>
             <ul className="space-y-3 text-sm">
               <li>
-                <Link to="/solutions" className="text-enterprise-foreground/70 hover:text-primary-glow transition-colors">
+                <Link to="/solutions-gateway" className="text-enterprise-foreground/70 hover:text-primary-glow transition-colors">
                   RCOM Gateway
                 </Link>
               </li>
