@@ -29,11 +29,31 @@ const Contact = () => {
     setStatus("");
     setLoading(true);
 
+    const emailBody = `
+New Contact Form Submission:
+--------------------------------
+First Name: ${formData.firstName}
+Last Name: ${formData.lastName}
+Email: ${formData.email}
+Company: ${formData.company}
+Job Title: ${formData.jobTitle || 'Not provided'}
+Industry: ${formData.industry || 'Not provided'}
+Inquiry Type: ${formData.inquiryType || 'Not provided'}
+--------------------------------
+Message:
+${formData.message}
+    `.trim();
+
+    const submissionData = {
+      ...formData,
+      emailBody: emailBody,
+    };
+
     try {
       const res = await fetch("https://test3.rcom-gateway.com/RCOMENDPOINTAPI/email/send", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
+        body: JSON.stringify(submissionData),
       });
 
       if (!res.ok) {

@@ -90,12 +90,12 @@ const Navigation = () => {
               Pricing
             </Link>
             <Link
-              to="/about"
+              to="/partners"
               className={`text-sm font-medium transition-colors hover:text-primary ${
-                isActive("/about") ? "text-primary" : "text-muted-foreground"
+                isActive("/partners") ? "text-primary" : "text-muted-foreground"
               }`}
             >
-              About
+              Partners
             </Link>
           </div>
 
@@ -171,11 +171,11 @@ const Navigation = () => {
                 Pricing
               </Link>
               <Link
-                to="/about"
+                to="/partners"
                 className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
                 onClick={() => setIsOpen(false)}
               >
-                About
+                Partners
               </Link>
               <div className="flex flex-col space-y-3 pt-4">
                 <Link to="/contact">

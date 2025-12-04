@@ -11,6 +11,8 @@ import {
   Briefcase,
   Code2
 } from 'lucide-react';
+import { Link } from "react-router-dom";
+
 
 const PartnersPage = () => {
 
@@ -40,12 +42,12 @@ const PartnersPage = () => {
       
       {/* HERO SECTION */}
       <section className="relative overflow-hidden pt-20 pb-16 lg:pt-28 lg:pb-24">
-        <div className="absolute inset-0 bg-gradient-to-b from-slate-900 via-slate-950 to-slate-950" />
-        {/* Abstract Background Grid */}
-        <div className="absolute inset-0 opacity-20 pointer-events-none">
+        <div className="absolute inset-0 bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950" />
+        <div className="absolute inset-0 opacity-20">
           <div className="absolute inset-0" style={{
-            backgroundImage: 'radial-gradient(circle at 2px 2px, #3b82f6 1px, transparent 0)',
-            backgroundSize: '48px 48px',
+            backgroundImage: 'linear-gradient(#06b6d4 1px, transparent 1px), linear-gradient(90deg, #06b6d4 1px, transparent 1px)',
+            backgroundSize: '50px 50px',
+            animation: 'gridMove 20s linear infinite'
           }}/>
         </div>
 
@@ -67,9 +69,11 @@ const PartnersPage = () => {
             From strategic management to technical customization, our partners extend the capabilities of the RCOM platform.
           </p>
 
-          <button className="bg-white text-slate-900 px-8 py-3 rounded-lg font-bold hover:bg-blue-50 transition-all shadow-[0_0_20px_rgba(255,255,255,0.3)]">
+          <Link to="/contact">
+          <button className="bg-blue-600 hover:bg-blue-500 text-white px-8 py-3 rounded-lg font-bold transition-all shadow-lg shadow-blue-900/30">
             Become a Partner
           </button>
+          </Link>
         </div>
       </section>
 
@@ -179,13 +183,11 @@ const PartnersPage = () => {
             Whether you are a system integrator, a hardware vendor, or a management consultancy, RCOM provides the technology foundation for your client's success.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="bg-blue-600 hover:bg-blue-500 text-white px-8 py-4 rounded-lg font-bold transition-all shadow-lg shadow-blue-900/20 flex items-center justify-center gap-2">
-              <CheckCircle2 className="w-5 h-5" />
-              Become a Partner
-            </button>
-            <button className="bg-slate-800 hover:bg-slate-700 border border-slate-700 text-white px-8 py-4 rounded-lg font-bold transition-all flex items-center justify-center gap-2">
-              Find a Partner
-            </button>
+            <Link to="/contact">
+          <button className="bg-blue-600 hover:bg-blue-500 text-white px-8 py-3 rounded-lg font-bold transition-all shadow-lg shadow-blue-900/30">
+            Become a Partner
+          </button>
+          </Link>
           </div>
         </div>
       </section>
