@@ -62,7 +62,7 @@ const Product = () => {
     badge: "Edge",
     color: "from-emerald-500 to-teal-500",
     description:
-    "Lightweight software that runs near your devices to normalize, filter, dedupe, and buffer events at the source. Publishes structured data securely to RCOM Gateway—or directly to your systems.",
+    "Lightweight software that runs near your devices to normalize, filter, dedupe, and buffer events at the source. Publishes structured data securely to RCOM Gateway - or directly to any selected endpoint.",
     bullets: [
     "Runs on industrial PCs & readers",
     "Local rules & noise reduction",
@@ -77,7 +77,7 @@ const Product = () => {
     badge: "Core Platform",
     color: "from-indigo-500 to-purple-500",
     description:
-    "Event-driven integration and low-code workflow engine that transforms device data into business actions. Connects with ERP, WMS, databases, and dashboards.",
+    "Event-driven integration and low-code workflow engine that transforms and take actions based on insgested device data. Connects with ERP, WMS, databases, and dashboards.",
     bullets: [
     "Visual workflows (low-code)",
     "Digital twin object store",
@@ -93,9 +93,9 @@ const Product = () => {
       title: "Connect Any Device",
       color: "from-blue-500 to-cyan-500",
       description:
-        "Out-of-the-box connectors for RFID, barcodes, BLE, and sensors — onboard new devices through RCOM Agents with standard protocols, no coding needed.",
+        "Out-of-the-box connectors for RFID, barcodes, BLE, and sensors - onboard new devices through RCOM Agents with standard protocols, no coding needed.",
       highlights: [
-        "RAIN RFID/UHF Support",
+        "RFID/UHF Support",
         "Barcode Scanners (1D/2D)",
         "BLE Beacon Gateways",
         "IoT Sensors",
@@ -132,7 +132,7 @@ const Product = () => {
       title: "Enterprise Integration",
       color: "from-indigo-500 to-purple-500",
       description:
-        "Built-in integrations for MQTT, REST APIs, databases, and SAP systems. No data silos – direct integration with your ERP, WMS, or cloud analytics.",
+        "Built-in integrations for MQTT, REST APIs, databases, and SAP systems. No data silos - direct integration with your ERP, WMS, or cloud analytics.",
       highlights: [
         "SAP Integration",
         "REST APIs",
@@ -376,18 +376,18 @@ const Product = () => {
                     </div>
                     <div className="text-center">
                       <div className="text-3xl font-bold text-primary-glow mb-2">
-                        &lt;1ms
+                      1M+
                       </div>
                       <div className="text-sm text-enterprise-foreground/70">
-                        Processing Time
+                      object updates/day
                       </div>
                     </div>
                     <div className="text-center">
                       <div className="text-3xl font-bold text-primary-glow mb-2">
-                        1000+
+                        50+
                       </div>
                       <div className="text-sm text-enterprise-foreground/70">
-                        Devices Supported
+                      workflow actions
                       </div>
                     </div>
                   </div>

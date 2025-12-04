@@ -18,12 +18,12 @@ const Footer = () => {
             Bridging the gap between physical devices and digital systems with an enterprise-grade Auto-ID and IoT integration platform.
             </p>
             <div className="flex space-x-4">
-              <a href="#" className="text-enterprise-foreground/70 hover:text-primary-glow transition-colors">
+              {/* <a href="#" className="text-enterprise-foreground/70 hover:text-primary-glow transition-colors">
                 <Linkedin className="w-5 h-5" />
               </a>
               <a href="#" className="text-enterprise-foreground/70 hover:text-primary-glow transition-colors">
                 <Twitter className="w-5 h-5" />
-              </a>
+              </a> */}
             </div>
           </div>
 
@@ -106,12 +106,12 @@ const Footer = () => {
           </p>
           <div className="flex space-x-6 mt-4 md:mt-0">
             
-            <Link to="/privacy" className="text-enterprise-foreground/70 hover:text-primary-glow text-sm transition-colors">
+            {/* <Link to="/privacy" className="text-enterprise-foreground/70 hover:text-primary-glow text-sm transition-colors">
               Privacy Policy
             </Link>
             <Link to="/terms" className="text-enterprise-foreground/70 hover:text-primary-glow text-sm transition-colors">
               Terms of Service
-            </Link>
+            </Link> */}
           </div>
         </div>
       </div>

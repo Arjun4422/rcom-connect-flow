@@ -77,7 +77,7 @@ const steps = [
     color: "from-green-500 to-teal-500",
     content: {
       title: "Persist as Digital Twins (Object Groups)",
-      description: "Store operational state as Objects inside Object Groups—your digital twins for pallets, patients, assets, rooms, devices, etc. Schemas support typed attributes, relations, audit/history, and precise storage hierarchy (Storage Number → Location → Area → Bin). Workflows can set/query storage and attributes at any time.",
+      description: "Store operational state as Objects inside Object Groups - your digital twins for pallets, patients, assets, rooms, devices, etc. Schemas support typed attributes, relations, audit/history, and precise storage hierarchy (Storage Number → Location → Area → Bin). Workflows can set/query storage and attributes at any time.",
       details: [
         "Digital twins for pallets, patients, assets, rooms, devices",
         "Typed attributes, relations, audit/history",
@@ -220,7 +220,7 @@ const RCOMGatewayWorkflow = () => {
             How RCOM turns scans into system actions
           </h2>
           <p className="text-base sm:text-xl text-gray-600 max-w-2xl mx-auto">
-            From the first device read to a live result — in <span className="font-semibold text-indigo-600">milliseconds</span>.
+            From the first device read to a live result - in <span className="font-semibold text-indigo-600">milliseconds</span>.
           </p>
         </div>
 

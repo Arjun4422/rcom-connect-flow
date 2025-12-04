@@ -150,7 +150,7 @@ const HeroSection: React.FC = () => {
             </Badge>
             
             <h1 className="text-4xl md:text-6xl font-bold mb-8 leading-tight">
-              <span className="text-white">RCOM Gateway</span>
+              <span className="text-white">RCOM Gateway Suite</span>
               <br />
               <span className="bg-gradient-to-r from-blue-400 via-cyan-400 to-blue-600 bg-clip-text text-transparent">
               Event-Driven Automation
@@ -160,7 +160,7 @@ const HeroSection: React.FC = () => {
             </h1>
             
             <p className="text-xl text-gray-300 mb-12 leading-relaxed max-w-5xl mx-auto">
-            RCOM Gateway connects your Auto-ID and IoT devices to your enterprise systems. It captures every scan, read, or sensor signal and turns it into instant, automated action. Build digital twins, streamline processes, and integrate with your existing systems - without custom middleware.              </p>
+            RCOM Gateway Suite connects your Auto-ID and IoT devices to your enterprise systems. It captures every scan, read, or sensor signal and turns it into instant, automated action. Build digital twins, streamline processes, and integrate with your existing systems - without custom middleware.              </p>
           </div>
 
           <div className="flex flex-row gap-6 justify-center items-stretch mb-12">
@@ -191,11 +191,12 @@ const HeroSection: React.FC = () => {
             <Card className="bg-slate-800/50 border-slate-700 flex-1 min-w-[180px]">
               <CardContent className="p-6 text-center">
                 <div className="text-3xl font-bold text-purple-400 mb-2">
-                  <AnimatedCounter target={10000} suffix="+" />
+                  <AnimatedCounter target={30} suffix="%" />
                 </div>
-                <div className="text-sm text-gray-400">Devices</div>
+                <div className="text-sm text-gray-400">Less Noice</div>
               </CardContent>
             </Card>
+            
           </div>
 
           <div className="flex flex-col sm:flex-row gap-6 justify-center">
