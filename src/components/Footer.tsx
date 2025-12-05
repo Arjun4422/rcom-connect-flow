@@ -86,15 +86,15 @@ const Footer = () => {
               
               <li className="flex items-center space-x-2 text-enterprise-foreground/70">
                 <Mail className="w-4 h-4" />
-                <span>info@rcomgateway.com</span>
+                <span>info@data-elektronik.de</span>
               </li>
               <li className="flex items-center space-x-2 text-enterprise-foreground/70">
                 <Phone className="w-4 h-4" />
-                <span>+1 (555) 123-4567</span>
+                <span>+49 621 41080</span>
               </li>
               <li className="flex items-start space-x-2 text-enterprise-foreground/70">
                 <MapPin className="w-4 h-4 mt-0.5" />
-                <span>123 Innovation Drive<br />Tech Valley, CA 94025</span>
+                <span>Edisonstraße 10-12,<br/> 68309 Mannheim, Germany</span>
               </li>
             </ul>
           </div>

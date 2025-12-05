@@ -101,20 +101,20 @@ ${formData.message}
     {
       icon: Mail,
       title: "Email Us",
-      details: "info@rcomgateway.com",
-      subDetails: "sales@rcomgateway.com"
+      details: "info@data-elektronik.de",
+      subDetails: "gateway-support@data-elektronik.de"
     },
     {
       icon: Phone,
       title: "Call Us", 
-      details: "+1 (555) 123-4567",
-      subDetails: "Mon-Fri, 9AM-6PM PST"
+      details: "+49 621 41080",
+      subDetails: "Mon-Fri, 9AM-6PM UTC"
     },
     {
       icon: MapPin,
       title: "Visit Us",
-      details: "123 Innovation Drive",
-      subDetails: "Tech Valley, CA 94025"
+      details: "Edisonstraße 10-12",
+      subDetails: "68309 Mannheim, Germany"
     }
   ];
 
@@ -234,7 +234,6 @@ ${formData.message}
                             <SelectItem value="healthcare">Healthcare</SelectItem>
                             <SelectItem value="manufacturing">Manufacturing</SelectItem>
                             <SelectItem value="retail">Retail</SelectItem>
-                            <SelectItem value="smart-infrastructure">Smart Infrastructure</SelectItem>
                             <SelectItem value="other">Other</SelectItem>
                           </SelectContent>
                         </Select>
@@ -316,6 +315,20 @@ ${formData.message}
                     </CardContent>
                   </Card>
                 ))}
+              </div>
+
+              {/* Google Map Embed */}
+              <div className="rounded-lg overflow-hidden shadow-lg border border-border/50">
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3072.8481005849358!2d8.503063876785898!3d49.51279735443141!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4797ce68c0ff153f%3A0x6bf7ae3f655d5231!2sDATA%20ELEKTRONIK!5e1!3m2!1sen!2sin!4v1764915962643!5m2!1sen!2sin"
+                  width="100%"
+                  height="300"
+                  style={{ border: 0 }}
+                  allowFullScreen={true}
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  title="DATA ELEKTRONIK GmbH Location"
+                ></iframe>
               </div>
 
               {/* Quick Actions, Book a Demo, Response Time, Other Ways to Connect */}
