@@ -11,6 +11,9 @@ import {
   Briefcase,
   Code2
 } from 'lucide-react';
+import MhpLogo from '../assets/MHP_Logo.svg';
+import CorielLogo from '../assets/Coriel-logo.png';
+
 import { Link } from "react-router-dom";
 
 
@@ -124,9 +127,8 @@ const PartnersPage = () => {
                 <Building2 className="w-32 h-32 text-blue-400" />
               </div>
               <div className="p-8 lg:p-12 relative z-10">
-                <div className="w-16 h-16 bg-white rounded-lg flex items-center justify-center mb-6 shadow-lg">
-                  {/* Placeholder for MHP Logo */}
-                  <span className="text-slate-900 font-black text-xl tracking-tighter">MHP</span>
+                <div className="w-16 h-16 bg-white rounded-lg flex items-center justify-center p-2 mb-6 shadow-lg">
+                  <img src={MhpLogo} alt="MHP Logo" className="w-full h-auto" />
                 </div>
                 <h3 className="text-2xl font-bold text-white mb-2">MHP</h3>
                 <p className="text-blue-400 font-semibold mb-6 text-sm uppercase tracking-wide">Enabling You To Shape A Better Tomorrow</p>
@@ -134,7 +136,11 @@ const PartnersPage = () => {
                   Functioning as a technology and business partner, MHP digitalizes its customers’ processes and products, and guides them through IT transformations along their entire value-creation chain. MHP is a digitalization pioneer for the mobility and manufacturing sectors with expertise that can be transferred to a wide range of industries. MHP is also a premium partner to thought leaders on the path to a better tomorrow.
                 </p>
                 
-             
+                <a href="https://www.mhp.com/en/" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-blue-400 font-semibold hover:text-blue-300 transition-colors">
+                  Visit Site
+                  <ExternalLink className="w-4 h-4" />
+                </a>
+
               </div>
             </div>
 
@@ -144,17 +150,19 @@ const PartnersPage = () => {
                 <Cpu className="w-32 h-32 text-purple-400" />
               </div>
               <div className="p-8 lg:p-12 relative z-10">
-                <div className="w-16 h-16 bg-white rounded-lg flex items-center justify-center mb-6 shadow-lg">
-                   {/* Placeholder for Coriel Logo */}
-                   <span className="text-slate-900 font-black text-sm tracking-tighter">CORIEL</span>
+                <div className="w-16 h-16 bg-black rounded-lg flex items-center justify-center p-2 mb-6 shadow-lg">
+                  <img src={CorielLogo} alt="Coriel Logo" className="w-full h-auto" />
                 </div>
                 <h3 className="text-2xl font-bold text-white mb-2">Coriel</h3>
-                <p className="text-purple-400 font-semibold mb-6 text-sm uppercase tracking-wide">RFID & IoT Solutions</p>
+                <p className="text-purple-400 font-semibold mb-6 text-sm uppercase tracking-wide">Connecting your items, digitally</p>
                 <p className="text-slate-300 mb-8 leading-relaxed">
                   For almost twenty years, Coriel has been at the forefront of delivering advanced barcode, optical, and RFID solutions to a wide range of industries. From mobile to fixed installations, the company tackles even the most complex challenges head-on, building its success on a powerful combination of best-in-breed technology, trusted partners, and its own innovative solutions.
                 </p>
-                
-              
+
+                <a href="https://coriel-solutions.com/" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-purple-400 font-semibold hover:text-purple-300 transition-colors">
+                  Visit Site
+                  <ExternalLink className="w-4 h-4" />
+                </a>
               </div>
             </div>
 

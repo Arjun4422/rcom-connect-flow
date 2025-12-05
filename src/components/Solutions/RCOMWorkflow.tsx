@@ -1,17 +1,17 @@
 import React from "react";
 
 type NodeId =
-  | "jsonPath2"
-  | "castInt1"
-  | "jsonPath3"
-  | "castInt2"
-  | "jsonPathValueMid"
-  | "castBool"
-  | "getDateOffset"
-  | "setVar"
-  | "setDictionary"
-  | "createObject"
-  | "setObjectAttributes";
+  | "captureContainerId"
+  | "convertQty"
+  | "readDeliveryCode"
+  | "convertWeight"
+  | "extractStatusFlag"
+  | "evaluateRules"
+  | "calculateDueDate"
+  | "storeTempValue"
+  | "assemblePayload"
+  | "createRecord"
+  | "updateRecord";
 
 interface NodeDef {
   id: NodeId;
@@ -26,44 +26,44 @@ interface EdgeDef {
   type?: "straight" | "curveDown" | "curveUp";
 }
 
-const NODE_WIDTH = 150;
+const NODE_WIDTH = 200;
 const NODE_HEIGHT = 46;
 
 // 2-row layout: top = expression helpers, bottom = object actions
 const nodes: NodeDef[] = [
   // row 1
-  { id: "jsonPath2", label: "JsonPathValue", x: 40, y: 60 },
-  { id: "castInt1", label: "CastInt", x: 230, y: 60 },
-  { id: "jsonPath3", label: "JsonPathValue", x: 420, y: 60 },
-  { id: "castInt2", label: "CastInt", x: 610, y: 60 },
-  { id: "jsonPathValueMid", label: "JsonPathValue", x: 800, y: 60 },
-  { id: "castBool", label: "CastBool", x: 990, y: 60 },
-  { id: "getDateOffset", label: "GetDateOffset", x: 1180, y: 60 },
+  { id: "captureContainerId", label: "Detect Container ID", x: 40, y: 60 },
+  { id: "convertQty", label: "Normalize Quantity Value", x: 280, y: 60 },
+  { id: "readDeliveryCode", label: "Extract Delivery Code", x: 520, y: 60 },
+  { id: "convertWeight", label: "Normalize Weight Input", x: 760, y: 60 },
+  { id: "extractStatusFlag", label: "Interpret Status Flag", x: 1000, y: 60 },
+  { id: "evaluateRules", label: "Run Business Rule Check", x: 1240, y: 60 },
+  { id: "calculateDueDate", label: "Compute Expected Date", x: 1480, y: 60 },
 
   // row 2
-  { id: "setVar", label: "SetVar", x: 260, y: 200 },
-  { id: "setDictionary", label: "SetDictionary", x: 450, y: 200 },
-  { id: "createObject", label: "CreateObject", x: 640, y: 200 },
-  { id: "setObjectAttributes", label: "SetObjectAttributes", x: 830, y: 200 },
+  { id: "storeTempValue", label: "Store Runtime Value", x: 300, y: 200 },
+  { id: "assemblePayload", label: "Build Integration Payload", x: 540, y: 200 },
+  { id: "createRecord", label: "Generate New Delivery Record", x: 780, y: 200 },
+  { id: "updateRecord", label: "Update Delivery Status", x: 1020, y: 200 },
 ];
 
 const edges: EdgeDef[] = [
   // row 1 chain
-  { from: "jsonPath2", to: "castInt1" },
-  { from: "castInt1", to: "jsonPath3" },
-  { from: "jsonPath3", to: "castInt2" },
-  { from: "jsonPathValueMid", to: "castBool" },
-  { from: "castBool", to: "getDateOffset" },
+  { from: "captureContainerId", to: "convertQty" },
+  { from: "convertQty", to: "readDeliveryCode" },
+  { from: "readDeliveryCode", to: "convertWeight" },
+  { from: "extractStatusFlag", to: "evaluateRules" },
+  { from: "evaluateRules", to: "calculateDueDate" },
 
   // row 2 chain
-  { from: "setVar", to: "setDictionary" },
-  { from: "setDictionary", to: "createObject" },
-  { from: "createObject", to: "setObjectAttributes" },
+  { from: "storeTempValue", to: "assemblePayload" },
+  { from: "assemblePayload", to: "createRecord" },
+  { from: "createRecord", to: "updateRecord" },
 
   // cross-row links
-  { from: "castInt2", to: "jsonPathValueMid", type: "curveDown" },
-  { from: "jsonPathValueMid", to: "setVar", type: "curveDown" },
-  { from: "getDateOffset", to: "setVar", type: "curveDown" },
+  { from: "convertWeight", to: "extractStatusFlag", type: "curveDown" },
+  { from: "extractStatusFlag", to: "storeTempValue", type: "curveDown" },
+  { from: "calculateDueDate", to: "storeTempValue", type: "curveDown" },
 ];
 
 const RCOMWorkflow: React.FC = () => {
@@ -123,7 +123,7 @@ const RCOMWorkflow: React.FC = () => {
         {/* SVG workflow canvas */}
         <div className=" ">
           <svg
-            viewBox="0 0 1350 320"
+            viewBox="0 0 1720 320"
             className="h-full w-full"
             preserveAspectRatio="xMidYMid meet"
           >
@@ -181,7 +181,7 @@ const RCOMWorkflow: React.FC = () => {
               x={0}
               y={0}
               width="1350"
-              height="320"
+              height="320" // width is auto-scaled by viewBox, but we can be explicit if needed
               fill="url(#grid)"
               opacity={0.7}
             />
