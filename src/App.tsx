@@ -25,7 +25,7 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
-      <Suspense fallback={<LoadingIndicator label="Loading page" />}> 
+      <Suspense fallback={<LoadingIndicator  />}> 
         <div className="min-h-screen flex flex-col">
           <ScrollToTop />
           <Navigation />

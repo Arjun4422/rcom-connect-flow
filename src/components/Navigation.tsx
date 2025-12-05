@@ -22,7 +22,7 @@ const Navigation = () => {
             <div className="w-8 h-8 bg-gradient-primary rounded-lg flex items-center justify-center">
               <img src={Logo} alt="RCOM LOGO" />
             </div>
-            <span className="text-xl font-bold text-foreground">RCOM Gateway</span>
+            <span className="text-xl font-bold text-foreground">RCOM Gateway Suite</span>
           </Link>
 
           {/* Desktop Navigation */}

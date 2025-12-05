@@ -121,9 +121,17 @@ ${formData.message}
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="bg-slate-900 text-white inset-0 bg-slate-950/90 p-4 shadow-[0_0_80px_rgba(56,189,248,0.35)] backdrop-blur py-24">
+      <section className="relative overflow-hidden bg-slate-950 h-[40vh] text-white flex items-center">
         <div className="container mx-auto px-6">
+          <div className="absolute inset-0 opacity-20">
+          <div className="absolute inset-0" style={{
+            backgroundImage: 'linear-gradient(#06b6d4 1px, transparent 1px), linear-gradient(90deg, #06b6d4 1px, transparent 1px)',
+            backgroundSize: '50px 50px',
+            animation: 'gridMove 20s linear infinite'
+          }}/>
+        </div>
           <div className="max-w-4xl mx-auto text-center">
+            
             <Badge variant="secondary" className="mb-6 bg-primary/20 text-primary-glow border-primary/30">
               Get in Touch
             </Badge>
