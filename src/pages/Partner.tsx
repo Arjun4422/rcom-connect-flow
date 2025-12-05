@@ -129,15 +129,11 @@ const PartnersPage = () => {
                   <span className="text-slate-900 font-black text-xl tracking-tighter">MHP</span>
                 </div>
                 <h3 className="text-2xl font-bold text-white mb-2">MHP</h3>
-                <p className="text-blue-400 font-semibold mb-6 text-sm uppercase tracking-wide">Management & IT Consulting</p>
+                <p className="text-blue-400 font-semibold mb-6 text-sm uppercase tracking-wide">Enabling You To Shape A Better Tomorrow</p>
                 <p className="text-slate-300 mb-8 leading-relaxed">
-                  As a leading process and IT consultant, MHP (A Porsche Company) bridges the gap between management consulting and IT solutions. They specialize in optimizing digital supply chains and automotive manufacturing processes using RCOM Gateway.
+                  Functioning as a technology and business partner, MHP digitalizes its customers’ processes and products, and guides them through IT transformations along their entire value-creation chain. MHP is a digitalization pioneer for the mobility and manufacturing sectors with expertise that can be transferred to a wide range of industries. MHP is also a premium partner to thought leaders on the path to a better tomorrow.
                 </p>
-                <div className="flex flex-wrap gap-3 mb-8">
-                  <span className="px-3 py-1 rounded-full bg-slate-800 border border-slate-700 text-xs text-slate-300">Process Optimization</span>
-                  <span className="px-3 py-1 rounded-full bg-slate-800 border border-slate-700 text-xs text-slate-300">Automotive</span>
-                  <span className="px-3 py-1 rounded-full bg-slate-800 border border-slate-700 text-xs text-slate-300">SAP Integration</span>
-                </div>
+                
              
               </div>
             </div>
@@ -155,13 +151,9 @@ const PartnersPage = () => {
                 <h3 className="text-2xl font-bold text-white mb-2">Coriel</h3>
                 <p className="text-purple-400 font-semibold mb-6 text-sm uppercase tracking-wide">RFID & IoT Solutions</p>
                 <p className="text-slate-300 mb-8 leading-relaxed">
-                  Coriel delivers complete Auto-ID solutions, providing expert hardware selection, site surveys, and custom software integration. They ensure the physical layer of your IoT stack communicates perfectly with RCOM Agents.
+                  For almost twenty years, Coriel has been at the forefront of delivering advanced barcode, optical, and RFID solutions to a wide range of industries. From mobile to fixed installations, the company tackles even the most complex challenges head-on, building its success on a powerful combination of best-in-breed technology, trusted partners, and its own innovative solutions.
                 </p>
-                <div className="flex flex-wrap gap-3 mb-8">
-                  <span className="px-3 py-1 rounded-full bg-slate-800 border border-slate-700 text-xs text-slate-300">Hardware Integration</span>
-                  <span className="px-3 py-1 rounded-full bg-slate-800 border border-slate-700 text-xs text-slate-300">Site Surveys</span>
-                  <span className="px-3 py-1 rounded-full bg-slate-800 border border-slate-700 text-xs text-slate-300">Custom Dev</span>
-                </div>
+                
               
               </div>
             </div>
